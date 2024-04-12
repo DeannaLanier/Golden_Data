@@ -1,0 +1,104 @@
+---
+title: "GRLS Data Summary"
+author: "Deanna Lanier"
+date: "2024-04-12"
+output: html_notebook
+---
+
+This notebook provides a data summary of the cleaned and categorized GRLS data from 2012 - 2020.
+
+Note: Due to the quick turn around, Feedform, feedtype, Feedfreq, Feedamt, Feedamtunit, Feedlong, Feedlongunit were not included in the summary of the summary. Removed any entry with dogs weighing over 200.
+
+After the removal of all duplicates and outlier entries there were a total of 16750 observations.
+
+## Table 1: Summary of categorical data
+
+There are alot of incomplete variables. Some of the variables with low completion percentages include bodyfat (30.5%), rawcook (56%), startdt (49.1%), stilluse (49.1), and enddt (49.1).
+
+```{r}
+character_datatable
+```
+
+## Table 2: Summary of numeric data
+
+The numeric data also includes incomplete variables such as pct_homemade (4.7%) and pctdiet (48%). The table includes the mean and percentiles.
+
+```{r}
+Numeric_datatable
+```
+
+## Figure 1: Enrolled dogs
+
+peak enrollment in 2014
+
+```{r}
+interactive_fig1
+```
+
+## Figure 2:BCS by year
+
+Most common bcs is 5
+
+```{r}
+interactive_fig2
+```
+
+## Figure 3: Processing categorization
+
+Most consume an ultraprocessed diet
+
+```{r}
+interactive_fig3
+```
+
+## Figure 4: Processing subcategorization
+
+```{r}
+interactive_fig4
+```
+
+## Figure 5: Frequency of processing subtypes and processing types
+
+```{r}
+interactive_fig5
+```
+
+## Figure 6: Processing diets by bcs
+
+peak enrollment in 2014
+
+```{r}
+interactive_fig6
+```
+
+
+## Table 2: Key
+**Table 1**
+
++--------------------------+-----------------+---------------------------------------------+
+| **Category**             | **Subcategory** | **Definition**                              |
++==========================+=================+=============================================+
+| Minimally Processed (MP) | -   CP-R        | -   Commercially Produced Raw               |
+|                          | -   HM-R        | -   Homemade Raw                            |
+|                          | -   CP-S        | -   Commercially Processed Supplemental Raw |
++--------------------------+-----------------+---------------------------------------------+
+| Processed (P)            | -   CP-AD       | -   Commercially Processed Air Dried        |
+|                          | -   CP-C        | -   Commercially Processed Cooled           |
+|                          | -   CP-D        | -   Commercially Processed Dehydrated       |
+|                          | -   CP-FD       | -   Commercially Processed Freeze Dried     |
+|                          | -   HM-C        | -   Homemade Cooked                         |
++--------------------------+-----------------+---------------------------------------------+
+| Ultra Processed (UP)     | -   CUP-D       | -   Commercially Ultra-Processed Dry        |
+|                          | -   CUP-W       | -   Commercially Ultra-Processed Wet        |
++--------------------------+-----------------+---------------------------------------------+
+
+: Table 1: Diet Processing Categorization and sub-categorizations. Diets are categorized by the level of processing. This is determined by evaluating the diet data provided by the veterinarians and dog owners.
+
+## Figure 7: Top companies by year
+
+```{r, out.width= "100%"}
+
+
+final_plot
+```
+

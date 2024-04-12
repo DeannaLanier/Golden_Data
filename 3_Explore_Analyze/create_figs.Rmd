@@ -1,0 +1,411 @@
+---
+title: "GRLS Data Summary - Figures"
+author: "Deanna Lanier"
+date: "2024-04-12"
+output: html_document
+---
+
+This notebook provides a data summary of the cleaned and categorized GRLS data from 2012 - 2020.
+
+Note: Due to the quick turn around, Feedform, feedtype, Feedfreq, Feedamt, Feedamtunit, Feedlong, Feedlongunit were not included in the summary of the summary. Removed any entry with dogs weighing over 200.
+
+```{r}
+#library 
+library(dplyr) #for data processing/cleaning
+library(ggplot2) #for figures
+library(plotly) #for interactive figures
+```
+
+## Study population
+
+### Figure 1 Study Enrollment
+
+How many dogs were apart of the study each calendar year
+
+```{r}
+# Create a table that shows the frequency of the dogs enrolled by year
+
+unique_count = Diet_Data_Clean %>%  
+  distinct(calendaryear,id) %>%  #count unique values
+  group_by(calendaryear)%>% # count the frequency by calendar year
+  summarize ("Freq" = n())%>%
+  filter(!is.na(calendaryear))# dont include any NA
+
+
+```
+
+Plot
+
+```{r, warning=FALSE}
+# plot the frequency 
+figure1 = ggplot(data=unique_count, aes(x=calendaryear, y=Freq, group=1)) +
+  geom_line()+
+  geom_point()+ 
+  theme_bw()+
+  theme(axis.text.x = element_text(face="bold",  size=10)) + 
+  xlab("Calendar Year") + 
+  ylab("Number of Enrolled Goldens") +
+  ggtitle("Study enrollment by year") +
+  theme(
+  plot.title = element_text(color="Black", size=14, face="bold"))+
+  labs(caption = "Figure 1: Total study enrollment by year. The maximum number of participants was 3044 dogs in 2014.")+
+  theme(plot.caption = element_text(hjust=0))
+figure1
+
+# Convert to an interactive Plotly plot
+interactive_fig1 <- ggplotly(figure1)
+
+# Print the interactive plot
+interactive_fig1
+```
+
+### Figure 2 BCS by year
+
+```{r}
+#Create a table for the frequency of each Body condition score by year
+
+BCS_table = Diet_Data_Clean %>%  
+  distinct(calendaryear,bcs,id) %>% 
+  group_by(calendaryear,bcs)%>% 
+  summarize ("Freq" = n())%>%
+  filter(!is.na(calendaryear))%>% #no na
+  filter(!is.na(bcs)) #no na
+BCS_table
+```
+
+```{r}
+#plot the frequency 
+
+figure2 = ggplot(data=BCS_table, aes(x=calendaryear, y=Freq,  group=bcs, color=bcs)) +
+  geom_line()+
+  geom_point()+ 
+  theme_bw()+
+  theme(axis.text.x = element_text(face="bold",  size=10)) + 
+  xlab("Year") + 
+  ylab("Number of Dogs") +
+  ggtitle("BCS by Year") +
+  theme(
+  plot.title = element_text(color="Black", size=14, face="bold"))+
+  labs(caption = "Figure 2: Number of Goldens with specific body condition scores by year.")+
+  theme(plot.caption = element_text(hjust=0))
+
+figure2
+
+# Convert to an interactive Plotly plot
+interactive_fig2 <- ggplotly(figure2)
+
+# Print the interactive plot
+interactive_fig2
+```
+
+```{r}
+#Create a table of the frequency of different diet types. Processing Categorization
+Processing_table = Diet_Data_Clean %>%  
+  distinct(calendaryear,process.category,id) %>%  
+  group_by(calendaryear,process.category)%>% 
+  summarize ("Freq" = n())%>%
+  filter(!is.na(calendaryear))%>%
+  filter(!is.na(process.category))
+Processing_table
+```
+
+```{r}
+#plot that frequency 
+
+figure3 = ggplot(data=Processing_table, aes(x=calendaryear, y=Freq,  group=process.category, color=process.category)) +
+  geom_line()+
+  geom_point()+ 
+  theme_bw()+
+  theme(axis.text.x = element_text(face="bold",  size=10)) + 
+  xlab("Year") + 
+  ylab("Number of Dogs") +
+  ggtitle("Processing Categorization by Year") +
+  theme(
+  plot.title = element_text(color="Black", size=10, face="bold"),axis.text.x = element_text(angle = 45))+
+  labs(caption = "Figure 3: Most goldens consumed an ultraprocessed diet for the duration of the study.")+
+  theme(plot.caption = element_text(hjust=0))
+
+figure3
+
+# Convert to an interactive Plotly plot
+interactive_fig3 <- ggplotly(figure3)
+
+# Print the interactive plot
+interactive_fig3
+```
+
+```{r}
+# create frequency table of the processing subtypes 
+ProcessingSub_table = Diet_Data_Clean %>%  
+  distinct(calendaryear,process.subtype,id) %>%  
+  group_by(calendaryear,process.subtype)%>% 
+  summarize ("Freq" = n())%>%
+  filter(!is.na(calendaryear))%>%
+  filter(!is.na(process.subtype))
+ProcessingSub_table
+```
+
+```{r}
+#Plot the subtypes 
+
+figure4 = ggplot(data=ProcessingSub_table, aes(x=calendaryear, y=log(Freq),  group=process.subtype, color=process.subtype)) +
+  geom_line()+
+  geom_point()+ 
+  theme_bw()+
+  theme(axis.text.x = element_text(face="bold",  size=10)) + 
+  xlab("Calendar Year") + 
+  ylab("Number of Dogs (log)") +
+  ggtitle("Processing Subtype Categorization by Year") +
+  theme(
+  plot.title = element_text(color="Black", size=10, face="bold"),axis.text.x = element_text(angle = 45))+
+  labs(caption = "Figure 4: Most goldens consume CUP-D diet subtype.")+
+  theme(plot.caption = element_text(hjust=0))
+
+
+figure4
+
+# Convert to an interactive Plotly plot
+interactive_fig4 <- ggplotly(figure4)
+
+# Print the interactive plot
+interactive_fig4
+```
+
+```{r}
+#create a frequency table of the processing subtypes grouped by process category and calendar year.
+Processing_Sub_group = Diet_Data_Clean %>%
+  distinct(calendaryear,process.category,process.subtype,id) %>%  
+  group_by(calendaryear,process.category,process.subtype)%>% 
+  summarize ("Freq" = n())%>%
+  filter(!is.na(calendaryear))%>%
+  filter(!is.na(process.subtype))%>%
+  filter(!is.na(process.category)) %>% 
+  mutate(process.category = replace(process.category, process.category == "Minimally Processed", "MP")) %>% 
+  mutate(process.category = replace(process.category, process.category == "Ultra Processed", "UP"))%>% 
+  mutate(process.category = replace(process.category, process.category == "Processed", "P"))
+Processing_Sub_group
+
+```
+
+```{r}
+#Plot this by year 
+
+figure5 = ggplot(Processing_Sub_group,                         # Draw barplot with grouping & stacking
+       aes(x = process.category,
+           y = log(Freq),
+           fill = process.subtype)) + 
+  geom_bar(stat = "identity",
+           position = "stack") +
+  facet_grid(~ calendaryear)+ 
+  #theme(legend.position="bottom")+ 
+  theme_bw()+
+  theme(axis.text.x = element_text(size=8)) + 
+  xlab("Processing Category") + 
+  ylab("Number of Dogs (log)") +
+  labs(fill = "Subcategory") +
+  ggtitle("Frequency of Different Processed Subtypes by Processing Type") +
+  theme(
+  plot.title = element_text(color="Black", size=10, face="bold"),axis.text.x = element_text(angle = 45))+
+  labs(caption = "Figure 4: Most goldens consume CUP-D diet subtype.")+
+  theme(plot.caption = element_text(hjust=0))
+
+figure5
+
+# Convert to an interactive Plotly plot
+interactive_fig5 <- ggplotly(figure5)
+
+# Print the interactive plot
+interactive_fig5
+```
+
+### Figure 5 BCS and processing categorization over the years
+
+```{r}
+#Create frequency table of the processing categorizations grouped by BCS and calendar year
+BCS_Processingtable = Diet_Data_Clean %>%
+  distinct(calendaryear,bcs,process.category,id) %>%  
+  group_by(calendaryear,bcs,process.category)%>% 
+  summarize ("Freq" = n())%>%
+  filter(!is.na(calendaryear))%>%
+  filter(!is.na(bcs))%>%
+  filter(!is.na(process.category)) %>% 
+  mutate(process.category = replace(process.category, process.category == "Minimally Processed", "MP")) %>% 
+  mutate(process.category = replace(process.category, process.category == "Ultra Processed", "UP"))%>% 
+  mutate(process.category = replace(process.category, process.category == "Processed", "P"))
+BCS_Processingtable
+```
+
+plot
+
+```{r}
+#create plot
+figure6 = ggplot(BCS_Processingtable,                         # Draw barplot with grouping & stacking
+       aes(x = bcs,
+           y = log(Freq),
+           fill = process.category)) + 
+  geom_bar(stat = "identity",
+           position = "stack") + theme_bw()+
+  facet_grid(~ calendaryear)+ 
+  theme(legend.position="bottom")+ 
+  theme(axis.text.x = element_text(size=8)) + 
+  xlab("BCS") + 
+  ylab("Number of Dogs (log)") +
+  labs(fill = "Processing") +
+  ggtitle("Frequency of Different Processed Diets By BCS") +
+  theme(
+  plot.title = element_text(color="Black", size=10, face="bold"))+
+  labs(caption = "Figure 5: Frequency of diets by established categorizations grouped by the body condition scores and year.")+
+  theme(plot.caption = element_text(hjust=0))
+
+figure6
+
+# Convert to an interactive Plotly plot
+interactive_fig6 <- ggplotly(figure6)
+
+# Print the interactive plot
+interactive_fig6
+```
+
+### Figure 7 Parent company
+
+```{r}
+#Create frequency table of the processing categorizations grouped by BCS and calendar year
+Parentcompanytable = Diet_Data_Clean %>%
+  distinct(calendaryear,Parent_Company,id) %>%  
+  group_by(calendaryear,Parent_Company)%>% 
+  summarize ("Freq" = n())%>%
+  filter(!is.na(calendaryear))%>%
+  filter(!is.na(Parent_Company)) 
+Parentcompanytable
+
+Parentcompany_datatable = datatable(Parentcompanytable, options = list(), class = "display")
+Parentcompany_datatable
+```
+
+```{r}
+# Filter to top 15 by Freq within each calendaryear
+top_entries <- Parentcompanytable %>%
+  group_by(calendaryear) %>%
+  slice_max(order_by = Freq, n = 10) %>%
+  ungroup()  # optional, to remove the grouping
+top_entries
+top_entries_datatable = datatable(top_entries, options = list(), class = "display")
+top_entries_datatable
+```
+
+```{r}
+
+# Prepare the data by selecting top 10 companies by frequency for each year
+top_companies_by_year <- Parentcompanytable %>%
+  group_by(calendaryear, Parent_Company) %>%
+  summarise(Freq = sum(Freq), .groups = 'drop') %>%
+  arrange(calendaryear, desc(Freq)) %>%
+  group_by(calendaryear) %>%
+  slice_max(order_by = Freq, n = 10) %>%
+  ungroup() %>%
+  arrange(calendaryear, desc(Freq))
+
+top_companies_by_year
+
+top_companies_by_year_datatable = datatable(top_companies_by_year, options = list(), class = "display")
+top_companies_by_year_datatable
+```
+
+```{r}
+# Create a list of plotly plots, one for each year
+plots <- lapply(unique(top_companies_by_year$calendaryear), function(year) {
+  filtered_data <- top_companies_by_year %>% 
+    filter(calendaryear == year)
+  
+  p <- plot_ly(data = filtered_data, x = ~Parent_Company, y = ~Freq, type = 'bar',
+               name = year, text = ~Freq, textposition = 'auto') %>%
+    layout(title = paste("Top 10 Parent Companies in", year),
+           xaxis = list(title = "Parent Company"),
+           yaxis = list(title = "Frequency"))
+  
+  return(p)
+})
+
+# Create a plot with buttons to switch between years
+final_plot <- subplot(plots, nrows = 1, shareY = TRUE) %>%
+  layout(
+    updatemenus = list(
+      list(
+        type = "buttons",
+        direction = "left",
+        buttons = lapply(1:length(unique(top_companies_by_year$calendaryear)), function(i) {
+          list(method = "restyle",
+               args = list("visible", as.logical(c(rep(FALSE, length(plots)), TRUE)[(i-1)*length(plots) + (1:length(plots))])),
+               label = unique(top_companies_by_year$calendaryear)[i])
+        }),
+        pad = list(r = 10, t = 10),
+        showactive = TRUE,
+        x = 0.10,
+        xanchor = "left",
+        y = 1.1,
+        yanchor = "top"
+      )
+    )
+  )
+```
+
+```{r}
+final_plot
+```
+
+```{r}
+
+test <- top_companies_by_year %>% 
+    filter(calendaryear == year) %>%
+    arrange(desc(Freq)) %>%
+    slice_max(n = 10, order_by = Freq)
+
+# Create a list of plotly plots, one for each year
+plots <- lapply(unique(top_companies_by_year$calendaryear), function(year) {
+  filtered_data <- top_companies_by_year %>% 
+    filter(calendaryear == year) %>%
+    arrange(desc(Freq)) %>%
+    slice_max(n = 10, order_by = Freq) # Ensure top 10 are selected, sorted if needed
+
+  p <- plot_ly(data = filtered_data, x = ~Parent_Company, y = ~Freq, type = 'bar',
+               name = year, text = ~Freq) %>%
+    layout(title = paste("Top 10 Parent Companies in", year),
+           xaxis = list(title = "Parent Company", tickangle = -45, tickfont = list(size = 8)),
+           yaxis = list(title = "Frequency"))
+  
+  return(p)
+})
+
+# Create a plot with buttons to switch between years
+final_plot <- subplot(plots, nrows = 1, shareY = TRUE) %>%
+  layout(
+    updatemenus = list(
+      list(
+        type = "buttons",
+        direction = "left",
+        buttons = lapply(1:length(unique(top_companies_by_year$calendaryear)), function(i) {
+          list(method = "restyle",
+               args = list("visible", as.logical(c(rep(FALSE, length(plots) * (i-1)), TRUE, rep(FALSE, length(plots) * (length(plots) - i))))),
+               label = unique(top_companies_by_year$calendaryear)[i])
+        }),
+        pad = list(r = 10, t = 10),
+        showactive = TRUE,
+        x = 0.10,
+        xanchor = "left",
+        y = 1.1,
+        yanchor = "top"
+      )
+    )
+  )
+
+# Print final_plot to display it
+final_plot
+```
+
+```{r}
+save(interactive_fig1,interactive_fig2,interactive_fig3,interactive_fig4,interactive_fig5,interactive_fig6,final_plot, file = "figures.RData")
+
+save(character_datatable,Numeric_datatable, file = "tables.RData")
+
+```
+

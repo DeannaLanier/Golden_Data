@@ -1,0 +1,490 @@
+---
+title: "GRLS Wrangling"
+output: html_notebook
+---
+
+# Introduction
+
+## Load packages
+```{r}
+library(readxl) #for loading Excel files
+
+library(dplyr) #for data processing/cleaning
+
+library(tidyr) #for data processing/cleaning
+
+library(skimr) #for nice visualization of data 
+
+library(here) #to set paths
+
+library(DT) #nice datatables 
+
+```
+
+## Data loading
+
+### Path to data
+
+```{r}
+# path to data
+
+#Set paths to the data
+
+project.path = here()
+
+MAF_part1.location = here::here("1_Data","Raw_data","DietDatat_PartI_NC.FINAL.csv")
+
+MAF_part2.location = here::here("1_Data", "Raw_data", "BCSandDiet_PTII_NC.Final.csv")
+
+
+diet_data_dictionary.location = here::here("1_Data", "Data_dictionary.xlsx")
+
+```
+
+### Load data to current workspace
+
+```{r}
+
+# load the data 
+
+MAF_part1 = read.csv(MAF_part1.location)
+
+MAF_part2 = read.csv(here(MAF_part2.location))
+
+
+
+# Load data Dictionaries
+
+diet_data_dictionary = read_excel(diet_data_dictionary.location)
+
+
+```
+
+### Make lowecase for everything for consistency 
+
+```{r}
+names(MAF_part1)<-tolower(names(MAF_part1))
+names(MAF_part2)<-tolower(names(MAF_part2))
+```
+
+### Check the data 
+
+#### Part 1
+
+```{r}
+MAF_part1 = MAF_part1[order(MAF_part1$id),]
+```
+There are no unique identifiers in either dataframe. Create unique IDs by combining ID and VISITAGE
+
+```{r}
+MAF_part1$unique_id = paste(MAF_part1$id, "_", MAF_part1$visit.age)
+
+#relocate to begining
+
+MAF_part1 = MAF_part1 %>%
+
+  relocate(unique_id, .before = id)
+
+
+#Check 
+
+dplyr::glimpse(MAF_part1)
+
+skimr::skim(MAF_part1)
+
+```
+
+#### Part 2
+
+```{r}
+MAF_part2 = MAF_part1[order(MAF_part2$id),]
+```
+There are no unique identifiers in either dataframe. Create unique IDs by combining ID and VISITAGE
+
+```{r}
+MAF_part2$unique_id = paste(MAF_part2$id, "_", MAF_part2$visit.age)
+
+#relocate to begining
+
+MAF_part2 = MAF_part2 %>%
+
+  relocate(unique_id, .before = id)
+
+
+#Check 
+
+dplyr::glimpse(MAF_part2)
+
+skimr::skim(MAF_part2)
+
+```
+
+
+### Combine datasets 
+
+```{r}
+#combine 
+GRLS_Data <- rbind(MAF_part1, MAF_part2)
+
+#check
+#Check 
+
+dplyr::glimpse(MAF_part2)
+
+skimr::skim(MAF_part2)
+
+```
+
+## Inspect data
+
+ID
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(GRLS_Data$id)
+
+length(Unique_Identifiers)
+
+```
+
+Study Year
+
+```{r}
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(GRLS_Data$study_year))
+
+```
+
+VISITAGE, DOB, CALENDARYEAR, BCS, PBCS, WEIGHT_KG, 
+
+
+```{r}
+
+#check Visit Age
+
+skim(GRLS_Data, visit.age, calendaryear, bcs, pbcs, weight_kg)
+
+```
+
+
+GAC
+```{r}
+skim(GRLS_Data, gacprot, gacfat, gacfiber, gacmoist)
+```
+
+
+
+
+BODYFAT
+
+
+```{r}
+
+#check Bodyfat
+
+(unique(GRLS_Data$bodyfat))
+
+```
+
+BRAND
+
+```{r}
+
+#check BRANDS
+
+
+
+Unique_Brands = as.data.frame((unique(GRLS_Data$brand.company..cleaned.)))
+colnames(Unique_Brands) <- c('unique_brands')
+length(Unique_Brands$unique_brands)
+
+```
+
+Parent Company
+
+```{r}
+
+#check parent company
+
+Unique_Company = as.data.frame((unique(GRLS_Data$parent.company)))
+colnames(Unique_Company) <- c('unique_company')
+length(Unique_Company$unique_company)
+
+```
+
+FEEDTYPE and FEEDFORM
+
+
+```{r}
+
+#will do later when i have more time 
+
+#check BRANDS
+
+#Feedforms = as.data.frame((unique(GRLS_Data$GRLS_Data)))
+#tolower(unique(GRLS_Data$feedform))
+
+#unique(GRLS_Data$feedtype)
+
+```
+
+Process Category
+```{r}
+(unique(GRLS_Data$process.category))
+```
+
+Process Category
+```{r}
+(unique(GRLS_Data$process.subtype))
+```
+
+
+
+Diet Class
+```{r}
+(unique(GRLS_Data$diet_class))
+```
+
+Raw cook
+```{r}
+(unique(GRLS_Data$rawcook))
+```
+
+pct homemade
+```{r}
+(unique(GRLS_Data$pct_homemade))
+```
+
+how stored
+```{r}
+(unique(GRLS_Data$how_store))
+```
+
+how stored
+```{r}
+
+#Do later will take too long
+#(unique(GRLS_Data$how_store_o))
+```
+
+Original container
+```{r}
+(unique(GRLS_Data$original.container.y.n))
+```
+
+Where Store
+```{r}
+(unique(GRLS_Data$where_store))
+```
+
+Climate Control
+```{r}
+(unique(GRLS_Data$climate.control))
+```
+
+
+
+# Cleaning
+
+
+
+By inspecting the data as done above, we find some problems that need addressing:
+
+1. Remove unnecessary columns (these columns will be addressed at a later date when i have more time)
+
+2. Remove duplicates
+
+4. The is at least 1 value in the weight column that is well above what should be expected
+
+5. Make all brand and parent company lowercase and change column titles
+
+6. The feedtype column includes entries that are not apart of the categorical options in the data dictionary 
+
+7. Calendar year to character
+
+8. BSC to factor
+
+
+
+## 1.Remove data that is not necessary for the analysis 
+
+
+```{r}
+
+Diet_Data_Clean = GRLS_Data%>% 
+
+  select(-c(feedlong, feedage,feedfreq,feedamt,feedamtunit,feedlongunit,feedage,feedageunit,feedform,brand))
+
+```
+
+
+
+
+### 2. Remove duplicates
+
+After removing all of the uneccessary data, there should be no need to duplicated rows with unique IDs. The duplicates were a result of the feedform column which was removed.
+
+
+```{r}
+
+Diet_Data_Clean = Diet_Data_Clean %>% distinct(unique_id, .keep_all = TRUE)
+
+
+
+#check the number of unique IDs
+
+length(unique(Diet_Data_Clean$id))
+
+```
+
+
+
+### 4. update weight column 
+
+There are some values that are clearly invalid inputs. Remove any rows with weight above 100.
+
+
+```{r}
+
+Diet_Data_Clean = Diet_Data_Clean %>%
+
+  filter(weight_kg<150 )
+
+```
+
+### 5. Lower case all characters in brand and parent company
+
+```{r}
+
+
+
+# make the column lowercase to remove inconsistent entries
+
+Diet_Data_Clean = Diet_Data_Clean %>% 
+
+ mutate(brand.company..cleaned. = tolower(brand.company..cleaned.))%>%
+
+ mutate(parent.company = tolower(parent.company))%>%
+
+ rename("Brand_Company" = "brand.company..cleaned.")%>%
+
+ rename("Parent_Company" = "parent.company")
+
+
+
+```
+
+
+### 6. Feedtype
+
+Update the entries to match the data dictionary provided
+
+
+```{r}
+
+library("dplyr")
+
+Diet_Data_Clean = Diet_Data_Clean%>% 
+
+  mutate(feedtype = replace(feedtype, feedtype == "Raw", "Refrigerated/Frozen raw food"))%>%
+
+  mutate(feedtype= replace(feedtype, feedtype ==  "Dry", "Dry food"))%>%
+
+  mutate(feedtype= replace(feedtype, feedtype ==  "Freeze dried", "Freeze dried food"))%>%
+
+  mutate(feedtype= replace(feedtype, feedtype ==  "Canned", "Canned food"))%>%
+
+  mutate(feedtype= replace(feedtype, feedtype ==  "", NA))%>%
+
+  mutate(feedtype= replace(feedtype, feedtype ==  "Semi-dry", "Semi-dry/Semimoist food"))
+
+unique(Diet_Data_Clean$feedtype)
+
+```
+
+
+
+
+### 7. Calendaryear to character
+
+
+```{r}
+
+Diet_Data_Clean = Diet_Data_Clean %>%
+
+  mutate(calendaryear = as.character(calendaryear))
+
+```
+
+### 8. BCS as factor (categorical)
+
+
+```{r}
+
+Diet_Data_Clean$bcs = as.factor(Diet_Data_Clean$bcs)
+
+Diet_Data_Clean$bcs = as.ordered(Diet_Data_Clean$bcs)
+
+#Check
+
+is.ordered(Diet_Data_Clean$bcs)
+
+```
+
+
+## Check data again
+
+Check parts 1 and 2 of the data provided to ensure the columns match the data dictionary
+
+
+```{r}
+
+#View the diet data part 1 
+
+dplyr::glimpse(Diet_Data_Clean)
+
+summary = skimr::skim(Diet_Data_Clean)
+
+summary
+
+```
+
+```{r}
+numeric_table = summary %>%  
+  filter(skim_type == "numeric",na.rm = TRUE)%>%
+  select_if(~ !any(is.na(.)))
+
+Numeric_datatable = datatable(numeric_table, options = list(), class = "display")
+Numeric_datatable
+```
+
+
+```{r}
+character_table = summary %>%  
+  filter(skim_type == "character",na.rm = TRUE)%>%
+  select_if(~ !any(is.na(.)))
+
+character_datatable = datatable(character_table, options = list(), class = "display")
+character_datatable
+```
+
+
+
+## Diet Data Processing complete 
+
+```{r}
+
+Processed_Dietdata = Diet_Data_Clean
+
+```
+
+
+
