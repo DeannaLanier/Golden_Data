@@ -353,59 +353,11 @@ final_plot <- subplot(plots, nrows = 1, shareY = TRUE) %>%
 final_plot
 ```
 
-```{r}
-
-test <- top_companies_by_year %>% 
-    filter(calendaryear == year) %>%
-    arrange(desc(Freq)) %>%
-    slice_max(n = 10, order_by = Freq)
-
-# Create a list of plotly plots, one for each year
-plots <- lapply(unique(top_companies_by_year$calendaryear), function(year) {
-  filtered_data <- top_companies_by_year %>% 
-    filter(calendaryear == year) %>%
-    arrange(desc(Freq)) %>%
-    slice_max(n = 10, order_by = Freq) # Ensure top 10 are selected, sorted if needed
-
-  p <- plot_ly(data = filtered_data, x = ~Parent_Company, y = ~Freq, type = 'bar',
-               name = year, text = ~Freq) %>%
-    layout(title = paste("Top 10 Parent Companies in", year),
-           xaxis = list(title = "Parent Company", tickangle = -45, tickfont = list(size = 8)),
-           yaxis = list(title = "Frequency"))
-  
-  return(p)
-})
-
-# Create a plot with buttons to switch between years
-final_plot <- subplot(plots, nrows = 1, shareY = TRUE) %>%
-  layout(
-    updatemenus = list(
-      list(
-        type = "buttons",
-        direction = "left",
-        buttons = lapply(1:length(unique(top_companies_by_year$calendaryear)), function(i) {
-          list(method = "restyle",
-               args = list("visible", as.logical(c(rep(FALSE, length(plots) * (i-1)), TRUE, rep(FALSE, length(plots) * (length(plots) - i))))),
-               label = unique(top_companies_by_year$calendaryear)[i])
-        }),
-        pad = list(r = 10, t = 10),
-        showactive = TRUE,
-        x = 0.10,
-        xanchor = "left",
-        y = 1.1,
-        yanchor = "top"
-      )
-    )
-  )
-
-# Print final_plot to display it
-final_plot
-```
 
 ```{r}
-save(interactive_fig1,interactive_fig2,interactive_fig3,interactive_fig4,interactive_fig5,interactive_fig6,final_plot, file = "figures.RData")
+save(interactive_fig1,interactive_fig2,interactive_fig3,interactive_fig4,interactive_fig5,interactive_fig6,final_plot, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/figures.RData")
 
-save(character_datatable,Numeric_datatable, file = "tables.RData")
+save(character_datatable,Numeric_datatable,top_companies_by_year_datatable, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/tables.RData")
 
 ```
 

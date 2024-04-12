@@ -3,7 +3,6 @@ title: "GRLS_Figures"
 author: "Deanna Lanier"
 date: "2024-04-12"
 output:
-  pdf_document: default
   html_document: default
 ---
 
@@ -23,8 +22,8 @@ library(dplyr)
 ```{r, echo = FALSE}
 project.path = here()
 #Load 
-load("~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/GRLS_Exploration_Analysis/figures.RData")
-load("~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/GRLS_Exploration_Analysis/tables.RData")
+load("~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/figures.RData")
+load("~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/tables.RData")
 ```
 
 ## Table 1: Summary of categorical data
@@ -110,10 +109,16 @@ interactive_fig6
 
 : Table 1: Diet Processing Categorization and sub-categorizations. Diets are categorized by the level of processing. This is determined by evaluating the diet data provided by the veterinarians and dog owners.
 
+## Table 3 Top parent companyes by year
+
+```{r}
+top_companies_by_year_datatable
+```
+
+
 ## Figure 7: Top companies by year
 
 ```{r, out.width= "100%"}
-
 
 final_plot
 ```
