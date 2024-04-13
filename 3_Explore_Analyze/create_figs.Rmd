@@ -187,6 +187,8 @@ Processing_Sub_group
 
 ```
 
+#Create list for each of the variable that we want to separate as differnt buttons
+
 ```{r}
 #Plot this by year 
 
@@ -199,7 +201,7 @@ figure5 = ggplot(Processing_Sub_group,                         # Draw barplot wi
   facet_grid(~ calendaryear)+ 
   #theme(legend.position="bottom")+ 
   theme_bw()+
-  theme(axis.text.x = element_text(size=8)) + 
+  theme(axis.text.x = element_text(size=6)) + 
   xlab("Processing Category") + 
   ylab("Number of Dogs (log)") +
   labs(fill = "Subcategory") +
@@ -286,7 +288,7 @@ Parentcompany_datatable
 # Filter to top 15 by Freq within each calendaryear
 top_entries <- Parentcompanytable %>%
   group_by(calendaryear) %>%
-  slice_max(order_by = Freq, n = 10) %>%
+  slice_max(order_by = Freq, n = 15) %>%
   ungroup()  # optional, to remove the grouping
 top_entries
 top_entries_datatable = datatable(top_entries, options = list(), class = "display")
@@ -295,13 +297,13 @@ top_entries_datatable
 
 ```{r}
 
-# Prepare the data by selecting top 10 companies by frequency for each year
+# Prepare the data 
 top_companies_by_year <- Parentcompanytable %>%
   group_by(calendaryear, Parent_Company) %>%
   summarise(Freq = sum(Freq), .groups = 'drop') %>%
   arrange(calendaryear, desc(Freq)) %>%
   group_by(calendaryear) %>%
-  slice_max(order_by = Freq, n = 10) %>%
+  slice_max(order_by = Freq, n = 15) %>%
   ungroup() %>%
   arrange(calendaryear, desc(Freq))
 
@@ -319,7 +321,7 @@ plots <- lapply(unique(top_companies_by_year$calendaryear), function(year) {
   
   p <- plot_ly(data = filtered_data, x = ~Parent_Company, y = ~Freq, type = 'bar',
                name = year, text = ~Freq, textposition = 'auto') %>%
-    layout(title = paste("Top 10 Parent Companies in", year),
+    layout(title = paste("Top 15 Parent Companies in", year),
            xaxis = list(title = "Parent Company"),
            yaxis = list(title = "Frequency"))
   
@@ -353,11 +355,231 @@ final_plot <- subplot(plots, nrows = 1, shareY = TRUE) %>%
 final_plot
 ```
 
+```{r}
+
+years <- unique(top_companies_by_year$calendaryear)
+
+# Loop through each year and create a plot
+plot_list <- list()
+for (year in years) {
+  # Filter data for the year
+  data_for_year <- subset(top_companies_by_year, calendaryear == year)
+  
+  # Order data by frequency in ascending order
+  data_for_year <- data_for_year[order(data_for_year$Freq),]
+  
+  # Create the bar plot=
+  plot <- ggplot(data_for_year, aes(x = reorder(Parent_Company, Freq), y = Freq)) +
+    geom_bar(stat = "identity", fill = "steelblue") +
+    labs(title = paste("Frequency of Top Companies in", year),
+         x = "Parent Company",
+         y = "Frequency") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))  # Rotate x labels for better readability
+  
+  # Store the plot in a list
+  plot_list[[year]] <- plot
+}
+
+# Display the plots
+plot_2013 = plot_list['2013'] 
+plot_2012 = plot_list['2012'] 
+plot_2014 = plot_list['2014'] 
+plot_2015 = plot_list['2015'] 
+plot_2016 = plot_list['2016']
+plot_2017 = plot_list['2017']
+plot_2018 = plot_list['2018']
+plot_2019 = plot_list['2019']
+plot_2020 = plot_list['2020']
+```
+
+
 
 ```{r}
-save(interactive_fig1,interactive_fig2,interactive_fig3,interactive_fig4,interactive_fig5,interactive_fig6,final_plot, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/figures.RData")
+plot_list
+plot_list['2020']
+```
 
-save(character_datatable,Numeric_datatable,top_companies_by_year_datatable, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/tables.RData")
+
+
+
+
+
+# Death data 
+
+
+### Leading cuases of death
+```{r}
+leading_cause_overall <- death_data %>%
+  filter(is_cause_of_death == 1) %>% # Filter for cases where is_cause_of_death is 1 (yes)
+  group_by(condition) %>% # Group by the condition and count the number of deaths for each condition
+  summarize(death_count = n()) %>%
+  arrange(desc(death_count)) %>%
+  slice(1)
+
+# View the leading cause
+print(leading_cause_overall)
+
+leading_cause_overall_datatable = datatable(leading_cause_overall, options = list(), class = "display")
+leading_cause_overall_datatable
 
 ```
 
+### Top 10 causes of death
+```{r}
+leading10_cause_overall <- death_data %>%
+  filter(is_cause_of_death == 1) %>% # Filter for cases where is_cause_of_death is 1 (yes)
+  group_by(condition) %>% # Group by the condition and count the number of deaths for each condition
+  summarize(death_count = n()) %>%
+  arrange(desc(death_count)) %>%
+  slice(1:10)
+
+# View the leading cause
+print(leading10_cause_overall)
+
+leading10_cause_overall_datatable = datatable(leading10_cause_overall, options = list(), class = "display")
+leading10_cause_overall_datatable
+
+```
+
+### Leading causes by year
+```{r}
+# Filter for cases where is_cause_of_death is 1 (yes)
+# Group by year and condition, then count deaths
+# Arrange by year and count, and get the top cause for each year
+leading_cause_by_year <- death_data %>%
+  filter(is_cause_of_death == 1) %>%
+  group_by(study_year, condition) %>%
+  summarize(death_count = n(), .groups = 'drop') %>%
+  arrange(study_year, desc(death_count)) %>%
+  group_by(study_year) %>%
+  slice(1)
+
+# View the leading cause by year
+print(leading_cause_by_year)
+
+leading_cause_by_year_datatable = datatable(leading_cause_by_year, options = list(), class = "display")
+leading_cause_by_year_datatable
+
+```
+### Leading subtype of hemangiosarcoma by year
+```{r}
+top_conditions_subconditions <- death_data %>%
+  filter(is_cause_of_death == 1) %>%
+  group_by(condition, sub_condition) %>%
+  summarize(death_count = n(), .groups = 'drop') %>%
+  arrange(desc(death_count)) %>%
+  slice_head(n = 10)
+
+# View the top 10 conditions and sub-conditions
+print(top_conditions_subconditions)
+
+top_conditions_subconditions_datatable = datatable(top_conditions_subconditions, options = list(), class = "display")
+top_conditions_subconditions_datatable
+
+```
+### Total death from disease
+```{r}
+cause_of_death_all <- death_data %>%
+  filter(is_cause_of_death == 1) 
+```
+
+```{r}
+cause_of_death_all
+```
+
+### Plot this
+
+```{r}
+ 
+top_causes <- death_data %>%
+  filter(is_cause_of_death == 1) %>%
+  group_by(condition) %>%
+  summarize(death_count = n(), .groups = 'drop') %>%
+  arrange(desc(death_count)) %>%
+  slice_head(n = 10)  
+
+# View the top causes data
+print(top_causes)
+
+# Plot the top causes of death
+ggplot(top_causes, aes(x = reorder(condition, death_count), y = death_count, fill = condition)) +
+  geom_col() +  # geom_col is used for bar charts when data are already summarized
+  labs(title = "Top 10 Causes of Death",
+       x = "Condition",
+       y = "Number of Deaths",
+       fill = "Condition") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x labels for better readability
+```
+
+```{r}
+# Prepare the ggplot object
+top_causes_plot <- ggplot(top_causes, aes(x = reorder(condition, death_count), y = death_count, fill = condition)) +
+  geom_col(show.legend = FALSE) +
+  labs(title = "Top 10 Causes of Death overall",
+       x = "Condition",
+       y = "Number of Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Convert ggplot to plotly
+interactive_plot <- ggplotly(top_causes_plot)
+
+# Optionally, customize the tooltip to show detailed information
+interactive_plot8 <- interactive_plot %>%
+  layout(tooltip = list(text = ~paste("Condition:", condition, "<br>Deaths:", death_count)))
+
+# Print the interactive plot
+interactive_plot8
+```
+### Plot by year 
+```{r}
+# Filter for cases where is_cause_of_death is 1, then group and summarize
+leading_causes_by_year <- death_data %>%
+  filter(is_cause_of_death == 1) %>%
+  group_by(STUDY_YEAR, condition) %>%
+  summarize(death_count = n(), .groups = 'drop') %>%
+  arrange(desc(death_count))%>%
+  filter(death_count > 2)
+
+# Get top causes within each year
+leading_causes_by_year <- leading_causes_by_year %>%
+  group_by(STUDY_YEAR) %>%
+  top_n(10, death_count) %>%
+  ungroup() %>%
+  arrange(STUDY_YEAR, desc(death_count))
+
+# Create the ggplot for leading causes of death by year using facets
+top_causes_yearly_faceted_plot <- ggplot(leading_causes_by_year, aes(x = reorder(condition, death_count), y = log(death_count), fill = condition)) +
+  geom_col(show.legend = TRUE) +
+  facet_grid(rows = vars(STUDY_YEAR)) +
+  labs(title = "Top Causes of Death by Study Year",
+       x = "Condition",
+       y = "Number of Deaths",
+       fill = "Condition") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Convert to an interactive plotly chart
+interactive_yearly_faceted_plot <- ggplotly(top_causes_yearly_faceted_plot) %>%
+  layout(title = "Interactive Faceted Plot of Top Causes of Death by Study Year")
+
+# Display the interactive plot
+interactive_yearly_faceted_plot
+```
+
+```{r}
+save(interactive_fig1,interactive_fig2,interactive_fig3,interactive_fig4,interactive_fig5,interactive_fig6,final_plot,plot_list, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/figures.RData")
+
+save(top_companies_by_year_datatable, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanData.rds")
+
+save(plot_2013, plot_2012, plot_2014, plot_2015, plot_2016, plot_2017, plot_2018, plot_2019, plot_2020,  file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/parent.RData")
+
+
+
+
+save(leading_cause_overall_datatable, leading10_cause_overall_datatable, leading_cause_by_year_datatable, top_conditions_subconditions_datatable, interactive_plot8, interactive_yearly_faceted_plot,  file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/death1.RData")
+
+
+```

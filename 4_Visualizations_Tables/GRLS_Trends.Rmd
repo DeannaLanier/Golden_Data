@@ -1,0 +1,67 @@
+---
+title: "GRLS_Trends"
+author: "Deanna Lanier"
+date: "2024-04-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+load("~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/figures_trends.RData")
+load("~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/tables_trends.RData")
+
+```
+
+This notebook contains figures of trends in the data.
+
+## Transitions between processing categorization
+
+### Table 1: Average duration within a category
+duration in years 
+```{r, out.width= "100%", echo=FALSE}
+average_durations_datatable
+```
+
+### Table 2: Individual durations for each subject
+duration in years 
+```{r, out.width= "100%", echo=FALSE}
+durations_datatable
+```
+
+### Figure 1: Heatmap of transition probabilities
+
+Markov model to quantify the probability of moving from one to the other
+```{r, out.width= "100%", echo=FALSE}
+heatmap2
+```
+
+
+this likely implies a  tendency for the GRLS subjects to remain in the ultra processed category, which tracks with the average duration. This can indicate that once subjects enter this category, they are likely to stay there. 
+
+## Transitions between food companies 
+
+
+### Table 3: Average duration within a category
+duration in years 
+```{r, out.width= "100%", echo=FALSE}
+average_durations_datatable2
+```
+
+### Table 4: Individual durations for each subject
+duration in years 
+```{r, out.width= "100%", echo=FALSE}
+durations_datatable2
+```
+
+## Transitions between brand companies
+
+### Table 5: Average duration within a category
+duration in years 
+```{r, out.width= "100%", echo=FALSE}
+average_durations_datatable2
+```
+
+### Table 6: Individual durations for each subject
+duration in years 
+```{r, out.width= "100%", echo=FALSE}
+durations_datatable2
+```

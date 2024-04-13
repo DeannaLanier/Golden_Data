@@ -487,4 +487,64 @@ Processed_Dietdata = Diet_Data_Clean
 ```
 
 
+## Save
+```{r}
+
+save(character_datatable,Numeric_datatable, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/tables.RData")
+
+
+
+```
+
+
+
+# Death Data 
+##load
+```{r}
+project.path = here()
+
+deathdata.location = here::here("1_Data","Raw_data","study_endpoints.csv")
+death_data = read.csv(deathdata.location)
+
+```
+
+### Clean
+
+separate the tracked conditions columns 
+
+```{r}
+# Use separate() to split the 'tracked_condition' column
+death_data <- death_data %>%
+  separate(tracked_condition, into = c("condition", "sub_condition"), sep = " - ", extra = "merge", fill = "right")%>%
+  mutate(condition = tolower(condition),
+         sub_condition = tolower(sub_condition))
+
+
+# View the updated DataFrame
+head(death_data)
+```
+
+lower case
+```{r}
+#Check 
+names(death_data)<-tolower(names(death_data))
+dplyr::glimpse(death_data)
+
+skimr::skim(death_data)
+```
+
+```{r}
+(unique(death_data$condition))
+```
+```{r}
+(unique(death_data$sub_condition))
+```
+```{r}
+length(unique(death_data$id))
+```
+
+#Save
+```{r}
+saveRDS(Diet_Data_Clean,death_data, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanData.rds")
+```
 

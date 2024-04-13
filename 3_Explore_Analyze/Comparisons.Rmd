@@ -1,0 +1,397 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+## Load data
+```{r}
+# Restore the object
+Diet_Data_Clean = readRDS(file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanData.rds")
+```
+
+
+## Frequency at which participants switch categorization
+```{r}
+library(dplyr)
+library(markovchain)
+
+data <- Diet_Data_Clean[order(Diet_Data_Clean$id, Diet_Data_Clean$calendaryear),]
+
+ # Create a list of all unique categories
+all_categories <- unique(data$process.category)
+
+# Creating sequences
+data_sequence <- data %>%
+  group_by(id) %>%
+  summarise(Category_Sequence = list(process.category)) %>%
+  ungroup()
+
+
+# Function to fit Markov chain and return a complete transition matrix
+get_complete_matrix <- function(sequence) {
+  # Fit the Markov chain
+  mcFit <- markovchainFit(data = sequence)$estimate
+  # Create a complete matrix including all categories
+  complete_matrix <- matrix(0, length(all_categories), length(all_categories),
+                            dimnames = list(all_categories, all_categories))
+  transitions <- mcFit@transitionMatrix
+  # Fill the complete matrix with existing transitions
+  rownames_to_use <- intersect(rownames(transitions), all_categories)
+  colnames_to_use <- intersect(colnames(transitions), all_categories)
+  complete_matrix[rownames_to_use, colnames_to_use] <- transitions[rownames_to_use, colnames_to_use]
+  return(complete_matrix)
+}
+
+# Adjust the function to convert sequences to transition matrix
+get_transition_matrix <- function(sequence_list) {
+  mcList <- lapply(sequence_list, get_complete_matrix)
+  
+  # Summing all matrices
+  matrix_sum <- Reduce("+", mcList)
+  return(matrix_sum / length(mcList))  # Normalizing
+}
+
+# Creating the transition matrix
+transition_matrix <- get_transition_matrix(data_sequence$Category_Sequence)
+print(transition_matrix)
+```
+
+
+```{r}
+library(ggplot2)
+
+transition_df <- as.data.frame(as.table(transition_matrix))
+colnames(transition_df) <- c("From", "To", "Frequency")
+
+heatmap1 = ggplot(transition_df, aes(x = From, y = To, fill = Frequency)) +
+  geom_tile() +
+  scale_fill_gradient2(low = "blue", high = "red", mid = "white", midpoint = 0.5) +
+  theme_minimal() +
+  labs(title = "Transition Heatmap", x = "From Category", y = "To Category", fill = "Transition Frequency")
+
+```
+
+implies a significant tendency for subjects to remain in the last category listed. This can indicate that once subjects enter this category, they are likely to stay there, suggesting stability or a terminal stage depending on the context of the study.
+
+
+```{r}
+# 
+data$Year <- as.integer(data$calendaryear)
+
+# Calculate the duration of stay in each category for each subject
+durations <- data %>%
+  group_by(id, process.category) %>%
+  summarise(
+    Start_Year = min(Year),
+    End_Year = max(Year),
+    Duration = End_Year - Start_Year + 1  # +1 because if start and end year are the same, duration is 1 year
+  ) %>%
+  ungroup()
+
+# View the first few rows of the durations data frame
+head(durations)
+
+# Calculate the average duration of stay per category
+average_durations <- durations %>%
+  group_by(process.category) %>%
+  summarise(Average_Duration = mean(Duration))
+
+# View the average durations
+head(average_durations)
+
+
+durations_datatable = datatable(durations, options = list(), class = "display")
+durations_datatable
+
+average_durations_datatable = datatable(average_durations, options = list(), class = "display")
+average_durations_datatable
+```
+```{r}
+# Adding a small constant to handle zeros
+k = 0.001
+transition_df$Freq_Adjusted = transition_df$Freq + k
+# Applying a log transformation (base 10)
+transition_df$Log_Frequency = log10(transition_df$Freq_Adjusted)
+```
+
+```{r}
+# Converting matrix to data frame for plotting
+#transition_df <- as.data.frame(as.table(transition_matrix))
+
+# Create interactive heatmap
+heatmap2 = plot_ly(data = transition_df, x = ~From, y = ~To, z = ~Log_Frequency, type = "heatmap", colors = colorRamp(c("blue", "white", "red")),
+        text = ~paste("Transition from", From, "to", To, "<br>Probability:", Frequency),
+        hoverinfo = "text") %>%
+  layout(title = "Transition Matrix Heatmap",
+         xaxis = list(title = "From Category"),
+         yaxis = list(title = "To Category", autorange = "reversed"))  # Reversing y-axis to match heatmap conventions
+heatmap2
+```
+
+## Frequency for switching diet companies
+
+```{r}
+
+ # Create a list of all unique categories
+all_categories <- unique(data$Parent_Company)
+
+# Function to fit Markov chain and return a complete transition matrix
+get_complete_matrix <- function(sequence) {
+  # Fit the Markov chain
+  mcFit <- markovchainFit(data = sequence)$estimate
+  # Create a complete matrix including all categories
+  complete_matrix <- matrix(0, length(all_categories), length(all_categories),
+                            dimnames = list(all_categories, all_categories))
+  transitions <- mcFit@transitionMatrix
+  # Fill the complete matrix with existing transitions
+  rownames_to_use <- intersect(rownames(transitions), all_categories)
+  colnames_to_use <- intersect(colnames(transitions), all_categories)
+  complete_matrix[rownames_to_use, colnames_to_use] <- transitions[rownames_to_use, colnames_to_use]
+  return(complete_matrix)
+}
+
+# Adjust the function to convert sequences to transition matrix
+get_transition_matrix <- function(sequence_list) {
+  mcList <- lapply(sequence_list, get_complete_matrix)
+  
+  # Summing all matrices
+  matrix_sum <- Reduce("+", mcList)
+  return(matrix_sum / length(mcList))  # Normalizing
+}
+
+# Creating the transition matrix
+transition_matrix <- get_transition_matrix(data_sequence$Category_Sequence)
+
+```
+
+
+```{r}
+# 
+data$Year <- as.integer(data$calendaryear)
+
+# Calculate the duration of stay in each category for each subject
+durations <- data %>%
+  group_by(id, Parent_Company) %>%
+  summarise(
+    Start_Year = min(Year),
+    End_Year = max(Year),
+    Duration = End_Year - Start_Year + 1  # +1 because if start and end year are the same, duration is 1 year
+  ) %>%
+  ungroup()
+
+# View the first few rows of the durations data frame
+head(durations)
+
+# Calculate the average duration of stay per category
+average_durations <- durations %>%
+  group_by(Parent_Company) %>%
+  summarise(Average_Duration = mean(Duration))
+
+# View the average durations
+head(average_durations)
+
+
+durations_datatable2 = datatable(durations, options = list(), class = "display")
+durations_datatable
+
+average_durations_datatable2 = datatable(average_durations, options = list(), class = "display")
+average_durations_datatable
+```
+## Frequency for switching diet brands
+
+```{r}
+
+ # Create a list of all unique categories
+all_categories <- unique(data$Brand_Company)
+
+# Function to fit Markov chain and return a complete transition matrix
+get_complete_matrix <- function(sequence) {
+  # Fit the Markov chain
+  mcFit <- markovchainFit(data = sequence)$estimate
+  # Create a complete matrix including all categories
+  complete_matrix <- matrix(0, length(all_categories), length(all_categories),
+                            dimnames = list(all_categories, all_categories))
+  transitions <- mcFit@transitionMatrix
+  # Fill the complete matrix with existing transitions
+  rownames_to_use <- intersect(rownames(transitions), all_categories)
+  colnames_to_use <- intersect(colnames(transitions), all_categories)
+  complete_matrix[rownames_to_use, colnames_to_use] <- transitions[rownames_to_use, colnames_to_use]
+  return(complete_matrix)
+}
+
+# Adjust the function to convert sequences to transition matrix
+get_transition_matrix <- function(sequence_list) {
+  mcList <- lapply(sequence_list, get_complete_matrix)
+  
+  # Summing all matrices
+  matrix_sum <- Reduce("+", mcList)
+  return(matrix_sum / length(mcList))  # Normalizing
+}
+
+# Creating the transition matrix
+transition_matrix <- get_transition_matrix(data_sequence$Category_Sequence)
+
+```
+
+
+```{r}
+# 
+data$Year <- as.integer(data$calendaryear)
+
+# Calculate the duration of stay in each category for each subject
+durations <- data %>%
+  group_by(id, Brand_Company) %>%
+  summarise(
+    Start_Year = min(Year),
+    End_Year = max(Year),
+    Duration = End_Year - Start_Year + 1  # +1 because if start and end year are the same, duration is 1 year
+  ) %>%
+  ungroup()
+
+# View the first few rows of the durations data frame
+head(durations)
+
+# Calculate the average duration of stay per category
+average_durations <- durations %>%
+  group_by(Brand_Company) %>%
+  summarise(Average_Duration = mean(Duration))
+
+# View the average durations
+head(average_durations)
+
+
+durations_datatable3 = datatable(durations, options = list(), class = "display")
+durations_datatable3
+
+average_durations_datatable3 = datatable(average_durations, options = list(), class = "display")
+average_durations_datatable3
+```
+
+
+```{r}
+save(heatmap2, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/figures_trends.RData")
+
+save(average_durations_datatable,durations_datatable,durations_datatable2,average_durations_datatable2,average_durations_datatable3,durations_datatable3, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/tables_trends.RData")
+
+
+```
+
+# Death data and diet data
+
+```{r}
+# Merge the datasets
+combined_data <- left_join(death_data, Diet_Data_Clean, by = c("id", "study_year"))
+
+```
+
+```{r}
+# Logistic regression to see if diet predicts disease occurrence
+model_disease <- glm(condition != "No Disease" ~ BCS + Brand_Company + Parent_Company + process.category + process.subtype, 
+                     data = combined_data, family = "binomial")
+
+# Logistic regression to see if diet predicts death caused by disease
+model_death <- glm(condition != "No Disease" & is_cause_of_death == 1 ~ BCS + Brand_Company + Parent_Company + process.category + process.subtype, 
+                   data = combined_data, family = "binomial")
+
+# Summarize the model
+summary(model_disease)
+summary(model_death)
+
+
+```
+
+```{r}
+# Calculate frequencies
+condition_frequency <- combined_data %>%
+  group_by(process.category, condition)%>%
+  filter(!is.na(process.category)) %>%
+  summarize(frequency = n(), .groups = 'drop')
+condition_frequency
+
+# Plot the frequency of diseases by process category
+disease_plot <-ggplot(condition_frequency, aes(x = condition, y = frequency, fill = process.category)) +
+  geom_bar(stat = "identity", position = "stack") +  # 'stack' stacks the bars for different conditions
+  labs(title = "Frequency of Diseases by Process Category",
+       x = "Process Category",
+       y = "Frequency of Disease",
+       fill = "Condition") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for readability
+```
+```{r}
+# Convert ggplot to interactive plotly chart
+interactive_disease_plot <- ggplotly(disease_plot)
+
+# Print the interactive plot
+interactive_disease_plot
+```
+
+```{r}
+# Calculate frequencies
+condition_frequency <- combined_data %>%
+  group_by(Parent_Company, condition)%>%
+  filter(!is.na(Parent_Company)) %>%
+  summarize(frequency = n(), .groups = 'drop')
+condition_frequency
+
+# Plot the frequency of diseases by process category
+disease_plot <-ggplot(condition_frequency, aes(x = condition, y = frequency, fill = Parent_Company)) +
+  geom_bar(stat = "identity", position = "stack") +  # 'stack' stacks the bars for different conditions
+  labs(title = "Frequency of Diseases by parent company",
+       x = "Process Category",
+       y = "Frequency of Disease",
+       fill = "Condition") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for readability
+```
+
+```{r}
+# Convert ggplot to interactive plotly chart
+interactive_disease_plot_parent <- ggplotly(disease_plot)
+
+# Print the interactive plot
+interactive_disease_plot_parent
+```
+
+```{r}
+# Define the data
+dog_data <- data.frame(
+  Category = c("Died from Disease", "Survived or Died from Other Causes"),
+  Count = c(832, 3044 - 832)
+)
+
+# Create the pie chart
+pie_chart <- plot_ly(dog_data, labels = ~Category, values = ~Count, type = 'pie',
+                     textinfo = 'label+percent',
+                     insidetextorientation = 'radial') %>%
+  layout(title = "Proportion of Dogs That Died from Disease")
+
+# Print the pie chart
+pie_chart
+```
+
+
+```{r}
+# Summarize data
+death_summary <- death_data %>%
+  dplyr::count(is_cause_of_death) %>%
+  dplyr::mutate(Category = ifelse(is_cause_of_death == 1, "Died from Disease", "Did Not Die from Disease"))
+
+# Rename columns for clarity
+death_summary <- dplyr::rename(death_summary, Count = n)
+
+# Create the pie chart
+pie_chart_death_cause <- plot_ly(death_summary, labels = ~Category, values = ~Count, type = 'pie',
+                     textinfo = 'label+percent',
+                     insidetextorientation = 'radial') %>%
+  layout(title = "Proportion of Dogs Dying from Disease")
+
+# Print the pie chart
+pie_chart_death_cause
+```
+
+```{r}
+save(interactive_disease_plot,pie_chart,pie_chart_death_cause,interactive_disease_plot_parent, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/death2.RData")
+```
+

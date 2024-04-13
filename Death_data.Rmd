@@ -1,0 +1,67 @@
+---
+title: "Death_Data"
+author: "Deanna Lanier"
+date: "2024-04-13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Death rate
+
+832 of the 3044 dogs died as a result of a diagnosed disease. Of those death, hemangiosarcoma was the leading cause of death.
+
+```{r, out.width= "100%", echo=FALSE}
+load("~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/death1.RData")
+load("~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/death2.RData")
+```
+
+```{r, out.width= "100%", echo=FALSE}
+pie_chart
+```
+
+
+```{r, out.width= "100%", echo=FALSE}
+pie_chart_death_cause
+```
+
+
+Leading cause of death overall
+```{r, out.width= "100%", echo=FALSE}
+leading_cause_overall_datatable
+```
+
+
+Top 10 leading causes overall
+```{r, out.width= "100%", echo=FALSE}
+leading10_cause_overall_datatable
+```
+```{r, out.width= "100%", echo=FALSE}
+interactive_plot8
+```
+
+Leading causes by year
+```{r, out.width= "100%", echo=FALSE}
+leading_cause_by_year_datatable
+```
+```{r, out.width= "100%", echo=FALSE}
+interactive_yearly_faceted_plot
+```
+
+
+To Sub-conditions
+```{r, out.width= "100%", echo=FALSE}
+top_conditions_subconditions_datatable
+```
+```{r, out.width= "100%", echo=FALSE}
+interactive_disease_plot
+```
+
+```{r, out.width= "100%", echo=FALSE}
+interactive_disease_plot_parent
+```
+
+
+

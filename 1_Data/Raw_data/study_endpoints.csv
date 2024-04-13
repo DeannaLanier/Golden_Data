@@ -1,0 +1,1022 @@
+"ID","STUDY_YEAR","diagnosis_date","tracked_condition","phenotype","status","tier_of_confidence","is_cause_of_death","is_recurrence","is_adjudicated"
+"grls00NB23WW",3,2017-09-12,"Bloat with torsion","","final",1,1,0,1
+"grls01C2L8RR",7,2022-05-08,"Hemangiosarcoma - other/not specified","","final",1,1,0,1
+"grls020IW1ZZ",6,2021-12-24,"Brain tumor","","presumptive",3,1,0,0
+"grls02VDCV99",2,2015-07-22,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls02VDCV99",9,2022-04-02,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grls03MTKHLL",7,2021-05-20,"Histiocytic sarcoma","","final",1,1,0,1
+"grls04KX35EE",7,2020-06-28,"Hemangiosarcoma - cardiac","","definitive",1,1,0,0
+"grls0CSZ8WSS",9,2022-01-17,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grls0ENG5Y66",7,2020-08-12,"Adenocarcinoma - apocrine gland anal sac","","definitive",1,1,0,0
+"grls0EZB9OCC",8,2020-11-19,"Hemangiosarcoma - splenic","","definitive",1,1,0,0
+"grls0F3UPZPP",6,2021-07-25,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grls0HAV8G99",7,2021-12-27,"Sarcoma","","definitive",2,1,0,1
+"grls0LSLKO",8,2022-06-13,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grls0LUXUMTT",9,2022-04-08,"Unknown","","presumptive",3,1,0,0
+"grls0MWS6OMM",8,2022-04-25,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grls0OENGRDD",6,2020-07-16,"Histiocytic sarcoma","","definitive",1,1,0,0
+"grls0PXYZ6BB",8,2022-08-22,"Gastrointestinal stromal tumor","","final",1,0,0,1
+"grls0R37Y2WW",8,2022-05-14,"Pericardial effusion","","presumptive",2,1,0,0
+"grls0SITE9YY",7,2021-02-18,"Histiocytic sarcoma","","definitive",1,0,0,1
+"grls0U11TOTT",6,2021-04-22,"Soft tissue sarcoma - fibrosarcoma","low","final",1,0,0,1
+"grls0V9DN9FF",7,2022-01-28,"Brain tumor","","definitive",2,1,0,0
+"grls0WMXEHYY",8,2021-11-11,"Round cell tumor","","presumptive",1,1,0,0
+"grls0YYYJPBB",7,2021-12-07,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grls0Z1UD211",6,2020-06-29,"Mast cell tumor - cutaneous","1_low","definitive",1,0,0,0
+"grls0Z1UD211",7,2021-06-18,"Mast cell tumor - subcutaneous","not_typed","final",1,0,0,1
+"grls0Z1UD211",8,2022-07-06,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls0Z1UD211",8,2022-07-06,"Plasma cell tumor","","final",1,0,0,1
+"grls0Z1UD211",8,2021-12-02,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grls11BBNP",8,2020-12-09,"CNS symptoms","","presumptive",3,1,0,1
+"grls12ZDDU",3,2017-02-03,"Carcinoma - other/not specified","","final",1,1,0,1
+"grls1495QP66",4,2019-11-14,"Mast cell tumor - subcutaneous","low","final",1,0,0,1
+"grls1495QP66",6,2021-06-10,"Mast cell tumor - other/not specified","2_high","final",1,0,0,1
+"grls1495QP66",6,2021-11-30,"Mast cell tumor - cutaneous","3_high","final",1,0,0,1
+"grls1495QP66",6,2021-03-30,"Mast cell tumor - other/not specified","not_typed","definitive",1,0,0,0
+"grls16FL8Z00",5,2020-07-30,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,0
+"grls16Y39PGG",6,2020-12-25,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grls170XXJZZ",7,2021-07-06,"Cutaneous melanoma","","final",1,0,0,1
+"grls1CTSI5XX",4,2019-05-25,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grls1D4EMDQQ",6,2020-10-15,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grls1D4EMDQQ",7,2022-08-01,"Lymphoma - multicentric","t_zone","final",1,0,0,1
+"grls1G2OMPTT",6,2021-06-01,"Carcinoma - other/not specified","","definitive",1,0,0,0
+"grls1GIDJ588",3,2018-02-21,"Soft tissue sarcoma - other/not specified","2","final",1,0,0,1
+"grls1JWEEY",6,2019-09-19,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls1JY77077",5,2020-12-04,"Carcinoma - neuroendocrine","","definitive",1,1,0,1
+"grls1P6DGIWW",5,2020-04-14,"Histiocytic sarcoma","","definitive",2,1,0,0
+"grls1SP9QVV",7,2022-02-26,"Hemangiosarcoma - cutaneous","","final",1,0,0,1
+"grls1TCYF611",4,2019-10-04,"Leiomyosarcoma","","final",1,1,0,1
+"grls1UDS7MJJ",7,2022-04-15,"Myocardial infarction","","presumptive",3,1,0,0
+"grls1US5SPBB",9,2022-04-05,"Soft tissue sarcoma - other/not specified","1","final",1,0,0,1
+"grls1W4Z888",8,2021-07-10,"Histiocytic sarcoma","","definitive",1,1,0,0
+"grls1XT2PQ77",3,2017-08-04,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grls1XTARN88",7,2020-03-05,"Unknown","","presumptive",3,1,0,0
+"grls1YLKGH66",5,2019-06-07,"Lymphoma - multicentric","peripheral_t_cell","final",1,1,0,1
+"grls20EDCSKK",5,2018-08-31,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls20EDCSKK",8,2021-10-13,"Mast cell tumor - cutaneous","2_high","final",1,0,0,1
+"grls25IJBODD",5,2020-07-30,"Mast cell tumor - cutaneous","2_low","presumptive",3,0,0,0
+"grls2850N5JJ",2,2015-06-05,"Gallbladder mucocele","","definitive",1,1,0,0
+"grls29HWHH77",6,2019-11-11,"Lymphoma - multicentric","peripheral_t_cell","definitive",1,1,0,1
+"grls2AHBWF",6,2019-10-31,"Osteosarcoma - axial","","final",1,0,0,1
+"grls2C2PTLPP",7,2022-08-01,"Carcinoma - mammary","2","final",1,0,0,1
+"grls2D58M5PP",7,2022-02-28,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grls2DCZV5HH",0,2013-08-08,"Blastomycosis","","definitive",2,1,0,0
+"grls2DOJIG44",2,2016-02-17,"Unknown","","definitive",3,1,0,0
+"grls2E2MQW66",6,2020-01-18,"Hemangiosarcoma - splenic","","definitive",1,1,0,1
+"grls2GP8NDYY",6,2020-09-12,"Mast cell tumor - cutaneous","2_low","presumptive",3,0,0,0
+"grls2GP8NDYY",7,2021-09-14,"Malignant melanoma","","definitive",1,1,0,0
+"grls2GWGQGHH",5,2019-02-25,"Lymphoma - multicentric","not_typed","presumptive",3,1,0,1
+"grls2IYOWC33",6,2021-02-15,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grls2JD757FF",6,2021-05-06,"Thymoma","","final",2,1,0,1
+"grls2JD757FF",7,2022-05-06,"Thymoma","","definitive",2,0,0,0
+"grls2JIWZ3TT",7,2021-11-03,"Soft tissue sarcoma - other/not specified","1","final",1,0,0,1
+"grls2KOUK9KK",8,2022-07-28,"Lymphoma - multicentric","t_zone","definitive",1,0,0,0
+"grls2KYD04OO",7,2021-02-10,"Soft tissue sarcoma - other/not specified","2","final",1,0,0,1
+"grls2KYD04OO",7,2021-09-01,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grls2PGPY0RR",2,2016-09-07,"Chronic renal disease","","final",1,1,0,1
+"grls2Q386M99",7,2021-05-04,"Soft tissue sarcoma - other/not specified","not_typed","final",1,0,0,1
+"grls2QGMRPRR",5,2019-03-25,"Lymphoma - gastrointestinal","peripheral_t_cell","final",1,1,0,1
+"grls2RMKS800",6,2019-03-29,"Soft tissue sarcoma - fibrosarcoma","low","definitive",2,1,0,1
+"grls2S3J1K66",9,2022-06-15,"Mast cell tumor - cutaneous","2_high","definitive",1,0,0,0
+"grls2UBPOZ",4,2019-01-09,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls2WI1KSTT",3,2017-12-22,"Trauma - fire","","definitive",3,1,0,0
+"grls31NHC5QQ",5,2018-08-31,"Soft tissue sarcoma - other/not specified","1","final",1,0,0,1
+"grls31NHC5QQ",5,2019-02-25,"Hemangiosarcoma - cardiac","","definitive",1,1,0,1
+"grls32DCESEE",4,2018-07-20,"Histiocytic sarcoma","","final",1,1,0,1
+"grls33GPTGJJ",5,2020-09-19,"Lymphoma - multicentric","diffuse_large_b_cell","definitive",1,0,0,1
+"grls33GPTGJJ",6,2021-03-15,"Lymphoma - cutaneous","not_typed","definitive",1,0,1,0
+"grls33GPTGJJ",7,2022-02-26,"Myocarditis","","final",1,1,0,1
+"grls344FHT22",6,2019-07-19,"Nasal sarcoma","","final",1,1,0,1
+"grls35EKPBEE",7,2020-12-14,"Osteosarcoma - appendicular","","final",1,1,0,1
+"grls35S9K3WW",9,2022-03-22,"Osteosarcoma - other/unspecified","","presumptive",2,1,0,0
+"grls365KZSUU",6,2020-05-30,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grls365KZSUU",7,2021-03-08,"Mast cell tumor - cutaneous","not_typed","presumptive",2,0,0,0
+"grls365KZSUU",7,2021-10-12,"Mast cell tumor - cutaneous","not_typed","definitive",1,0,0,0
+"grls365KZSUU",8,2022-01-20,"Mast cell tumor - cutaneous","3_high","final",1,1,0,1
+"grls365KZSUU",8,2022-01-20,"Mast cell tumor - cutaneous","3_high","definitive",1,0,0,1
+"grls36KMYA77",6,2020-06-25,"Meibomian gland epithelioma","","definitive",1,0,0,0
+"grls3EXUCLEE",6,2019-04-17,"Unknown","","presumptive",3,1,0,1
+"grls3GJ1T5BB",6,2022-01-13,"Carcinoma - squamous cell","","final",1,1,0,1
+"grls3GLTTX00",8,2021-12-31,"Pancreatitis","","final",1,1,0,1
+"grls3HHDXHWW",8,2022-03-14,"Hemangiosarcoma - cardiac","","presumptive",3,1,0,0
+"grls3HMHXDKK",6,2020-03-16,"Lymphoma - gastrointestinal","t_cell","final",1,1,0,1
+"grls3I4TC288",8,2021-11-12,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls3I71NHGG",6,2021-03-30,"Lymphoma - other/not specified","not_typed","presumptive",3,1,0,0
+"grls3IQ5U900",7,2020-10-29,"Hemangiosarcoma - splenic","","definitive",1,1,0,0
+"grls3JKR08II",1,2014-05-15,"Trauma - hit by car","","definitive",3,1,0,0
+"grls3JM16ZZZ",5,2019-12-14,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grls3K8L4QEE",8,2022-05-16,"Carcinoma - apocrine ductal","","definitive",1,0,0,1
+"grls3L76FSS",9,2021-12-19,"Meningioma","1","final",1,1,0,1
+"grls3LH13433",5,2020-07-18,"CNS symptoms","","presumptive",3,1,0,0
+"grls3MRP58VV",6,2020-07-07,"Hemangiosarcoma - cardiac","","definitive",1,1,0,0
+"grls3N5D0C33",3,2017-12-20,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls3PGST4EE",1,2015-08-20,"Lymphoma - multicentric","diffuse_large_b_cell","definitive",1,0,0,0
+"grls3PGST4EE",3,2018-06-18,"Congestive heart failure","","definitive",2,1,0,1
+"grls3PGST4EE",3,2018-04-30,"Carcinoma - nasal","","definitive",1,0,0,0
+"grls3PH06YZZ",1,2015-08-13,"Trauma - heat stroke","","definitive",3,1,0,0
+"grls3QVAHF11",8,2021-10-17,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grls3TP3YZQQ",6,2020-05-29,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grls3U5V4NBB",7,2021-01-25,"Soft tissue sarcoma - myxosarcoma","1","final",1,0,0,1
+"grls3U5V4NBB",7,2021-01-25,"Malignant trichoepithelioma","","final",1,0,0,1
+"grls3US5YZJJ",4,2019-05-27,"Pleural effusion","","definitive",3,1,0,0
+"grls3XTNPQTT",7,2021-03-09,"Leukemia","acute_myeloid_leukemia","definitive",1,1,0,0
+"grls405NWMQQ",2,2016-08-10,"Histiocytic sarcoma","","final",1,1,0,1
+"grls40UEVBZZ",6,2022-01-02,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grls41KXYJXX",8,2022-07-15,"Vestibular disease","","presumptive",3,1,0,0
+"grls43D0DWTT",7,2022-06-23,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grls442TB755",6,2020-07-22,"Hemangiosarcoma - cardiac","","definitive",1,1,0,0
+"grls44G5RDKK",4,2018-04-08,"Hemangiosarcoma - cutaneous","","final",1,0,0,1
+"grls44G5RDKK",4,2018-09-12,"Lymphoma - multicentric","not_typed","definitive",2,0,0,1
+"grls44G5RDKK",4,2018-10-01,"Sepsis","","definitive",1,1,0,0
+"grls44MCF9HH",2,2015-10-19,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls44MCF9HH",7,2020-05-15,"Adenocarcinoma - exocrine pancreatic","","definitive",1,1,0,1
+"grls45CVROHH",3,2017-05-30,"Soft tissue sarcoma - fibrosarcoma","1","definitive",1,0,0,0
+"grls45CVROHH",7,2021-09-30,"Carcinoma - thyroid","","definitive",2,0,0,0
+"grls45CVROHH",8,2022-06-07,"Histiocytic sarcoma","","final",1,1,0,1
+"grls4682PDD",0,2014-12-04,"Lymphoma - multicentric","b_cell","definitive",1,1,0,0
+"grls47042K22",7,2021-08-07,"Hemangiosarcoma - splenic","","definitive",1,1,0,1
+"grls48JENUHH",7,2022-08-23,"Hemangiosarcoma - other/not specified","","final",1,1,0,1
+"grls4B6MVFSS",6,2021-03-17,"Carcinoma - other/not specified","","definitive",1,1,0,0
+"grls4BWUAF88",9,2022-07-16,"Renal failure","","presumptive",3,1,0,0
+"grls4DNO53YY",5,2020-09-01,"Microsystem exposure","","presumptive",3,1,0,0
+"grls4ECUQR11",4,2018-09-25,"Soft tissue sarcoma - fibrosarcoma","3","final",1,1,0,1
+"grls4EIELLL",1,2016-03-01,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grls4EIELLL",4,2018-08-13,"Cardiomyopathy - dilated","","presumptive",3,1,0,0
+"grls4EZBX0GG",9,2022-02-28,"Malignant melanoma","","final",1,1,0,1
+"grls4HGXB5CC",4,2018-03-06,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grls4J747PUU",5,2020-04-16,"Mast cell tumor - subcutaneous","not_typed","definitive",1,0,0,1
+"grls4J747PUU",5,2020-04-21,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grls4J747PUU",6,2020-12-15,"Lymphoma - multicentric","t_zone","final",1,0,0,1
+"grls4JKVS2BB",7,2020-04-10,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grls4KPIIIUU",5,2019-01-18,"Mast cell tumor - subcutaneous","low","final",1,0,0,1
+"grls4KPIIIUU",5,2019-02-15,"Surgical complications","","presumptive",3,1,0,1
+"grls4LWRXNKK",4,2018-02-09,"Indeterminate","","final",1,1,0,1
+"grls4M9RF144",7,2020-07-16,"Lymphoma - multicentric","t_cell","final",1,1,1,1
+"grls4NXSGXTT",7,2020-09-24,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grls4OE3SCNN",7,2022-04-23,"Osteosarcoma - appendicular","","presumptive",2,0,0,1
+"grls4Q4L3EDD",7,2020-01-29,"Soft tissue sarcoma - other/not specified","3","final",1,1,0,1
+"grls4QLTUUDD",5,2019-11-12,"Hemangiosarcoma - visceral","","definitive",1,1,0,1
+"grls4QMUYS99",5,2018-10-04,"Trauma - other/not specified","","definitive",3,1,0,0
+"grls4V37K977",7,2021-03-16,"Sepsis","","final",1,1,0,1
+"grls4XHMR99",5,2020-06-30,"Mast cell tumor - cutaneous","2_high","definitive",1,0,0,1
+"grls4XHMR99",6,2021-05-27,"Mast cell tumor - cutaneous","3_high","final",1,1,1,1
+"grls4XT6VO22",8,2022-05-31,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grls4Z3O47CC",6,2019-10-22,"Leukemia","t_zone","final",1,0,0,1
+"grls4Z3O47CC",7,2020-07-05,"Soft tissue sarcoma - synovial cell sarcoma","1","definitive",1,1,0,1
+"grls4ZTLI2JJ",7,2021-11-09,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grls54PZRMMM",1,2015-09-25,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grls54QYO55",7,2022-07-26,"Lymphoma - multicentric","t_cell","final",2,1,0,1
+"grls54WONKZZ",5,2020-03-16,"Lymphoma - multicentric","not_typed","final",1,1,0,1
+"grls5663T6FF",2,2015-01-23,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls5663T6FF",7,2020-05-14,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls59G471TT",3,2016-11-21,"Mesenteric volvulus","","presumptive",1,1,0,0
+"grls59HBPYNN",8,2021-08-19,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grls5EAENJGG",7,2022-05-07,"Hemangiosarcoma - splenic","","definitive",1,1,0,0
+"grls5EIKG100",6,2021-11-18,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls5FUZ8KBB",4,2017-12-11,"Soft tissue sarcoma - other/not specified","1","final",1,0,0,1
+"grls5I2EVV77",8,2022-06-18,"Unknown neoplasia","","presumptive",2,0,0,1
+"grls5I2EVV77",9,2022-07-13,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grls5JZQZUOO",1,2016-09-04,"Sepsis","","definitive",1,1,0,0
+"grls5KRMWDUU",7,2021-08-21,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grls5Q8YPTEE",5,2020-07-06,"Mast cell tumor - cutaneous","1_low","definitive",1,0,0,0
+"grls5Q9DCLWW",6,2021-05-14,"Carcinoma - hepatocellular","","final",1,1,0,1
+"grls5SCT2RNN",6,2021-05-29,"Hemangiosarcoma - visceral","","presumptive",2,1,0,0
+"grls5TD8U6QQ",3,2016-07-13,"Malignant melanoma","low","final",1,0,0,1
+"grls5TD8U6QQ",8,2021-12-13,"Soft tissue sarcoma - other/not specified","2","final",1,0,0,1
+"grls5TD8U6QQ",8,2021-06-23,"Lymphoma - multicentric","t_zone","definitive",1,1,0,1
+"grls5WX99411",6,2021-04-18,"Hemangiosarcoma - other/not specified","","final",1,1,0,1
+"grls5XCVFHTT",7,2021-03-24,"Undifferentiated malignant neoplasm","","final",1,1,0,1
+"grls5XHD544",7,2021-04-14,"Chondrosarcoma","","final",1,1,0,1
+"grls5YPXBRXX",8,2021-10-10,"Indeterminate","","final",3,1,0,1
+"grls605WYO22",8,2022-07-27,"Hemangiosarcoma - cardiac","","presumptive",3,1,0,0
+"grls60PTJPGG",4,2017-11-26,"Granulomatous meningoencephalitis","","definitive",1,1,0,0
+"grls63KWVPOO",5,2020-09-18,"Hemangiosarcoma - cutaneous","","definitive",1,0,0,0
+"grls64EPIG88",4,2019-07-12,"Lymphoma - gastrointestinal","b_cell","final",1,1,0,1
+"grls64JASD99",6,2020-04-29,"Soft tissue sarcoma - peripheral nerve sheath tumor","1","definitive",1,0,0,0
+"grls680CAS33",7,2020-06-18,"Osteosarcoma - appendicular","","presumptive",2,1,0,0
+"grls69OEY100",4,2019-06-22,"Chronic enteropathy","","presumptive",2,1,0,1
+"grls6BWVSHKK",6,2021-12-15,"Osteosarcoma - other/unspecified","","final",1,1,0,1
+"grls6JBFIH66",7,2021-09-22,"Soft tissue sarcoma - synovial cell sarcoma","","definitive",1,0,0,1
+"grls6K12UGYY",8,2022-04-21,"Leukemia","t_zone","definitive",1,0,0,0
+"grls6L5GEWII",6,2019-11-18,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grls6QM3ZGEE",4,2017-07-18,"Hemangiosarcoma - other/not specified","","definitive",1,1,0,1
+"grls6RRHX4TT",6,2021-04-01,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grls6TMBXLHH",7,2022-05-12,"Hemangiosarcoma - splenic","","definitive",1,1,0,0
+"grls6W6FNLOO",4,2017-11-15,"Lymphoma - gastrointestinal","not_typed","final",1,1,0,1
+"grls6XAJBBKK",6,2022-01-31,"Histiocytic sarcoma","","final",1,1,0,1
+"grls6ZGFMO99",4,2018-03-30,"Trauma - fire","","definitive",3,1,0,0
+"grls70CT1KYY",4,2019-06-13,"Mast cell tumor - subcutaneous","low","definitive",1,0,0,1
+"grls734CP6GG",8,2022-01-31,"Unknown neoplasia","","presumptive",3,1,0,0
+"grls73WC42UU",1,2016-02-12,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls75DYUD22",6,2019-07-10,"Carcinoma - thyroid","","definitive",1,0,0,0
+"grls7831P9BB",6,2020-04-15,"Unknown","","presumptive",3,1,0,0
+"grls7A730Z22",9,2022-05-02,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grls7AXC61II",8,2021-09-18,"Lymphoma - multicentric","t_cell","final",1,1,0,1
+"grls7AXC61II",8,2021-09-18,"Splenic stromal sarcoma","","final",1,0,0,1
+"grls7BDL80OO",7,2020-08-04,"Hemangiosarcoma - cardiac","","definitive",1,1,0,1
+"grls7DPE0X77",1,2015-01-27,"CNS symptoms","","presumptive",3,1,0,1
+"grls7I9S01RR",6,2020-03-11,"Lymphoma - multicentric","peripheral_t_cell","final",1,1,0,1
+"grls7K6Z7LXX",3,2016-11-16,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grls7K7O3OJJ",6,2019-10-14,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grls7MGT13UU",6,2021-08-14,"Adenocarcinoma - other/not specified","","definitive",1,1,0,0
+"grls7O2759MM",7,2022-08-17,"Carcinoma - squamous cell","","final",2,1,0,1
+"grls7O56EF66",0,2014-09-21,"Trauma - hit by car","","definitive",3,1,0,0
+"grls7P1KEJVV",6,2021-05-17,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grls7P4NN355",7,2021-02-16,"Osteosarcoma - axial","","final",1,1,0,1
+"grls7PXINLII",5,2020-01-25,"Unknown","","definitive",3,1,0,0
+"grls7R3WBEEE",5,2018-12-13,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls7R3WBEEE",9,2022-07-23,"Hemangiosarcoma - cutaneous","","final",2,1,0,1
+"grls7RFFFN33",6,2019-07-23,"Osteosarcoma - axial","","final",1,1,0,1
+"grls7W3BTUSS",7,2021-07-12,"Carcinoma - choroid plexus","","final",1,1,0,1
+"grls80BUDJKK",8,2021-09-21,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grls83C2TLMM",5,2019-09-24,"Lymphoma - other/not specified","diffuse_large_b_cell","definitive",1,1,0,1
+"grls83VQG44",9,2022-08-10,"Lymphoma - multicentric","not_typed","definitive",1,1,0,1
+"grls85B5C844",8,2021-09-02,"Lymphoma - multicentric","t_zone","definitive",1,0,0,1
+"grls88B2P9DD",7,2020-11-17,"Soft tissue sarcoma - other/not specified","3_high","final",1,1,0,1
+"grls8EJ7OW99",8,2021-05-02,"Lymphoma - multicentric","peripheral_t_cell","final",1,1,0,1
+"grls8FWJRAZZ",6,2021-01-26,"Lymphoma - multicentric","not_typed","definitive",1,1,0,1
+"grls8HJGF3NN",7,2021-08-20,"Unknown neoplasia","","presumptive",3,1,0,0
+"grls8J9DC77",3,2017-06-04,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls8M4HB3BB",4,2018-11-01,"Carcinoma - nasal","","definitive",1,1,0,1
+"grls8P7Z4RUU",3,2017-12-08,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grls8P7Z4RUU",6,2020-10-20,"Hemangiosarcoma - cardiac","","definitive",1,1,0,0
+"grls8R0VZMGG",7,2022-04-18,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grls8T32TPNN",4,2018-04-09,"Lymphoma - multicentric","not_typed","definitive",1,1,0,1
+"grls8TUR3477",6,2021-03-05,"Hemangiosarcoma - other/not specified","","final",1,1,0,1
+"grls8VMEW0YY",4,2018-06-29,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grls8XI1BWCC",6,2020-02-29,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grls90WV0NUU",5,2019-10-07,"Soft tissue sarcoma - other/not specified","1","definitive",1,0,0,0
+"grls92KOGF00",6,2019-07-18,"Hemangiosarcoma - cardiac","","definitive",1,1,0,1
+"grls92KYJ99",3,2018-07-29,"Unknown","","presumptive",3,1,0,0
+"grls97GJL8II",7,2021-02-17,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grls988OLG66",0,2015-01-28,"Carcinoma - basosquamous cell","not_typed","final",1,0,0,1
+"grls98S1K544",8,2022-06-13,"Hemangiosarcoma - other/not specified","","presumptive",2,1,0,1
+"grls99LNEEKK",7,2020-11-10,"Lymphoma - other/not specified","not_typed","definitive",1,0,0,1
+"grls99LNEEKK",7,2021-06-24,"Malignant melanoma","","presumptive",3,1,0,0
+"grls9BWN12DD",7,2022-08-09,"Cutaneous melanoma","","final",1,0,0,1
+"grls9DKH3N88",6,2020-12-10,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grls9EM622",8,2021-10-28,"Lymphoma - cutaneous","t_cell_other","final",3,0,0,1
+"grls9EM622",8,2021-12-08,"CNS symptoms","","definitive",3,1,0,0
+"grls9FFL6MEE",3,2019-02-28,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grls9GMRJACC",4,2019-03-05,"Mast cell tumor - subcutaneous","not_typed","definitive",1,0,0,1
+"grls9GMRJACC",6,2021-02-10,"Undifferentiated malignant neoplasm","","final",1,1,0,1
+"grls9HB14OLL",7,2022-06-29,"Hemangiosarcoma - cardiac","","presumptive",3,1,0,0
+"grls9HL5S11",4,2019-05-22,"Carcinoma - neuroendocrine","","final",1,1,0,1
+"grls9I2EHEE",7,2021-03-01,"Carcinosarcoma - thyroid","","final",1,0,0,1
+"grls9I2EHEE",7,2021-03-01,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grls9INU92LL",6,2020-10-02,"Lymphoma - multicentric","t_zone","final",1,0,0,1
+"grls9INU92LL",6,2020-12-15,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grls9IT3JWBB",7,2021-09-08,"Hemangiosarcoma - visceral","","definitive",1,1,0,0
+"grls9MYOR7II",7,2021-09-30,"Pulmonary edema","","presumptive",3,1,0,0
+"grls9N307L55",1,2015-11-19,"Lymphoma - multicentric","not_typed","definitive",1,1,0,1
+"grls9NWXF322",8,2022-07-28,"Lymphoma - multicentric","not_typed","definitive",1,1,0,0
+"grls9NZ8HLWW",5,2017-12-13,"Hemangiosarcoma - cardiac","","definitive",1,1,0,0
+"grls9PDGJLRR",6,2021-07-12,"Soft tissue sarcoma - other/not specified","","definitive",1,0,0,0
+"grls9QYBMVCC",7,2022-06-15,"Hemangiosarcoma - visceral","","definitive",1,1,0,1
+"grls9RUTVFMM",2,2017-09-27,"Histiocytic sarcoma","","final",1,1,0,1
+"grls9T8KRFQQ",1,2015-07-24,"Unknown","","presumptive",3,1,0,1
+"grls9TCORNYY",5,2020-05-27,"Acute collapse","","presumptive",3,1,0,1
+"grls9U0PVBQQ",8,2022-05-24,"Obesity","","presumptive",3,1,0,0
+"grls9UBFUUCC",6,2020-07-21,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grls9ZG7XWKK",8,2020-12-25,"CNS symptoms","","presumptive",3,1,0,0
+"grls9ZOSMBXX",9,2022-05-22,"Hemangiosarcoma - splenic","","presumptive",3,1,0,0
+"grlsA4CWD677",3,2018-11-05,"Lymphoma - multicentric","peripheral_t_cell","final",1,1,0,1
+"grlsA71DQVVV",7,2022-04-03,"Pericardial effusion","","definitive",2,1,0,0
+"grlsA7OKMPTT",2,2017-01-19,"Histiocytic sarcoma","","final",1,0,0,1
+"grlsA8NCG6",3,2017-06-14,"Mast cell tumor - other/not specified","2_low","final",1,0,0,1
+"grlsA8NCG6",6,2019-11-23,"Cardiomyopathy - dilated","","definitive",2,1,0,0
+"grlsAGEYKUYY",6,2019-10-31,"Malignant pilomatricoma","","definitive",1,0,0,1
+"grlsAIB7LTHH",7,2021-11-19,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsALZ9WRII",5,2019-07-21,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsAQQ3B7GG",7,2021-11-12,"Lymphoma - multicentric","peripheral_t_cell","final",1,1,0,1
+"grlsASIRG7QQ",3,2017-09-11,"Aggression","","presumptive",3,1,0,0
+"grlsAUBHHFF",1,2015-01-08,"Lymphoma - multicentric","t_cell","definitive",1,0,0,0
+"grlsAW2B2ESS",4,2017-12-21,"Soft tissue sarcoma - peripheral nerve sheath tumor","1","definitive",1,0,0,1
+"grlsAW2B2ESS",6,2019-11-09,"Hemangiosarcoma - visceral","","definitive",1,1,0,1
+"grlsAWPFNEXX",6,2020-07-13,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,1
+"grlsAYTJ8CEE",7,2022-02-28,"Spleen tumor","","presumptive",3,1,0,0
+"grlsB1QL68DD",6,2021-03-11,"Testicular tumor","","definitive",1,0,0,0
+"grlsB6JZV399",2,2017-09-11,"Aggression","","presumptive",3,1,0,0
+"grlsBANWX1MM",7,2021-10-03,"Carcinoma - neuroendocrine","","final",1,1,0,1
+"grlsBAXI8KCC",0,2013-06-21,"Cardiac arrest","","definitive",1,1,0,0
+"grlsBBNS48MM",2,2016-06-15,"Brain tumor","","definitive",2,1,0,1
+"grlsBCQUJ311",7,2021-10-18,"Sarcoma","","definitive",2,1,0,1
+"grlsBG5S4R99",6,2019-11-07,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsBG5S4R99",6,2019-11-07,"Hemangiosarcoma - cutaneous","2","final",1,0,0,1
+"grlsBJTD3O55",7,2022-01-31,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsBJTD3O55",7,2021-11-02,"Oral melanoma","","final",1,0,0,1
+"grlsBLN9PL88",7,2021-07-27,"Leukemia","t_zone","definitive",1,0,0,0
+"grlsBMZY1XAA",6,2020-09-03,"Soft tissue sarcoma - peripheral nerve sheath tumor","","definitive",1,0,0,0
+"grlsBRU738NN",8,2021-11-19,"Hemangiosarcoma - cutaneous","","final",1,0,0,1
+"grlsBRU738NN",8,2022-02-07,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsBT3UCT66",7,2021-01-29,"Gastrointestinal stromal tumor","","final",1,0,0,1
+"grlsBT3UCT66",7,2021-01-29,"Carcinoma - hepatocellular","","final",1,0,0,1
+"grlsBT3UCT66",9,2022-06-06,"Lymphoma - other/not specified","b_cell","presumptive",2,0,0,0
+"grlsBUJQ1711",4,2019-09-24,"Hemangiosarcoma - cutaneous","","final",1,0,0,1
+"grlsBWTOXKOO",7,2022-05-24,"Sarcoma","","final",2,1,0,1
+"grlsBZN204WW",7,2021-10-27,"Lymphoma - gastrointestinal","t_cell","final",1,1,0,1
+"grlsC0EX4933",5,2018-10-17,"Surgical complications","","presumptive",3,1,0,0
+"grlsC12QLSMM",2,2017-12-01,"Lymphoma - multicentric","diffuse_large_b_cell","definitive",1,1,0,0
+"grlsC223U4UU",7,2022-01-28,"Adenocarcinoma - apocrine gland anal sac","","final",1,1,0,1
+"grlsC4G2DW00",3,2018-05-21,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grlsC4G2DW00",6,2021-02-11,"Lymphoma - other/not specified","t_cell","definitive",2,1,0,0
+"grlsC5YM2HWW",8,2021-05-27,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsC6XXSJJ",2,2017-07-19,"Soft tissue sarcoma - fibrosarcoma","1","final",1,0,0,1
+"grlsC78EUT77",5,2019-08-11,"Abscess","","final",1,1,0,1
+"grlsC7JB7P22",7,2021-08-18,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsC9B96YUU",7,2021-05-02,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsCA7P8U44",8,2022-02-17,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsCDYP41YY",5,2020-05-06,"Mast cell tumor - subcutaneous","low","definitive",1,0,0,0
+"grlsCFB5KPYY",8,2021-11-19,"Malignant melanoma","","final",1,0,0,1
+"grlsCIKG01XX",5,2019-07-05,"Carcinoma - basal cell","","definitive",1,0,0,0
+"grlsCIKG01XX",7,2022-03-18,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsCIKG01XX",7,2022-03-18,"Soft tissue sarcoma - undifferentiated sarcoma","","definitive",1,0,0,0
+"grlsCK0ZKIOO",6,2021-04-05,"Lymphoma - multicentric","t_zone","final",1,1,0,1
+"grlsCO0LHTKK",8,2022-02-27,"Hemangiosarcoma - splenic","","presumptive",3,1,0,0
+"grlsCO33X566",5,2019-12-03,"Multiple myeloma","","definitive",1,0,0,1
+"grlsCPP2Z3DD",6,2020-11-15,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsCQG3CGNN",6,2021-08-31,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsCRI31Y66",7,2020-12-04,"Soft tissue sarcoma - perivascular wall tumor","2","final",1,0,0,1
+"grlsCRI31Y66",7,2021-10-19,"Mast cell tumor - other/not specified","not_typed","definitive",1,1,0,1
+"grlsCSRZJ566",7,2020-05-26,"Hemangiosarcoma - splenic","","definitive",1,1,0,1
+"grlsCTEORNN",7,2020-11-25,"Adenocarcinoma - apocrine gland anal sac","","definitive",1,1,0,0
+"grlsCUVRYMPP",7,2022-02-03,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsCW6YD533",6,2019-01-25,"Mast cell tumor - subcutaneous","not_typed","final",1,0,0,1
+"grlsCXF6PBOO",7,2022-03-11,"Lymphoma - cutaneous","epitheliotrophic","definitive",1,1,0,0
+"grlsCZD67766",8,2021-06-14,"Unknown","","presumptive",3,1,0,0
+"grlsD0EV1NN",7,2020-05-29,"Soft tissue sarcoma - fibrosarcoma","","final",1,1,0,1
+"grlsD1ENIKHH",0,2015-06-10,"Trauma - heat stroke","","definitive",1,1,0,1
+"grlsD5552K66",4,2019-01-18,"Lymphoma - multicentric","marginal_zone","final",1,1,0,1
+"grlsD67R1LRR",6,2020-08-04,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsD6LX6AXX",4,2019-10-21,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsD9J05XPP",8,2022-06-24,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsD9J05XPP",8,2022-06-24,"Carcinoma - pulmonary","1","final",1,0,0,1
+"grlsDBV9O699",9,2022-08-09,"Adenocarcinoma - other/not specified","","final",1,1,0,1
+"grlsDC6NBZBB",7,2022-01-11,"Hemangiosarcoma - cardiac","","final",1,0,0,1
+"grlsDC6NBZBB",7,2022-01-11,"Acute heart failure","","definitive",1,1,0,0
+"grlsDEDRORVV",6,2020-01-14,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grlsDFAV444",7,2020-11-11,"Lymphoma - cutaneous","not_typed","definitive",1,1,0,0
+"grlsDG2CM7HH",3,2016-10-14,"Lymphoma - cutaneous","b_cell","final",1,0,0,1
+"grlsDG2CM7HH",3,2016-10-14,"CNS tumor","","presumptive",3,1,0,0
+"grlsDGDF4Q33",9,2022-07-13,"Soft tissue sarcoma - other/not specified","2","final",1,0,0,1
+"grlsDGF143",5,2019-11-12,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grlsDGZD63NN",7,2021-02-10,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsDI1TMMZZ",3,2016-09-23,"Soft tissue sarcoma - other/not specified","2","final",1,0,0,1
+"grlsDI1TMMZZ",3,2017-02-10,"Round cell tumor","","final",1,1,0,1
+"grlsDIFKQ033",3,2018-08-03,"Osteosarcoma - appendicular","","final",1,0,0,1
+"grlsDIFKQ033",3,2018-09-20,"Foreign body complications","","presumptive",1,1,0,0
+"grlsDIJ7PCCC",6,2020-10-08,"Lymphoma - multicentric","not_typed","definitive",1,1,0,1
+"grlsDK4GJX99",9,2022-08-04,"Soft tissue sarcoma - other/not specified","3","final",1,0,0,1
+"grlsDNITGKFF",7,2021-09-27,"Carcinoma - other/not specified","","final",1,1,0,1
+"grlsDO2VF8ZZ",2,2017-08-09,"Aggression","","presumptive",3,1,0,1
+"grlsDS816Y55",3,2018-04-10,"Pregnancy toxemia","","final",1,1,0,1
+"grlsDUX7BEHH",5,2018-11-15,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsDUX7BEHH",5,2019-07-29,"Malignant trichoepithelioma","","final",1,0,0,1
+"grlsDW39Z1",8,2022-03-24,"Foreign body complications","","presumptive",3,1,0,0
+"grlsDX627P99",7,2020-07-02,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grlsDX627P99",8,2021-12-17,"Mast cell tumor - cutaneous","2_high","final",1,0,0,1
+"grlsDX627P99",8,2021-08-03,"Mast cell tumor - cutaneous","1_low","definitive",1,0,0,0
+"grlsDX627P99",8,2022-05-29,"CNS symptoms","","presumptive",3,1,0,0
+"grlsDZ8RNWMM",7,2020-12-07,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsDZJPVGJJ",4,2019-04-19,"Soft tissue sarcoma - keloidal","1","final",1,0,0,1
+"grlsDZJPVGJJ",7,2022-02-27,"Hemangiosarcoma - splenic","","presumptive",3,1,0,0
+"grlsE0OXG9PP",6,2020-11-11,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsE0PPYZOO",6,2020-03-28,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsE2Q6OBTT",7,2020-10-22,"Lymphoma - multicentric","t_cell_other","definitive",1,0,0,0
+"grlsE2Q6OBTT",8,2021-12-24,"CNS symptoms","","definitive",1,1,0,0
+"grlsE4WF7Y66",7,2020-12-07,"Leukemia","t_cell","definitive",1,0,0,0
+"grlsE4WF7Y66",9,2022-07-21,"Pneumonia","","definitive",1,1,0,0
+"grlsE63P8INN",5,2019-10-16,"Lymphoma - multicentric","b_cell","final",1,1,0,1
+"grlsE71JILHH",6,2020-12-14,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grlsE71JILHH",7,2022-02-21,"Brain tumor","","presumptive",3,1,0,0
+"grlsE9J2YZTT",7,2022-06-14,"Lymphoma - multicentric","t_zone","definitive",1,0,0,1
+"grlsE9MPH2YY",6,2018-12-21,"Soft tissue sarcoma - other/not specified","1_low","final",1,1,0,1
+"grlsE9RSSF44",4,2018-07-08,"Lymphoma - multicentric","peripheral_t_cell","final",1,1,0,1
+"grlsE9SB7KFF",6,2020-06-01,"Hemangiosarcoma - splenic","","presumptive",3,1,0,0
+"grlsECY6GTPP",7,2022-03-15,"Spleen tumor","","presumptive",2,1,0,0
+"grlsEGJEH6HH",4,2018-02-27,"Foreign body complications","","presumptive",3,1,0,0
+"grlsEKM79DXX",6,2020-06-03,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsEL3TT6JJ",6,2021-04-20,"Histiocytic sarcoma","","definitive",2,1,0,1
+"grlsEM40KBMM",7,2022-04-02,"Hemangiosarcoma - splenic","","definitive",1,1,0,0
+"grlsEM8W2TCC",6,2020-10-19,"Cardiomyopathy - dilated","","definitive",1,1,0,0
+"grlsER7M411",4,2018-09-05,"Mast cell tumor - cutaneous","3_high","final",1,0,0,1
+"grlsER7M411",4,2018-05-01,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grlsER7M411",4,2017-10-23,"Mast cell tumor - other/not specified","2_low","definitive",1,0,0,0
+"grlsER7M411",6,2020-01-29,"Mast cell tumor - cutaneous","low","presumptive",3,0,0,0
+"grlsER7M411",7,2021-07-13,"Carcinoma - other/not specified","","definitive",1,0,0,0
+"grlsER7M411",7,2021-07-13,"Mast cell tumor - subcutaneous","low","definitive",1,0,0,0
+"grlsESPFWVBB",5,2019-10-18,"Apocrine gland ductal adenoma","","final",1,0,0,1
+"grlsET2DGV11",3,2018-01-19,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsEUP75WW",6,2021-04-08,"Hemangiosarcoma - cardiac","","definitive",1,1,0,0
+"grlsEX7LHFFF",1,2016-07-22,"Trauma - heat stroke","","definitive",3,1,0,0
+"grlsF0M5YMQQ",4,2017-08-10,"Lymphoma - multicentric","t_cell","presumptive",1,1,0,0
+"grlsF2UFEXHH",7,2022-02-17,"Cardiomyopathy","","final",1,1,0,1
+"grlsF2UZT400",7,2021-12-27,"Hemangiosarcoma - splenic","","definitive",1,1,0,0
+"grlsF32GK0RR",5,2019-09-09,"Mast cell tumor - cutaneous","2_high","definitive",1,0,0,0
+"grlsF73DD644",8,2021-11-23,"Lymphoma - multicentric","b_cell","presumptive",2,1,0,0
+"grlsF744CMII",9,2022-01-08,"Meningioma","","final",1,1,0,1
+"grlsF9CWK9VV",1,2015-01-23,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsFBBILSXX",7,2021-06-30,"Lymphoma - multicentric","t_zone","final",1,1,0,1
+"grlsFBHIU9HH",9,2022-08-10,"Lymphoma - multicentric","diffuse_large_b_cell","definitive",1,1,0,0
+"grlsFC1D8UPP",6,2021-09-03,"Hemangiosarcoma - visceral","","presumptive",2,1,0,0
+"grlsFCKJOZ11",7,2022-04-18,"Chronic renal disease","","presumptive",3,1,0,0
+"grlsFD8D0QRR",8,2022-04-18,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grlsFF3DCAOO",8,2022-05-16,"Adenocarcinoma - mammary","","definitive",1,0,0,0
+"grlsFGFIVFXX",2,2016-11-23,"CNS tumor","","definitive",2,1,0,0
+"grlsFKA8KCJJ",6,2019-08-15,"Hemangiosarcoma - splenic","","definitive",1,1,0,1
+"grlsFLW1MFII",3,2018-03-24,"Histiocytic sarcoma","","definitive",1,1,0,1
+"grlsFMTL4P77",8,2022-07-12,"Carcinoma - thyroid","","final",1,1,0,1
+"grlsFO5R9P88",2,2016-12-26,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsFPN14Q00",3,2017-07-24,"Unknown","","presumptive",3,1,0,0
+"grlsFQBW5JWW",8,2022-03-10,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsFSW6J4TT",3,2019-01-19,"Nasal tumor","","presumptive",3,1,0,0
+"grlsFURN9XVV",8,2021-10-18,"Lymphoma - multicentric","t_zone","definitive",1,0,0,0
+"grlsFW324JTT",6,2020-03-10,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsFXBOOEEE",8,2022-05-10,"Pancreatitis","","final",1,1,0,1
+"grlsFXHF5TPP",6,2020-03-10,"Osteoarthritis","","definitive",2,1,0,0
+"grlsFYWMDHWW",3,2016-08-31,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsG10V3ELL",8,2021-10-25,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsG41VHJBB",3,2018-07-03,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsG41VHJBB",6,2021-03-29,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsG6EFT66",5,2019-05-29,"Soft tissue sarcoma - other/not specified","2","final",1,0,0,1
+"grlsG9W7YYXX",6,2021-05-11,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsGD157RGG",4,2018-08-10,"Immune mediated hemolytic anemia","","presumptive",3,1,0,1
+"grlsGHZTRXLL",7,2020-05-04,"Hemangiosarcoma - visceral","","definitive",1,1,0,1
+"grlsGI26RS66",7,2020-03-26,"Osteoarthritis","","definitive",2,1,0,0
+"grlsGI26RS66",9,2021-11-13,"Carcinoma - thyroid","","final",1,0,0,1
+"grlsGIYIEJ22",8,2021-08-31,"Hemangiosarcoma - splenic","","presumptive",3,1,0,0
+"grlsGJKUYM66",5,2019-06-16,"Hemangiosarcoma - cardiac","","definitive",1,1,0,1
+"grlsGJUFN7II",2,2016-03-18,"Malignant melanoma","","final",1,0,0,1
+"grlsGL9S86MM",4,2018-08-25,"Brain tumor","","presumptive",2,1,0,0
+"grlsGPTN4VUU",7,2021-07-14,"Mast cell tumor - cutaneous","3_high","final",1,0,1,1
+"grlsGPTN4VUU",7,2022-04-06,"Mast cell tumor - cutaneous","3_high","final",1,0,0,1
+"grlsGQEN0GEE",7,2020-02-06,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsGRLXJ333",9,2022-05-18,"Brain tumor","","presumptive",3,1,0,0
+"grlsGSB3BQTT",4,2019-09-23,"Mast cell tumor - subcutaneous","not_typed","final",1,0,0,0
+"grlsGXI98U11",4,2019-02-13,"Hemangiosarcoma - cutaneous","","definitive",1,0,0,0
+"grlsGXI98U11",8,2022-08-01,"Mast cell tumor - cutaneous","1_low","definitive",1,0,0,0
+"grlsGYD8YY55",7,2022-05-01,"Lymphoma - other/not specified","t_zone","definitive",1,0,0,1
+"grlsGZEB79QQ",6,2019-10-28,"CNS symptoms","","presumptive",2,1,0,0
+"grlsH1F97YLL",8,2021-11-08,"Unknown","","final",2,1,0,1
+"grlsH1FCL5JJ",6,2022-01-04,"Lymphoma - multicentric","t_cell","definitive",1,1,0,0
+"grlsH481VBVV",7,2022-08-01,"Unknown neoplasia","","presumptive",2,1,0,0
+"grlsH5J26WOO",5,2020-06-20,"Kidney infection","","presumptive",3,1,0,0
+"grlsH63CO8TT",9,2022-08-18,"Fibroma","","definitive",2,0,0,1
+"grlsH6IJ1Q66",2,2017-04-03,"Pancreatitis","","final",1,1,0,1
+"grlsH764T844",7,2020-01-02,"Carcinoma - mammary","2","final",1,0,0,1
+"grlsH764T844",9,2021-12-13,"Soft tissue sarcoma - other/not specified","1","final",1,0,0,1
+"grlsH7SFCTII",6,2019-08-08,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsH7SFCTII",8,2021-08-04,"Carcinoma - other/not specified","","final",1,1,0,1
+"grlsH8B3X944",5,2019-12-03,"Lymphoma - multicentric","peripheral_t_cell","definitive",1,1,0,0
+"grlsHAIWJKTT",3,2016-08-19,"Epilepsy","","presumptive",3,1,0,1
+"grlsHF70NIII",7,2022-05-27,"Hemangiosarcoma - other/not specified","","final",2,1,0,1
+"grlsHFFAIE55",2,2017-05-12,"Soft tissue sarcoma - other/not specified","1","final",1,0,0,1
+"grlsHFFAIE55",7,2021-12-06,"Acanthomatous ameloblastoma","","final",2,0,0,1
+"grlsHG8T2KPP",3,2018-01-27,"Foreign body complications","","presumptive",3,1,0,0
+"grlsHJDFNY99",8,2022-06-29,"Lymphoma - gastrointestinal","not_typed","definitive",1,1,0,0
+"grlsHJOG0OJJ",8,2021-12-28,"Adenocarcinoma - mammary","","definitive",1,0,0,0
+"grlsHK07NZ11",5,2020-03-03,"Hemangiosarcoma - other/not specified","","final",1,0,0,1
+"grlsHLSFNYOO",7,2021-05-13,"Lymphoma - multicentric","peripheral_t_cell","definitive",1,0,0,1
+"grlsHNWDKEVV",8,2022-08-05,"Hemangiosarcoma - other/not specified","","final",1,1,0,1
+"grlsHNYS5ITT",7,2022-01-27,"Unknown neoplasia","","presumptive",2,0,0,0
+"grlsHO2TSODD",8,2020-12-05,"Carcinoma - transitional cell","","definitive",1,1,0,1
+"grlsHOGPQIDD",8,2022-08-22,"Brain tumor","","presumptive",3,1,0,0
+"grlsHRHVYENN",4,2019-04-12,"Lymphoma - multicentric","not_typed","presumptive",3,1,0,1
+"grlsHRUPI9FF",7,2022-06-06,"Malignant melanoma","","definitive",3,1,0,0
+"grlsHTKHH0CC",6,2020-11-05,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsHU8C0ENN",6,2021-04-08,"Malignant melanoma","","final",1,0,0,1
+"grlsHXB7BKTT",3,2018-09-20,"Lymphoma - multicentric","peripheral_t_cell","final",1,1,0,1
+"grlsHZFJDBB",7,2022-04-14,"Pneumonia","","final",1,1,0,1
+"grlsI19UH466",7,2022-04-08,"Cutaneous melanoma","","definitive",1,0,0,0
+"grlsI4KWZ2ZZ",0,2015-07-10,"Plasma cell tumor","","definitive",1,0,0,0
+"grlsI4RK7W55",6,2020-04-06,"Hemangiosarcoma - splenic","","presumptive",2,1,0,1
+"grlsI5PDR7NN",6,2021-02-18,"Lymphoma - multicentric","t_zone","definitive",1,0,0,0
+"grlsI5PDR7NN",7,2022-05-20,"Hemangiosarcoma - visceral","","definitive",1,1,0,0
+"grlsI61NK22",7,2021-07-14,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsI72KCXWW",8,2021-12-13,"Histiocytic sarcoma","","definitive",1,1,0,0
+"grlsI7T0B888",4,2019-01-02,"Adenocarcinoma - mammary","high","final",1,1,0,1
+"grlsI8B40J88",2,2017-03-27,"Epilepsy","","presumptive",3,1,0,1
+"grlsI8CE766",6,2021-04-28,"Pneumonia","","presumptive",2,1,0,0
+"grlsI8I5YHQQ",7,2021-06-15,"Blastomycosis","","definitive",2,1,0,0
+"grlsI8TC3SCC",8,2021-12-16,"CNS symptoms","","presumptive",3,1,0,0
+"grlsI8TC3SCC",8,2021-12-16,"Renal failure","","definitive",2,0,0,0
+"grlsIC0ZIROO",5,2019-01-25,"Soft tissue sarcoma - other/not specified","1","final",1,0,0,1
+"grlsICW7BS77",9,2021-12-08,"Unknown neoplasia","","presumptive",3,1,0,0
+"grlsICYLHAA",5,2019-02-04,"Foreign body complications","","presumptive",3,1,0,1
+"grlsIDD1SPBB",8,2022-07-22,"Malignant melanoma","not_typed","final",1,0,0,1
+"grlsIELLVB99",7,2022-02-11,"Soft tissue sarcoma - other/not specified","","definitive",2,0,0,0
+"grlsIELLVB99",7,2022-02-11,"Soft tissue sarcoma - peripheral nerve sheath tumor","1","definitive",1,0,0,0
+"grlsIELLVB99",7,2022-02-11,"Soft tissue sarcoma - other/not specified","2","definitive",1,0,0,0
+"grlsIF12B9VV",4,2019-08-20,"Lymphoma - other/not specified","t_cell_other","final",1,1,0,1
+"grlsIGWA7XOO",6,2020-12-02,"Soft tissue sarcoma - other/not specified","1","final",1,0,0,1
+"grlsIHEGXMVV",7,2020-09-14,"Hemangiosarcoma - visceral","","definitive",1,1,0,0
+"grlsIJNFU3SS",7,2020-08-20,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsIJVZ1OHH",6,2021-02-11,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsIN2KQ44",5,2020-11-01,"Pulmonary edema","","presumptive",3,1,0,0
+"grlsIO0AFTMM",7,2022-07-18,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsIOYBJHWW",6,2020-05-29,"Intestinal malabsorption","","presumptive",3,1,0,0
+"grlsIR3T6HDD",2,2018-01-18,"Aggression","","presumptive",3,1,0,0
+"grlsIRH5Z6OO",4,2019-02-22,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsISDHJHSS",9,2022-04-12,"Unknown neoplasia","","presumptive",3,1,0,0
+"grlsITBPWOUU",7,2022-06-06,"Meibomian gland epithelioma","","definitive",1,0,0,0
+"grlsIY49NKWW",5,2019-02-02,"Lymphoma - multicentric","diffuse_large_b_cell","definitive",1,1,0,0
+"grlsIZERCUKK",3,2018-11-07,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grlsJ04CMUEE",8,2021-11-12,"Mast cell tumor - subcutaneous","2_high","definitive",1,1,0,0
+"grlsJ2G2QC33",5,2019-02-09,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsJ50F6277",6,2021-02-09,"Soft tissue sarcoma - undifferentiated sarcoma","","final",1,1,0,1
+"grlsJ6C2KJJ",5,2018-09-12,"Lymphoma - gastrointestinal","other","final",1,1,0,1
+"grlsJ6EIUS00",7,2020-07-07,"Degenerative myelopathy","","final",1,1,0,1
+"grlsJ6GZXBKK",7,2020-09-23,"Renal failure","","final",1,1,0,1
+"grlsJ6NBWSJJ",7,2022-08-03,"Hemangiosarcoma - cardiac","","presumptive",3,1,0,0
+"grlsJ7BVMRZZ",3,2018-10-23,"Lymphoma - multicentric","peripheral_t_cell","final",1,1,0,1
+"grlsJ7RDPHKK",5,2020-12-20,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsJ83YMRR",9,2022-06-17,"Chronic renal disease","","presumptive",3,1,0,0
+"grlsJBW4CYRR",8,2021-06-15,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsJCG0D1XX",5,2020-06-15,"Mast cell tumor - cutaneous","2_high","definitive",1,0,0,0
+"grlsJCG0D1XX",6,2022-02-24,"Mast cell tumor - other/not specified","not_typed","definitive",1,1,0,0
+"grlsJFENDW44",7,2021-02-01,"Osteoarthritis","","presumptive",3,1,0,0
+"grlsJGWHBXMM",6,2020-03-15,"Hemangiosarcoma - splenic","","presumptive",3,1,0,0
+"grlsJNBT5M66",7,2022-08-02,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsJO1ADY55",6,2019-05-15,"Anaplastic sarcoma","","final",1,1,0,1
+"grlsJPSLZI99",6,2019-05-24,"Carcinoma - hepatocellular","","final",1,0,0,1
+"grlsJPUMVCSS",0,2015-11-16,"Lymphoma - multicentric","not_typed","definitive",1,1,0,0
+"grlsJQIU7SQQ",8,2022-08-07,"Benign hyperplasia","","definitive",2,0,0,1
+"grlsJX4I57SS",6,2021-04-07,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,1
+"grlsJXT6SU11",6,2020-04-22,"Mast cell tumor - cutaneous","2_high","definitive",1,0,0,0
+"grlsJZ8LQDRR",3,2016-06-10,"Lymphoma - gastrointestinal","b_cell","final",1,1,0,1
+"grlsJZMYLXUU",7,2021-10-05,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsK1SQLTTT",5,2019-11-12,"Osteosarcoma - appendicular","","definitive",1,1,0,1
+"grlsK5ZQCBB",7,2022-04-01,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grlsK7SQKOAA",8,2021-12-21,"Hemangiosarcoma - cutaneous","","final",1,0,0,1
+"grlsKBC5OMNN",5,2019-10-16,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grlsKC9OFFBB",7,2022-04-22,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsKJ6GK277",1,2015-06-11,"Trauma - hit by car","","definitive",3,1,0,0
+"grlsKJBK2WCC",9,2021-11-09,"Hemangiosarcoma - splenic","","presumptive",3,1,0,0
+"grlsKOFQ3044",7,2020-06-17,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsKPFOP8UU",7,2022-07-11,"Lymphoma - multicentric","t_zone","definitive",1,0,0,0
+"grlsKQI3IJII",5,2020-03-01,"Carcinoma - cerumin gland","","presumptive",2,1,0,1
+"grlsKRQ2F4FF",4,2017-10-13,"Leukemia","t_cell","final",1,1,0,1
+"grlsKRRYGSSS",7,2021-03-26,"Soft tissue sarcoma - peripheral nerve sheath tumor","","definitive",2,1,0,0
+"grlsKSPNFT22",6,2019-02-18,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsKSPNFT22",8,2020-10-13,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsKT7FHXSS",7,2020-09-24,"Cutaneous melanoma","","definitive",1,0,0,0
+"grlsKT7FHXSS",8,2021-11-18,"Carcinoma - other/not specified","","definitive",1,0,0,1
+"grlsKT7FHXSS",8,2021-11-18,"Cardiomyopathy - dilated","","definitive",2,1,0,0
+"grlsKT7FHXSS",8,2021-11-18,"Adenocarcinoma - other/not specified","","definitive",2,0,0,0
+"grlsKTIEQWPP",8,2022-02-28,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsKTQEYMKK",7,2022-07-13,"Lymphoma - multicentric","other","presumptive",2,1,0,0
+"grlsKUEUNUEE",5,2020-07-28,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsKV1Y6SOO",6,2019-07-30,"Soft tissue sarcoma - spindle cell sarcoma","low","definitive",1,0,0,1
+"grlsKV1Y6SOO",8,2021-12-15,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsKV1Y6SOO",8,2021-12-29,"Carcinoma - neuroendocrine","","definitive",1,0,0,0
+"grlsKX8G1OO",5,2019-12-23,"Lymphoma - gastrointestinal","not_typed","presumptive",2,1,0,0
+"grlsKY2U62AA",1,2015-10-21,"Chocolate toxicity","","definitive",2,1,0,1
+"grlsKYFC2IPP",6,2021-03-17,"Soft tissue sarcoma - spindle cell sarcoma","1","definitive",1,0,0,0
+"grlsKYFC2IPP",7,2022-04-25,"Hemangiosarcoma - other/not specified","","presumptive",2,1,0,0
+"grlsL11M8L44",5,2020-08-18,"Unknown","","presumptive",3,1,0,0
+"grlsL236FZEE",3,2017-05-31,"Nephroblastoma","","final",1,1,0,1
+"grlsL4XIM1FF",8,2022-01-26,"Sepsis","","presumptive",3,1,0,0
+"grlsL7E2G6QQ",7,2021-10-10,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsL7EU8JJJ",6,2020-05-14,"Soft tissue sarcoma - fibrosarcoma","","definitive",1,1,0,1
+"grlsLE6Y7BPP",3,2018-02-28,"Leukemia","acute_leukemia","final",1,1,0,1
+"grlsLFOHPMNN",9,2021-09-29,"Unknown","","presumptive",3,1,0,0
+"grlsLKJCPSS",8,2022-08-16,"Hemangiosarcoma - cardiac","","presumptive",3,1,0,0
+"grlsLLH2XVSS",7,2022-06-05,"Histiocytic sarcoma","","final",1,0,0,1
+"grlsLLH2XVSS",7,2022-06-05,"Pyometra","","presumptive",3,1,0,0
+"grlsLLJFP811",4,2017-10-23,"Inflammatory bowel disease","","final",1,1,0,1
+"grlsLMEV166",6,2019-08-28,"Liposarcoma","","definitive",1,0,0,0
+"grlsLMEV166",7,2021-04-10,"Carcinoma - nasal","","final",2,1,0,1
+"grlsLMFO85WW",3,2016-04-13,"Subarachnoid diverticula","","definitive",2,1,0,0
+"grlsLP468HQQ",9,2022-04-10,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsLP468HQQ",9,2022-04-10,"Meningioma","","definitive",1,0,0,0
+"grlsLP468HQQ",9,2022-03-15,"Soft tissue sarcoma - undifferentiated sarcoma","","definitive",1,0,0,0
+"grlsLPJ4PKTT",5,2020-05-29,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsLS9QDI55",9,2022-05-21,"Diarrhea","","presumptive",3,1,0,0
+"grlsLTT9QPPP",6,2021-06-23,"Unknown","","presumptive",3,1,0,0
+"grlsLZHJ6B33",8,2022-05-17,"Hemangiosarcoma - splenic","","definitive",1,0,0,0
+"grlsM1IE4PUU",4,2019-02-26,"Carcinoma - pulmonary","3","final",1,1,0,1
+"grlsM2WNE1LL",5,2020-01-27,"Mast cell tumor - subcutaneous","not_typed","definitive",1,0,0,0
+"grlsM4XBMROO",6,2021-06-16,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsM6DVEOJJ",7,2022-01-07,"Lymphoma - multicentric","t_zone","definitive",1,0,0,0
+"grlsM77ODPWW",7,2021-02-10,"Adenocarcinoma - apocrine gland anal sac","","definitive",1,0,0,0
+"grlsM77ODPWW",7,2021-10-18,"Mast cell tumor - subcutaneous","low","definitive",1,0,0,0
+"grlsM77ODPWW",8,2022-02-22,"Adenocarcinoma - apocrine gland anal sac","","definitive",1,0,1,0
+"grlsM866LITT",4,2018-03-21,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grlsM8FULL66",3,2016-07-27,"Brain tumor","","presumptive",2,1,0,0
+"grlsM8MSLAAA",2,2017-01-05,"Carcinoma - squamous cell","","definitive",1,0,0,1
+"grlsMBV2KEUU",7,2022-05-03,"Adenocarcinoma - apocrine gland anal sac","","final",1,0,0,1
+"grlsMCWWZIVV",7,2021-11-29,"Soft tissue sarcoma - other/not specified","1","final",1,0,0,1
+"grlsMDNH1OCC",7,2021-10-21,"Carcinoma - other/not specified","","definitive",1,0,0,0
+"grlsME01QPPP",7,2022-02-15,"Unknown neoplasia","","presumptive",3,1,0,0
+"grlsME7WSB33",3,2016-10-05,"Trauma - hit by car","","definitive",3,1,0,0
+"grlsMGAPGURR",6,2021-08-13,"Soft tissue sarcoma - fibrosarcoma","","final",1,0,0,1
+"grlsMGE5UI55",8,2022-01-17,"Soft tissue sarcoma - other/not specified","2","final",1,0,0,1
+"grlsMGE5UI55",8,2022-01-17,"Intervertebral disc disease","","definitive",1,1,0,0
+"grlsMGT6NY55",7,2022-04-14,"Hemangiosarcoma - other/not specified","","presumptive",3,1,0,0
+"grlsMH6Q1UZZ",2,2017-03-03,"Hepatitis","","final",1,1,0,1
+"grlsMI3ZSXFF",6,2019-08-23,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grlsMJNZJKDD",7,2022-01-28,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsMKEVKDZZ",5,2018-09-12,"Brain tumor","","presumptive",3,1,0,0
+"grlsMKO0FR44",6,2019-10-31,"Lymphoma - gastrointestinal","t_cell","final",1,1,0,1
+"grlsMM8PZ7PP",5,2019-08-16,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsMN3IWOCC",5,2020-10-30,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsMNT4ZVKK",8,2022-08-23,"Carcinoma - mammary","1","final",1,0,0,1
+"grlsMO697A11",3,2018-01-22,"Mast cell tumor - other/not specified","2_low","final",1,0,0,1
+"grlsMOCF0544",7,2021-03-20,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grlsMP46ZTZZ",3,2018-07-30,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grlsMRYUH",4,2017-10-11,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grlsMSQR2KGG",7,2020-06-30,"Hemangiosarcoma - visceral","","definitive",1,1,0,1
+"grlsMTFZ444",5,2020-06-28,"Soft tissue sarcoma - other/not specified","2","final",1,0,0,1
+"grlsMTFZ444",6,2021-02-17,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsMTFZ444",6,2020-07-27,"Mast cell tumor - cutaneous","2_low","presumptive",3,0,0,0
+"grlsMWI5AP99",7,2020-10-13,"Unknown","","presumptive",3,1,0,0
+"grlsN09TPIMM",6,2020-12-19,"Evan's syndrome","","presumptive",3,1,0,0
+"grlsN2EEIKK",5,2020-05-02,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsN38NYTQQ",7,2022-01-29,"Brain tumor","","final",2,1,0,1
+"grlsN43KG77",8,2021-06-20,"Osteosarcoma - appendicular","","presumptive",2,1,0,0
+"grlsN4RK7ERR",8,2021-12-23,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsN4YA0O33",6,2021-04-29,"Hemangiosarcoma - cardiac","","definitive",1,1,0,0
+"grlsNDQY5Y55",8,2021-08-13,"Hemangiosarcoma - cardiac","","presumptive",3,1,0,0
+"grlsNE16VP22",8,2021-11-13,"Adenocarcinoma - apocrine gland anal sac","","definitive",2,1,0,0
+"grlsNLA1YVWW",6,2021-03-26,"Unknown","","presumptive",3,1,0,1
+"grlsNORN15AA",0,2014-09-11,"Aggression","","presumptive",3,1,0,0
+"grlsNPCJ5533",8,2021-11-30,"CNS symptoms","","presumptive",3,1,0,0
+"grlsNQQIB811",8,2021-10-17,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsNR40CYHH",5,2019-03-28,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsNXR9T1OO",8,2021-11-29,"Plasma cell tumor","","final",1,0,0,1
+"grlsNYYNNTZZ",8,2022-03-25,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsO09CZUVV",6,2020-05-11,"Nasal tumor","","definitive",1,1,0,1
+"grlsO2GZCJSS",7,2022-06-28,"Pericardial effusion","","definitive",1,1,0,1
+"grlsO3BDIVWW",9,2022-01-07,"Hemangiosarcoma - cardiac","","definitive",1,1,0,1
+"grlsO3NBGJ44",3,2017-01-03,"Mast cell tumor - subcutaneous","2_low","final",1,0,0,1
+"grlsO3NBGJ44",7,2021-04-27,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsO45NQLBB",7,2021-04-15,"Hemangiosarcoma - cardiac","","definitive",1,1,0,0
+"grlsO4I5K22",6,2021-11-03,"Soft tissue sarcoma - myxosarcoma","","definitive",1,0,0,0
+"grlsO6ZGI6HH",7,2020-04-29,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsO93PIR55",5,2020-08-02,"Unknown neoplasia","","presumptive",3,1,0,0
+"grlsO9O3O866",6,2021-03-11,"Hemangiosarcoma - splenic","","presumptive",3,1,0,0
+"grlsOBKQCCRR",8,2021-03-25,"Adenocarcinoma - other/not specified","","final",1,0,0,1
+"grlsOBKQCCRR",9,2022-06-28,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsOBKQCCRR",9,2022-06-28,"Adenocarcinoma - other/not specified","","definitive",1,0,0,0
+"grlsOC6LS7RR",8,2021-04-01,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsOFX17FUU",8,2021-08-17,"CNS symptoms","","presumptive",3,1,0,1
+"grlsOGRXTRQQ",8,2022-03-02,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsOH4TYPP",7,2021-12-01,"Mast cell tumor - other/not specified","2_low","final",1,0,0,1
+"grlsOH931S00",6,2019-12-26,"Hemangiosarcoma - cardiac","","definitive",1,1,0,1
+"grlsOIV56RAA",6,2019-10-24,"Foreign body complications","","presumptive",3,1,0,0
+"grlsOMR9B833",7,2020-11-27,"Lymphoma - other/not specified","diffuse_large_b_cell","final",1,1,0,1
+"grlsONZRBVGG",3,2016-02-10,"Mast cell tumor - cutaneous","1_low","definitive",1,0,0,0
+"grlsOOOI48YY",7,2022-06-30,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsOOOMA633",7,2020-01-13,"Lymphoma - multicentric","t_cell","final",1,1,0,1
+"grlsOPAIDMM",6,2018-11-10,"Meningioma","low","presumptive",2,1,0,0
+"grlsOR8RUFF",7,2021-01-22,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grlsOWEYMMOO",7,2020-11-05,"Histiocytic sarcoma","","definitive",1,1,0,0
+"grlsOWFES8PP",7,2021-08-15,"Lymphoma - multicentric","t_zone","definitive",1,0,0,0
+"grlsOXU5V3OO",6,2020-11-05,"Lymphoma - multicentric","diffuse_large_b_cell","definitive",1,1,0,1
+"grlsOZJNWLVV",0,2014-01-08,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsP4UM4RBB",6,2020-08-28,"Lymphoma - multicentric","t_zone","definitive",1,0,0,0
+"grlsP64OVHBB",5,2019-07-02,"Epilepsy","","presumptive",3,1,0,0
+"grlsP72QJKJJ",8,2022-01-14,"Lymphoma - gastrointestinal","not_typed","definitive",1,1,0,0
+"grlsP8NTPTT",0,2014-08-17,"Myasthenia gravis","","presumptive",3,1,0,0
+"grlsP8VUB3JJ",6,2021-05-05,"Renal failure","","presumptive",2,1,0,0
+"grlsP90RNOJJ",6,2020-09-27,"Hemangiosarcoma - visceral","","definitive",1,1,0,0
+"grlsP9JOSSVV",9,2022-06-21,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsPEWFWS33",8,2022-06-21,"Lymphoma - other/not specified","other","presumptive",2,1,0,0
+"grlsPEX66ROO",7,2020-12-21,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grlsPFS0H300",7,2021-05-05,"Hemangiosarcoma - other/not specified","","presumptive",3,0,0,0
+"grlsPFS0H300",8,2022-07-07,"Lymphoma - multicentric","t_zone","final",1,1,0,1
+"grlsPGOLQCVV",8,2022-01-06,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsPGOOG3SS",7,2022-05-04,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsPJGEUQSS",0,2015-03-14,"Foreign body complications","","presumptive",3,1,0,0
+"grlsPJLBR00",6,2021-02-19,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsPJP3KLUU",0,2015-01-13,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grlsPJVPX6LL",6,2020-09-29,"Mast cell tumor - cutaneous","2_low","definitive",1,1,0,0
+"grlsPNSJCRRR",5,2020-09-22,"Lymphoma - other/not specified","other","presumptive",3,1,0,0
+"grlsPOB9W8YY",9,2022-04-18,"Carcinoma - neuroendocrine","","final",1,1,0,1
+"grlsPR5D1FCC",4,2019-06-27,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grlsPRHVI1TT",7,2020-10-21,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsPRKQET99",3,2018-12-26,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsPSGX9B77",7,2020-11-19,"Hemangiosarcoma - cardiac","","presumptive",3,1,0,0
+"grlsPSOP6XOO",7,2021-01-22,"Hemangiosarcoma - splenic","","presumptive",2,1,0,1
+"grlsPSSZFMJJ",9,2022-06-29,"Unknown","","presumptive",3,1,0,0
+"grlsPSXKAS55",8,2020-12-26,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsPWQFUS00",4,2019-09-27,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsPX57555",9,2022-03-17,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsPY4G7NBB",2,2016-01-29,"Renal failure","","presumptive",2,1,0,0
+"grlsPYD0T2BB",7,2022-05-12,"Hemangiosarcoma - splenic","","definitive",1,0,0,0
+"grlsPYFB000",8,2021-10-28,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsQ0VXQ4TT",5,2020-09-14,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsQ1PRHFQQ",7,2021-08-16,"Hemangiosarcoma - cardiac","","presumptive",3,1,0,0
+"grlsQ1ZR1WLL",5,2019-08-03,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsQ20T0I77",6,2019-06-03,"Soft tissue sarcoma - other/not specified","not_typed","presumptive",2,0,0,0
+"grlsQ20T0I77",7,2021-02-12,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsQ317XJZZ",6,2020-02-17,"Lymphoma - other/not specified","not_typed","presumptive",3,1,0,0
+"grlsQ8S41JJ",7,2022-07-25,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsQ8SLO5YY",7,2020-01-23,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsQB0MYGVV",7,2021-11-08,"Unknown neoplasia","","presumptive",2,0,0,0
+"grlsQB0MYGVV",7,2021-11-08,"Immune mediated hemolytic anemia","","presumptive",2,1,0,0
+"grlsQB8LEM77",5,2018-10-28,"CNS symptoms","","presumptive",3,1,0,0
+"grlsQCGOBDLL",8,2021-06-20,"Unknown","","presumptive",3,1,0,0
+"grlsQDPXP9",9,2021-12-19,"Hemangiosarcoma - visceral","","presumptive",3,1,0,0
+"grlsQFKW3CTT",5,2020-02-09,"Lymphoma - multicentric","t_zone","final",1,0,0,1
+"grlsQFKW3CTT",7,2021-04-11,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsQG8YIVYY",5,2020-06-22,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsQGFTFYJJ",4,2019-09-20,"Lymphoma - multicentric","b_cell","final",1,1,0,1
+"grlsQHPLBW22",4,2019-12-21,"Trauma - accident","","presumptive",3,1,0,0
+"grlsQKO57ROO",4,2017-10-27,"Mast cell tumor - subcutaneous","low","final",1,0,0,1
+"grlsQLSYQ8DD",8,2021-04-30,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsQLVJS777",9,2022-07-31,"Pericardial effusion","","presumptive",2,1,0,0
+"grlsQPD5GNUU",7,2022-01-24,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsQS90QGZZ",6,2020-11-09,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsQS90QGZZ",7,2021-11-20,"Unknown","","presumptive",3,1,0,0
+"grlsQUEFMQ88",3,2018-05-04,"Brain tumor","","presumptive",3,1,0,0
+"grlsQUSTS7QQ",2,2015-09-09,"Mast cell tumor - cutaneous","2_high","final",1,0,0,0
+"grlsQUSTS7QQ",5,2018-11-29,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsQUSTS7QQ",8,2021-10-27,"Mast cell tumor - subcutaneous","2_low","final",1,0,0,1
+"grlsQVINB9KK",7,2020-06-22,"Histiocytic sarcoma","","final",1,0,0,1
+"grlsQVINB9KK",8,2021-05-31,"Unknown","","presumptive",3,1,0,0
+"grlsQVL0ZFEE",9,2022-03-20,"Sepsis","","final",2,1,0,1
+"grlsQX4G366",6,2021-11-23,"Soft tissue sarcoma - perivascular wall tumor","1","definitive",1,0,0,0
+"grlsQYLHQ455",3,2018-08-03,"Cardiomyopathy - dilated","","final",1,1,0,1
+"grlsQYVH1XNN",5,2018-06-15,"Lymphoma - gastrointestinal","t_cell","final",1,1,0,1
+"grlsQZUDGZ44",7,2022-04-19,"Osteosarcoma - appendicular","","final",1,0,0,1
+"grlsR00YVY99",5,2020-01-29,"Lymphoma - cutaneous","t_zone","final",1,0,0,1
+"grlsR00YVY99",6,2020-06-14,"Round cell tumor","","definitive",1,0,0,1
+"grlsR00YVY99",7,2021-06-14,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsR38AR777",7,2022-08-17,"Carcinoma - mammary","1","final",1,0,0,1
+"grlsRBYRVGMM",4,2018-10-04,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsRBYRVGMM",6,2020-06-15,"Mast cell tumor - cutaneous","2_low","presumptive",3,0,1,0
+"grlsRC7GLHQQ",8,2022-01-24,"Oral tumor","","presumptive",3,1,0,0
+"grlsRDQWWU44",5,2019-12-01,"Carcinoma - pulmonary","","definitive",1,1,0,0
+"grlsREUM9RDD",6,2022-02-13,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsRH18HHQQ",8,2021-09-13,"Fungal infection","","final",1,1,0,1
+"grlsRHCMP4VV",5,2020-01-21,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsRJ637MKK",7,2021-10-02,"Histiocytic sarcoma","","presumptive",2,1,0,0
+"grlsRKX90IRR",8,2021-06-17,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsRLC7RDEE",8,2022-02-11,"Lymphoma - gastrointestinal","peripheral_t_cell","final",1,0,0,1
+"grlsRM9FC7HH",5,2019-12-09,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grlsRNHML3MM",4,2017-08-23,"Hemangiosarcoma - splenic","","presumptive",2,1,0,1
+"grlsROHG65XX",7,2021-05-18,"Mast cell tumor - cutaneous","3_high","definitive",1,1,0,0
+"grlsROVD4P44",0,2013-04-18,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsROVD4P44",6,2019-08-18,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsRP2416JJ",9,2022-08-23,"Carcinoma - nasal","","presumptive",2,1,0,0
+"grlsRQDEUU",7,2022-05-03,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsRS38IETT",2,2017-12-11,"Hemangiosarcoma - cutaneous","low","definitive",1,0,0,0
+"grlsRS38IETT",7,2022-03-03,"Unknown","","presumptive",3,1,0,0
+"grlsRTE6CR33",8,2021-08-16,"Hemangiosarcoma - splenic","","definitive",1,1,0,0
+"grlsRVOJXM00",7,2019-11-01,"Soft tissue sarcoma - peripheral nerve sheath tumor","","definitive",2,1,0,0
+"grlsRWG7533",9,2021-11-11,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsRWMZKSJJ",8,2021-03-14,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsRXW9AQ55",8,2022-02-09,"Unknown neoplasia","","presumptive",3,1,0,0
+"grlsS1MBLX",4,2019-03-06,"Carcinoma - mammary","3","final",1,1,0,1
+"grlsS1WQW233",7,2021-10-18,"Hemangiosarcoma - cardiac","","presumptive",3,1,0,0
+"grlsS2RFRHMM",8,2022-04-26,"Carcinoma - mammary","3","final",1,1,0,1
+"grlsS5MP02HH",7,2020-10-14,"Soft tissue sarcoma - other/not specified","1","final",1,0,0,1
+"grlsS5MP02HH",8,2021-11-09,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grlsS638JPWW",6,2020-12-10,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grlsS6M51JXX",5,2018-07-20,"Indeterminate","","final",1,1,0,1
+"grlsS7XE7WNN",4,2017-12-26,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,0,0,1
+"grlsS7XE7WNN",8,2021-07-08,"Cardiomyopathy - hypertrophic","","definitive",1,1,0,0
+"grlsS7Y0MC88",7,2021-11-21,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsS8J4DGDD",7,2020-10-08,"Mast cell tumor - cutaneous","2_high","final",1,0,0,1
+"grlsS8J4DGDD",8,2021-04-07,"Mast cell tumor - cutaneous","3_high","final",1,1,0,1
+"grlsS99HCF44",6,2021-05-12,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsSAH71P66",7,2021-11-24,"Hemangiosarcoma - other/not specified","","final",1,1,0,1
+"grlsSAMJ5IXX",7,2022-02-16,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsSAU48E33",0,2015-12-28,"Dysautonomia","","presumptive",3,1,0,0
+"grlsSBR1O1DD",4,2020-01-19,"Brain tumor","","presumptive",3,1,0,0
+"grlsSCESWCMM",6,2021-05-28,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsSCM2C99",2,2016-08-23,"Histiocytic sarcoma","","definitive",1,1,0,1
+"grlsSD3RJBJJ",7,2020-10-15,"Leukemia","acute_leukemia","definitive",1,1,0,0
+"grlsSD91L8VV",7,2022-07-28,"CNS symptoms","","final",3,1,0,1
+"grlsSE979DGG",9,2022-08-22,"Leukemia","acute_myeloid_leukemia","definitive",1,1,0,1
+"grlsSEOXLCQQ",6,2020-11-20,"Cardiomyopathy - dilated","","definitive",1,0,0,0
+"grlsSFAY9511",5,2020-10-30,"Soft tissue sarcoma - other/not specified","1","final",1,0,0,1
+"grlsSHBIY7PP",8,2022-06-17,"Malignant melanoma","","final",1,0,0,1
+"grlsSHC102",3,2018-01-15,"Soft tissue sarcoma - other/not specified","1","final",1,0,0,1
+"grlsSHC102",8,2022-08-15,"Unknown","","presumptive",3,1,0,0
+"grlsSJP1SWLL",7,2021-10-25,"Lymphoma - multicentric","peripheral_t_cell","final",1,1,0,1
+"grlsSKCE2M22",7,2021-10-26,"Unknown neoplasia","","presumptive",3,1,0,0
+"grlsSOJUWZOO",5,2019-06-02,"Hemangiosarcoma - cardiac","","definitive",1,1,0,1
+"grlsSPUWEPWW",3,2018-06-22,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsSXQXGEZZ",3,2017-05-19,"Adenocarcinoma - mammary","","definitive",1,0,0,0
+"grlsSYDRUX77",8,2021-09-28,"Carcinoma - gastric","","final",1,1,0,1
+"grlsSYFLK1II",6,2020-06-09,"Carcinoma - pulmonary","","final",1,1,0,1
+"grlsSYI9RTQQ",8,2022-03-16,"Unknown","","definitive",2,1,0,0
+"grlsSZR98S88",7,2022-02-10,"Renal dysplasia","","definitive",1,1,0,0
+"grlsT13LR5ZZ",6,2021-01-26,"Hemangiosarcoma - splenic","","definitive",1,1,0,0
+"grlsT1P6CE11",8,2021-03-10,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grlsT405U4OO",7,2022-07-06,"Hemangiosarcoma - other/not specified","","final",1,1,0,1
+"grlsT54MH6FF",7,2021-11-23,"Hemangiosarcoma - visceral","","presumptive",2,1,0,0
+"grlsT5K9SR99",5,2019-01-30,"Soft tissue sarcoma - spindle cell sarcoma","2","definitive",1,0,0,1
+"grlsT9U2Q",4,2018-08-02,"Unknown","","presumptive",3,1,0,0
+"grlsTBRVCWW",7,2022-06-05,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsTDVKJZ22",4,2020-03-02,"Lymphoma - multicentric","diffuse_large_b_cell","final",1,1,0,1
+"grlsTE8Q40BB",6,2021-04-22,"Leukemia","acute_myeloid_leukemia","definitive",1,1,0,0
+"grlsTFDXIW55",7,2021-08-23,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsTFWJGUWW",6,2021-03-09,"Hemangiosarcoma - other/not specified","","final",1,1,0,1
+"grlsTFWJGUWW",6,2020-06-10,"Mast cell tumor - subcutaneous","low","definitive",1,0,0,1
+"grlsTFYUPD00",6,2021-11-29,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsTGIYGC55",6,2021-01-20,"Hemangiosarcoma - cutaneous","","final",1,1,0,1
+"grlsTGJ10066",7,2021-08-08,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsTGQMBL11",6,2020-06-24,"Lymphoma - other/not specified","not_typed","definitive",1,0,0,0
+"grlsTGQMBL11",6,2020-06-24,"Cardiomyopathy - hypertrophic","","definitive",1,1,0,0
+"grlsTIM0LS55",2,2015-10-04,"Mast cell tumor - cutaneous","1_low","definitive",1,0,0,1
+"grlsTIM0LS55",3,2016-08-30,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsTIM0LS55",4,2017-09-29,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grlsTIM0LS55",5,2018-12-07,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsTJS4UOXX",2,2016-12-29,"Lymphoma - multicentric","peripheral_t_cell","final",1,1,0,1
+"grlsTK9649UU",7,2020-03-23,"Meningioma","1","final",1,1,0,1
+"grlsTKN0KIDD",3,2017-04-14,"Unknown","","final",2,0,0,1
+"grlsTO87VV",5,2019-11-03,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsTOWNL9UU",3,2016-11-16,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsTPL1L00",7,2021-12-19,"Other gastrointestinal","","definitive",1,1,0,0
+"grlsTPTO4077",8,2021-12-13,"Soft tissue sarcoma - peripheral nerve sheath tumor","","presumptive",2,1,0,0
+"grlsTS7JKJ00",4,2018-10-23,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grlsTTQ4VJ33",8,2021-09-20,"Hemangiosarcoma - cutaneous","","final",1,0,0,1
+"grlsTTQ4VJ33",8,2022-01-31,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsTUZW86AA",6,2019-04-24,"Carcinoma - gastric","","final",1,1,0,1
+"grlsTVVWBM66",7,2022-05-21,"Myelodysplastic syndrome","","final",2,1,0,1
+"grlsU02GKYQQ",2,2017-05-10,"Mast cell tumor - other/not specified","high","definitive",1,1,0,1
+"grlsU0QWVLMM",3,2017-12-22,"Trauma - fire","","definitive",3,1,0,0
+"grlsU2A1VSGG",9,2022-07-21,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsU4RTY4CC",2,2016-12-16,"Soft tissue sarcoma - other/not specified","2","final",1,0,0,1
+"grlsU4RTY4CC",3,2017-11-09,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsU6KIHA77",9,2022-07-03,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsU7K9XQ11",4,2019-11-05,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsU7K9XQ11",6,2021-08-29,"Hemangiosarcoma - cardiac","","presumptive",3,1,0,0
+"grlsU83MFF44",3,2017-11-20,"Hemangiosarcoma - cardiac","","definitive",1,1,0,1
+"grlsU8TSK5XX",7,2022-04-05,"Lymphoma - multicentric","t_zone","definitive",1,0,0,1
+"grlsU8WU81SS",7,2022-01-14,"Indeterminate","","presumptive",3,1,0,0
+"grlsUAXKFPVV",3,2018-05-31,"Mast cell tumor - cutaneous","1","definitive",1,0,0,0
+"grlsUB0LLIEE",9,2022-06-11,"Unknown","","presumptive",3,1,0,0
+"grlsUC2R1BNN",8,2022-07-31,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsUCGVETQQ",3,2018-06-11,"Lower airway disease","","presumptive",3,1,0,0
+"grlsUCM55K00",4,2020-03-06,"Brain tumor","","presumptive",2,1,0,0
+"grlsUEMB2W00",6,2021-11-30,"Pituitary adenoma","","final",1,1,0,1
+"grlsUH7BTO88",0,2015-03-19,"Soft tissue sarcoma - rhabdomyosarcoma","","presumptive",1,1,0,1
+"grlsUHQ4GJHH",6,2019-09-05,"Cutaneous melanoma","","definitive",1,0,0,0
+"grlsUHQ4GJHH",9,2022-06-16,"Malignant melanoma","","final",1,0,0,1
+"grlsUI65W8ZZ",7,2021-12-20,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsUKMB15HH",7,2021-08-18,"Carcinoma - mammary","3","final",1,0,0,1
+"grlsUKVTVHBB",7,2020-08-20,"Mastitis","","final",1,1,0,1
+"grlsURFSOP88",7,2021-04-12,"Pericardial effusion","","definitive",3,1,0,1
+"grlsURFSOP88",7,2021-04-12,"Hemangiosarcoma - cardiac","","presumptive",3,0,0,1
+"grlsUU7H5BUU",2,2017-08-08,"Hepatitis","","final",1,1,0,1
+"grlsUUEQ1BHH",4,2019-05-23,"Chronic renal disease","","presumptive",2,1,0,0
+"grlsUUGORFZZ",5,2019-06-11,"Acute collapse","","presumptive",3,1,0,1
+"grlsUVNTPONN",6,2019-07-23,"Mast cell tumor - cutaneous","low","definitive",1,0,0,1
+"grlsUWNZ8Q66",8,2022-03-28,"Hemangiosarcoma - cardiac","","presumptive",3,0,0,0
+"grlsUWNZ8Q66",8,2022-03-28,"Hemangiosarcoma - cardiac","","presumptive",3,0,0,0
+"grlsUYVZNFAA",7,2020-06-02,"Lymphoma - multicentric","peripheral_t_cell","final",1,1,0,1
+"grlsUZ00ZR66",3,2016-02-07,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsUZM9SRNN",6,2021-05-14,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsV09LY811",6,2021-05-04,"CNS symptoms","","presumptive",3,1,0,0
+"grlsV400W4FF",5,2018-06-06,"Acute collapse","","presumptive",3,1,0,0
+"grlsV59OG6UU",7,2022-03-15,"Carcinoma - gastric","","final",1,1,0,1
+"grlsV7GRICUU",6,2021-06-15,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsV8H8L0DD",7,2022-02-01,"Other endocrine","","definitive",1,0,0,1
+"grlsV9DNUX00",1,2016-02-19,"Lymphoma - multicentric","peripheral_t_cell","definitive",1,1,0,1
+"grlsVC2Y09KK",5,2020-04-11,"Osteosarcoma - appendicular","","final",1,1,0,1
+"grlsVCLYL133",7,2022-07-08,"Thrombus","","presumptive",2,1,0,0
+"grlsVJY0LISS",8,2022-01-25,"Soft tissue sarcoma - other/not specified","2","final",1,0,1,1
+"grlsVJY0LISS",8,2021-09-22,"Soft tissue sarcoma - other/not specified","","definitive",2,0,0,0
+"grlsVJY0LISS",8,2022-01-25,"Soft tissue sarcoma - other/not specified","2","definitive",1,1,0,0
+"grlsVN8SZRSS",7,2022-01-28,"Carcinoma - hepatocellular","","final",2,1,0,1
+"grlsVOG8H6YY",6,2021-08-09,"Carcinoma - other/not specified","","presumptive",2,0,0,0
+"grlsVP2MB000",5,2019-08-11,"Ruptured pulmonary bullae","","definitive",1,1,0,0
+"grlsVSCFCFSS",8,2022-06-11,"Soft tissue sarcoma - other/not specified","2","final",1,1,0,1
+"grlsVWFN7MZZ",8,2021-11-10,"Lymphoma - multicentric","b_cell","definitive",1,1,0,0
+"grlsVWMGLNMM",3,2016-10-14,"Immune mediated hemolytic anemia","","presumptive",3,1,0,0
+"grlsVY18Q2MM",8,2021-10-29,"Hemangiosarcoma - visceral","not_typed","final",1,1,0,1
+"grlsVY18Q2MM",8,2021-10-29,"Chronic enteropathy","","definitive",2,0,0,0
+"grlsVZTYB833",4,2017-01-04,"Carcinoma - transitional cell","","final",1,1,0,1
+"grlsVZZT8XOO",3,2017-02-23,"Mast cell tumor - subcutaneous","low","definitive",1,0,0,1
+"grlsVZZT8XOO",5,2018-09-06,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsVZZT8XOO",6,2019-07-01,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsVZZT8XOO",8,2021-08-13,"Upper respiratory infection","","definitive",1,1,0,0
+"grlsW10MD0NN",6,2021-03-02,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsW1UHMNJJ",5,2019-03-05,"Soft tissue sarcoma - other/not specified","1","final",1,1,0,1
+"grlsW20FSBVV",8,2022-07-16,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsW375BZWW",6,2020-09-17,"Mast cell tumor - cutaneous","2_low","final",2,0,0,1
+"grlsW375BZWW",8,2022-08-12,"Soft tissue sarcoma - other/not specified","3","final",1,1,0,1
+"grlsW4XUWI11",6,2020-12-16,"Hemangiosarcoma - visceral","","presumptive",2,1,0,0
+"grlsW5PNQ9CC",8,2021-01-13,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsW6IV4SUU",6,2020-09-03,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grlsW7LSEJXX",7,2022-05-09,"Osteosarcoma - appendicular","","final",1,1,0,1
+"grlsW7OHI3HH",8,2022-06-14,"Unknown neoplasia","","presumptive",2,1,0,0
+"grlsW9GKD111",7,2020-12-18,"Unknown","","presumptive",3,1,0,0
+"grlsW9HGMLTT",8,2022-05-12,"Meningioma","1","final",1,1,0,1
+"grlsW9VLDHDD",8,2022-08-10,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsWDI6L5BB",2,2016-02-19,"Lymphoma - multicentric","peripheral_t_cell","final",1,0,0,1
+"grlsWDI6L5BB",7,2021-03-09,"Lymphoma - multicentric","peripheral_t_cell","definitive",1,1,1,0
+"grlsWGVCSJFF",7,2021-05-01,"Hemangiosarcoma - other/not specified","","definitive",1,1,0,0
+"grlsWI9XHNGG",7,2021-09-21,"CNS tumor","","presumptive",2,1,0,0
+"grlsWLS2O599",1,2015-04-29,"Lymphoma - cutaneous","t_cell","definitive",1,0,0,0
+"grlsWNOL0UZZ",8,2021-09-30,"Chronic renal disease","","final",1,1,0,1
+"grlsWO75MFNN",8,2022-05-03,"Cardiomyopathy - hypertrophic","","definitive",1,1,0,0
+"grlsWPE4ZQWW",7,2021-01-10,"Carcinoma - ovarian","","final",1,0,0,1
+"grlsWUJPJUYY",8,2021-02-08,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsWWOAB388",6,2020-08-20,"Soft tissue sarcoma - spindle cell sarcoma","1","definitive",1,0,0,0
+"grlsWYRHCFF",8,2022-03-02,"Malignant melanoma","","definitive",1,0,0,0
+"grlsWYY3KF66",7,2019-11-07,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsWYYDW7TT",7,2022-08-11,"Malignant melanoma","","final",1,1,0,1
+"grlsWYYDW7TT",7,2022-08-11,"Round cell tumor","","presumptive",2,0,0,0
+"grlsWYYDW7TT",7,2022-08-11,"Thymoma","","definitive",1,0,0,0
+"grlsWZSGXLKK",7,2020-09-09,"Histiocytic sarcoma","","presumptive",3,1,0,0
+"grlsX1PJY0WW",6,2020-08-10,"Hemangiosarcoma - splenic","","definitive",1,1,0,1
+"grlsX2EOMOLL",7,2021-07-11,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsX2F2CUTT",6,2021-08-24,"Mast cell tumor - cutaneous","3_high","definitive",1,0,0,1
+"grlsX2F2CUTT",7,2022-02-16,"Mast cell tumor - cutaneous","3_high","final",1,1,0,1
+"grlsX48RNRXX",7,2020-09-08,"Carcinoma - ovarian","","final",1,0,0,1
+"grlsX6LVQQ00",3,2018-08-23,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsX9JH2611",8,2020-12-10,"Carcinoma - nasal","","final",1,1,0,1
+"grlsXBRP40NN",1,2016-10-21,"Hepatitis","","definitive",1,1,0,0
+"grlsXBU9GTT",6,2020-10-17,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsXC9YA8WW",5,2019-03-05,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grlsXC9YA8WW",8,2021-11-22,"Lymphoma - multicentric","not_typed","presumptive",3,1,0,0
+"grlsXFBEMJKK",7,2020-12-11,"Lymphoma - multicentric","diffuse_large_b_cell","definitive",1,1,0,1
+"grlsXIMHBKPP",6,2019-07-29,"Soft tissue sarcoma - other/not specified","1","final",1,0,0,1
+"grlsXIMHBKPP",6,2019-05-20,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grlsXISA2YRR",7,2021-03-11,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,0
+"grlsXJ8W6V11",7,2022-01-20,"Unknown","","presumptive",3,1,0,0
+"grlsXNC5S0DD",5,2018-09-04,"Lymphoma - multicentric","b_cell","definitive",2,0,0,0
+"grlsXNC5S0DD",6,2020-03-23,"Soft tissue sarcoma - other/not specified","1_low","final",1,0,0,1
+"grlsXO96NGG",8,2022-05-17,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsXQ3MDDBB",6,2019-11-08,"Hemangiosarcoma - splenic","","definitive",1,1,0,1
+"grlsXRNLTNMM",5,2019-11-24,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsXRY0POWW",5,2020-01-28,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsXSQE6EUU",7,2020-08-16,"Mast cell tumor - cutaneous","2_low","presumptive",3,0,0,0
+"grlsXSQM6XGG",7,2022-02-25,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsXZTX3HBB",5,2020-10-03,"CNS symptoms","","presumptive",3,1,0,0
+"grlsY23ZD7DD",8,2021-08-06,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsY2FM1GBB",7,2022-05-04,"Plasma cell tumor","","final",1,1,0,1
+"grlsY2GT5BXX",6,2019-10-23,"Malignant melanoma","","final",1,1,0,1
+"grlsY5DTE6JJ",7,2022-07-14,"Renal failure","","final",1,1,0,1
+"grlsY5JZXLGG",4,2018-04-15,"Hemangiosarcoma - cardiac","","presumptive",2,1,0,0
+"grlsY6SJNLNN",7,2020-09-22,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsY7QXGVLL",5,2018-06-11,"Soft tissue sarcoma - other/not specified","","final",1,1,0,1
+"grlsY9V8LZAA",1,2016-02-23,"Acute heart failure","","definitive",1,1,0,0
+"grlsYCK8D500",6,2020-04-26,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsYCV6JRR",5,2018-10-31,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsYDM9DD",5,2020-10-23,"Lymphoma - multicentric","t_zone","final",1,0,0,1
+"grlsYEL9JU22",3,2018-02-15,"Metastatic sarcoma","","final",1,1,0,1
+"grlsYEL9JU22",3,2018-02-15,"Soft tissue sarcoma - peripheral nerve sheath tumor","not_typed","final",1,0,0,1
+"grlsYFLNL9WW",6,2021-03-09,"Liver tumor","","presumptive",3,1,0,0
+"grlsYI05S9OO",6,2019-06-04,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grlsYI05S9OO",6,2019-07-10,"Mast cell tumor - cutaneous","2_low","definitive",1,0,0,1
+"grlsYIUM47SS",8,2022-03-08,"Leukemia","acute_myeloid_leukemia","final",1,1,0,1
+"grlsYIUM47SS",8,2022-01-25,"Lymphocytosis","","definitive",2,0,0,0
+"grlsYLJ61233",8,2022-01-27,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsYLV0W1GG",8,2021-10-08,"Hemangiosarcoma - cardiac","","definitive",1,1,0,0
+"grlsYNJ5HP33",5,2018-08-11,"Hemangiosarcoma - splenic","","definitive",1,1,0,0
+"grlsYOCJQU55",7,2020-07-14,"Leukemia","t_cell","final",1,1,1,1
+"grlsYOQLXM44",7,2020-10-05,"Adenocarcinoma - mammary","","definitive",1,1,0,1
+"grlsYOQLXM44",8,2021-06-04,"Osteosarcoma - appendicular","","final",1,0,0,1
+"grlsYSYXJN00",8,2022-07-27,"Lung tumor","","presumptive",3,1,0,0
+"grlsYSZQQYUU",3,2018-04-06,"Trauma - hit by car","","definitive",3,1,0,0
+"grlsYTYPTSQQ",9,2022-07-18,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsYW39DCFF",3,2018-07-06,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsYYKL9EMM",7,2021-03-02,"Plasma cell tumor","","final",1,1,0,1
+"grlsZ0ZH7TLL",7,2022-04-19,"Hemangiosarcoma - other/not specified","","presumptive",2,1,0,0
+"grlsZ11BDK33",1,2015-08-12,"Mast cell tumor - cutaneous","1_low","definitive",1,0,0,0
+"grlsZ2WGKQQ",6,2021-12-11,"Unknown neoplasia","","presumptive",3,1,0,0
+"grlsZ34975II",3,2018-03-11,"Acute collapse","","presumptive",3,1,0,0
+"grlsZ36Y96YY",8,2021-10-21,"Cutaneous melanoma","","final",1,0,0,1
+"grlsZ36Y96YY",8,2021-07-13,"Carcinoma - thyroid","","definitive",1,0,0,1
+"grlsZ4LXDL66",4,2017-12-15,"Septic peritonitis","","definitive",2,1,0,1
+"grlsZ57UDDTT",6,2021-07-23,"Lymphoma - multicentric","t_cell","final",1,1,0,1
+"grlsZ57UDDTT",6,2021-07-08,"Leukemia","chronic_lymphocytic_leukemia","final",2,0,0,1
+"grlsZ6FMPN22",5,2020-03-25,"Soft tissue sarcoma - giant cell tumor","","definitive",1,1,0,1
+"grlsZ7H6S6CC",3,2016-10-03,"CNS symptoms","","presumptive",3,1,0,0
+"grlsZ941ZF66",7,2021-11-15,"Lymphoma - multicentric","peripheral_t_cell","definitive",1,1,0,0
+"grlsZA4J55FF",8,2022-02-15,"Brain tumor","","presumptive",2,1,0,0
+"grlsZBW8ZKLL",2,2018-01-12,"Mast cell tumor - cutaneous","high","final",1,1,0,1
+"grlsZEZIUU99",7,2021-04-01,"Lymphoma - cutaneous","epitheliotrophic","final",1,0,0,1
+"grlsZEZIUU99",7,2021-04-01,"Lymphoma - cutaneous","epitheliotrophic","definitive",1,0,1,0
+"grlsZF39RYXX",7,2021-11-17,"Hemangiosarcoma - cardiac","","presumptive",3,1,0,0
+"grlsZF3EC6BB",6,2021-03-10,"Histiocytic sarcoma","","presumptive",3,1,0,0
+"grlsZI7MU2EE",8,2022-05-18,"Carcinoma - apocrine ductal","","final",1,0,0,1
+"grlsZIPRWGMM",6,2019-09-30,"Hemangiosarcoma - visceral","","final",1,1,0,1
+"grlsZJD8DKEE",5,2018-11-07,"Chronic enteropathy","","presumptive",2,1,0,0
+"grlsZJLLWNRR",7,2021-02-07,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsZJRGT144",8,2020-11-28,"Hemangiosarcoma - splenic","","definitive",1,1,0,0
+"grlsZK5TZBB",8,2022-04-12,"Hemangiosarcoma - splenic","","presumptive",2,1,0,0
+"grlsZKA6W2RR",4,2019-07-02,"Histiocytic sarcoma","","final",1,1,0,1
+"grlsZKDZ9N00",2,2015-07-15,"Mast cell tumor - other/not specified","2_low","final",1,0,0,1
+"grlsZKDZ9N00",2,2015-08-18,"Mast cell tumor - other/not specified","2_low","final",1,0,1,1
+"grlsZKDZ9N00",3,2016-08-31,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsZKDZ9N00",7,2019-11-07,"Mast cell tumor - cutaneous","2_low","final",1,0,0,1
+"grlsZNKR2HEE",6,2021-02-10,"Hemangiosarcoma - cardiac","","final",1,1,0,1
+"grlsZO8JN6BB",6,2020-12-30,"Soft tissue sarcoma - other/not specified","2","definitive",1,0,0,1
+"grlsZODSWLFF",7,2022-05-09,"Diabetes mellitus","","definitive",1,1,0,1
+"grlsZPQC2000",9,2022-08-01,"Carcinoma - hepatocellular","","final",1,0,0,1
+"grlsZQBZX5YY",7,2022-03-01,"Adenocarcinoma - apocrine gland anal sac","","definitive",1,0,0,0
+"grlsZRG6Q0TT",6,2020-12-31,"Chronic renal disease","","final",2,1,0,1
+"grlsZS8EN0II",4,2019-10-07,"Renal dysplasia","","final",1,1,0,1
+"grlsZSHTKLWW",8,2022-01-30,"Unknown","","presumptive",3,1,0,0
+"grlsZSMLMUPP",6,2021-08-16,"Lymphoma - multicentric","peripheral_t_cell","final",1,1,0,1
+"grlsZY1Z1OSS",6,2021-02-01,"Hemangiosarcoma - splenic","","final",1,1,0,1
+"grlsZY5KYKXX",1,2015-02-20,"Mast cell tumor - cutaneous","1_low","definitive",1,0,0,0
+"grlsZY5KYKXX",4,2018-09-17,"Mast cell tumor - other/not specified","3_high","final",1,1,0,1
+"grlsZYWPKKJJ",6,2019-10-23,"Leukemia","acute_leukemia","final",1,1,0,1
