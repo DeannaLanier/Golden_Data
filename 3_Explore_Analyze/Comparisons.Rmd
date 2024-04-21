@@ -3,18 +3,24 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+```{r}
+#packages
+
+library(dplyr)
+library(markovchain)
+
+```
 
 ## Load data
 ```{r}
 # Restore the object
-Diet_Data_Clean = readRDS(file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanData.rds")
+Diet_Data_Clean = readRDS(file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanDietData.rds")
+Death_Data_Clean = readRDS(file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanDeathData.rds")
 ```
 
 
 ## Frequency at which participants switch categorization
 ```{r}
-library(dplyr)
-library(markovchain)
 
 data <- Diet_Data_Clean[order(Diet_Data_Clean$id, Diet_Data_Clean$calendaryear),]
 
@@ -56,6 +62,7 @@ get_transition_matrix <- function(sequence_list) {
 transition_matrix <- get_transition_matrix(data_sequence$Category_Sequence)
 print(transition_matrix)
 ```
+
 
 
 ```{r}
@@ -281,25 +288,10 @@ save(average_durations_datatable,durations_datatable,durations_datatable2,averag
 
 ```{r}
 # Merge the datasets
-combined_data <- left_join(death_data, Diet_Data_Clean, by = c("id", "study_year"))
+combined_data <- left_join(Death_Data_Clean, Diet_Data_Clean, by = c("id"))
 
 ```
 
-```{r}
-# Logistic regression to see if diet predicts disease occurrence
-model_disease <- glm(condition != "No Disease" ~ BCS + Brand_Company + Parent_Company + process.category + process.subtype, 
-                     data = combined_data, family = "binomial")
-
-# Logistic regression to see if diet predicts death caused by disease
-model_death <- glm(condition != "No Disease" & is_cause_of_death == 1 ~ BCS + Brand_Company + Parent_Company + process.category + process.subtype, 
-                   data = combined_data, family = "binomial")
-
-# Summarize the model
-summary(model_disease)
-summary(model_death)
-
-
-```
 
 ```{r}
 # Calculate frequencies
@@ -319,6 +311,33 @@ disease_plot <-ggplot(condition_frequency, aes(x = condition, y = frequency, fil
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for readability
 ```
+
+```{r}
+# same but without duplicates
+
+combined_no_dups <- combined_data %>%
+  filter(!is.na(process.category)) %>%  # Ensure process.category is not NA
+  distinct(id, diagnosis_date, .keep_all = TRUE)  # Remove duplicates based on id and diagnosis_date
+
+# Calculate frequencies
+condition_frequency <- combined_no_dups %>%
+  group_by(process.category, condition) %>%
+  summarize(frequency = n(), .groups = 'drop')  # Calculate frequency and drop the grouping
+
+# Plot the frequency of diseases by process category
+disease_plot <- ggplot(condition_frequency, aes(x = condition, y = frequency, fill = process.category)) +
+  geom_bar(stat = "identity", position = "stack") +  # 'stack' stacks the bars for different conditions
+  labs(title = "Frequency of Diseases by Process Category",
+       x = "Condition",
+       y = "Frequency of Disease",
+       fill = "Process Category") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for readability
+
+print(disease_plot)
+```
+
+
 ```{r}
 # Convert ggplot to interactive plotly chart
 interactive_disease_plot <- ggplotly(disease_plot)
@@ -328,8 +347,37 @@ interactive_disease_plot
 ```
 
 ```{r}
+
+
+# Plot the frequency of diseases by process category - log
+logdisease_plot <- ggplot(condition_frequency, aes(x = condition, y = log(frequency), fill = process.category)) +
+  geom_bar(stat = "identity", position = "stack") +  # 'stack' stacks the bars for different conditions
+  labs(title = "Frequency of Diseases by Process Category",
+       x = "Condition",
+       y = "Frequency of Disease (log)",
+       fill = "Process Category") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for readability
+
+print(logdisease_plot)
+
+# Convert ggplot to interactive plotly chart
+interactive_logdisease_plot <- ggplotly(logdisease_plot)
+
+# Print the interactive plot
+interactive_logdisease_plot
+```
+
+
+```{r}
+
+combined_no_dups <- combined_data %>%
+  filter(!is.na(Parent_Company)) %>%  # Ensure process.category is not NA
+  distinct(id, diagnosis_date, .keep_all = TRUE)  # Remove duplicates based on id and diagnosis_date
+
+
 # Calculate frequencies
-condition_frequency <- combined_data %>%
+condition_frequency <- combined_no_dups %>%
   group_by(Parent_Company, condition)%>%
   filter(!is.na(Parent_Company)) %>%
   summarize(frequency = n(), .groups = 'drop')
@@ -355,6 +403,27 @@ interactive_disease_plot_parent
 ```
 
 ```{r}
+#same but log
+
+# Plot the frequency of diseases by process category
+logdisease_parent_plot <-ggplot(condition_frequency, aes(x = condition, y = log(frequency), fill = Parent_Company)) +
+  geom_bar(stat = "identity", position = "stack") +  # 'stack' stacks the bars for different conditions
+  labs(title = "Frequency of Diseases by parent company",
+       x = "Process Category (log)",
+       y = "Frequency of Disease",
+       fill = "Condition") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for readability
+
+# Convert ggplot to interactive plotly chart
+interactive_logdisease_plot_parent <- ggplotly(logdisease_parent_plot)
+
+# Print the interactive plot
+interactive_logdisease_plot_parent
+```
+
+
+```{r}
 # Define the data
 dog_data <- data.frame(
   Category = c("Died from Disease", "Survived or Died from Other Causes"),
@@ -374,7 +443,7 @@ pie_chart
 
 ```{r}
 # Summarize data
-death_summary <- death_data %>%
+death_summary <- Death_Data_Clean %>%
   dplyr::count(is_cause_of_death) %>%
   dplyr::mutate(Category = ifelse(is_cause_of_death == 1, "Died from Disease", "Did Not Die from Disease"))
 
@@ -392,6 +461,6 @@ pie_chart_death_cause
 ```
 
 ```{r}
-save(interactive_disease_plot,pie_chart,pie_chart_death_cause,interactive_disease_plot_parent, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/death2.RData")
+save(interactive_disease_plot,pie_chart,pie_chart_death_cause,interactive_disease_plot_parent,interactive_logdisease_plot,interactive_logdisease_plot_parent, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/death2.RData")
 ```
 

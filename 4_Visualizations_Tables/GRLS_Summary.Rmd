@@ -186,3 +186,17 @@ plot_2020 <- plot_list[['2020']]
 # Print the plot
 plot_2020
 ```
+
+```{r, out.width= "100%", echo=FALSE}
+plot_2021 <- plot_list[['2021']]
+
+# Print the plot
+plot_2021
+```
+
+```{r, out.width= "100%", echo=FALSE}
+plot_2022 <- plot_list[['2022']]
+
+# Print the plot
+plot_2022
+```

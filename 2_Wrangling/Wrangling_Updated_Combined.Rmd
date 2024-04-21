@@ -1,0 +1,306 @@
+---
+title: "GRLS - Wrangle 2"
+output: html_notebook
+---
+
+# Introduction
+
+## Load packages
+```{r}
+library(readxl) #for loading Excel files
+
+library(dplyr) #for data processing/cleaning
+
+library(tidyr) #for data processing/cleaning
+
+library(skimr) #for nice visualization of data 
+
+library(here) #to set paths
+
+library(DT) #nice datatables 
+
+```
+
+## Data loading
+
+### Path to data
+
+```{r}
+# path to data
+
+#Set paths to the data
+
+project.path = here()
+
+Combined_Data.location = here::here("1_Data","Raw_data","Combined_updated.csv")
+
+
+```
+
+### Load data to current workspace
+
+```{r}
+
+# load the data 
+
+Combined_Data_Raw = read.csv(Combined_Data.location)
+```
+
+### Make lowecase for everything for consistency 
+
+```{r}
+names(Combined_Data_Raw)<-tolower(names(Combined_Data_Raw))
+```
+
+```{r}
+Combined_Data_Raw = Combined_Data_Raw[order(Combined_Data_Raw$id),]
+```
+There are no unique identifiers in either dataframe. Create unique IDs by combining ID and VISITAGE
+
+```{r}
+Combined_Data_Raw$unique_id = paste(Combined_Data_Raw$id, "_", Combined_Data_Raw$study_year)
+
+#relocate to begining
+
+Combined_Data_Raw = Combined_Data_Raw %>%
+
+  relocate(unique_id, .before = id)
+
+
+#Check 
+
+dplyr::glimpse(Combined_Data_Raw)
+
+skimr::skim(Combined_Data_Raw)
+
+```
+
+# Cleaning
+
+
+
+By inspecting the data as done above, we find some problems that need addressing:
+
+1. Remove unnecessary columns (these columns will be addressed at a later date when i have more time)
+
+2. Remove duplicates
+
+4. The is at least 1 value in the weight column that is well above what should be expected
+
+5. Make all brand and parent company lowercase and change column titles
+
+6. The feedtype column includes entries that are not apart of the categorical options in the data dictionary 
+
+7. Calendar year to character
+
+8. BSC to factor
+
+
+
+## 1.Remove data that is not necessary for the analysis 
+
+
+```{r}
+
+Combined_Clean = Combined_Data_Raw%>% 
+
+  select(-c(feedlong, feedage,feedfreq,feedamt,feedamtunit,feedlongunit,feedage,feedageunit,feedform,brand))
+
+```
+
+
+
+
+### 2. Remove duplicates
+
+After removing all of the uneccessary data, there should be no need to duplicated rows with unique IDs. The duplicates were a result of the feedform column which was removed.
+
+
+```{r}
+
+Combined_Clean = Combined_Clean %>% distinct(unique_id, .keep_all = TRUE)
+
+
+
+#check the number of unique IDs
+
+length(unique(Combined_Clean$id))
+
+```
+
+
+
+### 4. update weight column 
+
+There are some values that are clearly invalid inputs. Remove any rows with weight above 100.
+
+
+```{r}
+
+Combined_Clean = Combined_Clean %>%
+  filter(is.na(weight_kg) | weight_kg < 150)
+  #filter(weight_kg<150 )
+
+
+```
+
+### 5. Lower case all characters in brand and parent company
+
+```{r}
+
+
+
+# make the column lowercase to remove inconsistent entries
+
+Combined_Clean = Combined_Clean %>% 
+
+ mutate(brand.company..cleaned. = tolower(brand.company..cleaned.))%>%
+
+ mutate(parent.company = tolower(parent.company))%>%
+
+ rename("Brand_Company" = "brand.company..cleaned.")%>%
+
+ rename("Parent_Company" = "parent.company")
+
+
+
+```
+
+```{r}
+## Remove empty 
+
+# Clean data by removing rows with empty strings in process.category
+Combined_Clean = Combined_Clean %>%
+  mutate(process.category = trimws(process.category)) %>%
+  filter(process.category != "")
+```
+
+
+### 6. Feedtype
+
+Update the entries to match the data dictionary provided
+
+
+```{r}
+
+library("dplyr")
+
+Combined_Clean = Combined_Clean%>% 
+
+  mutate(feedtype = replace(feedtype, feedtype == "Raw", "Refrigerated/Frozen raw food"))%>%
+
+  mutate(feedtype= replace(feedtype, feedtype ==  "Dry", "Dry food"))%>%
+
+  mutate(feedtype= replace(feedtype, feedtype ==  "Freeze dried", "Freeze dried food"))%>%
+
+  mutate(feedtype= replace(feedtype, feedtype ==  "Canned", "Canned food"))%>%
+
+  mutate(feedtype= replace(feedtype, feedtype ==  "", NA))%>%
+
+  mutate(feedtype= replace(feedtype, feedtype ==  "Semi-dry", "Semi-dry/Semimoist food"))
+
+unique(Combined_Clean$feedtype)
+
+```
+
+
+
+
+### 7. Calendaryear to character
+
+
+```{r}
+
+Combined_Clean = Combined_Clean %>%
+
+  mutate(calendaryear = as.character(calendaryear))
+
+```
+
+### 8. BCS $ study year as factor (categorical)
+
+
+```{r}
+
+Combined_Clean$bcs = as.factor(Combined_Clean$bcs)
+
+Combined_Clean$bcs = as.ordered(Combined_Clean$bcs)
+
+#Check
+
+is.ordered(Combined_Clean$bcs)
+
+Combined_Clean$study_year = as.ordered(Combined_Clean$study_year)
+
+
+```
+
+
+## Check data again
+
+Check parts 1 and 2 of the data provided to ensure the columns match the data dictionary
+
+
+```{r}
+
+#View the diet data part 1 
+
+dplyr::glimpse(Combined_Clean)
+
+summary = skimr::skim(Combined_Clean)
+
+summary
+
+```
+
+## Check data again
+
+Check parts 1 and 2 of the data provided to ensure the columns match the data dictionary
+
+
+```{r}
+
+#View the diet data part 1 
+
+dplyr::glimpse(Combined_Clean)
+
+summary = skimr::skim(Combined_Clean)
+
+summary
+
+```
+
+```{r}
+numeric_table = summary %>%  
+  filter(skim_type == "numeric",na.rm = TRUE)%>%
+  select_if(~ !any(is.na(.)))
+
+Numeric_datatable = datatable(numeric_table, options = list(), class = "display")
+Numeric_datatable
+```
+
+
+```{r}
+character_table = summary %>%  
+  filter(skim_type == "character",na.rm = TRUE)%>%
+  select_if(~ !any(is.na(.)))
+
+character_datatable = datatable(character_table, options = list(), class = "display")
+character_datatable
+```
+
+
+
+
+
+## Save
+```{r}
+
+save(character_datatable,Numeric_datatable, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/combined_tables.RData")
+
+```
+
+```{r}
+saveRDS(Combined_Clean, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanCombinedDietData.rds")
+```
+

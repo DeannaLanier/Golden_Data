@@ -93,11 +93,16 @@ dplyr::glimpse(MAF_part1)
 skimr::skim(MAF_part1)
 
 ```
+```{r}
+
+# Column names 
+colnames(MAF_part1)
+```
 
 #### Part 2
 
 ```{r}
-MAF_part2 = MAF_part1[order(MAF_part2$id),]
+MAF_part2 = MAF_part2[order(MAF_part2$id),]
 ```
 There are no unique identifiers in either dataframe. Create unique IDs by combining ID and VISITAGE
 
@@ -119,8 +124,37 @@ skimr::skim(MAF_part2)
 
 ```
 
+```{r}
+# Column names 
+colnames(MAF_part2)
+```
+
 
 ### Combine datasets 
+
+
+## Make all column names the same 
+```{r}
+MAF_part2 = MAF_part2 %>% 
+ rename("intact.y.n" = "spayed.nuter.y.n")%>% 
+  rename("climate.control" = "climate.control.y.n" )
+  
+
+MAF_part1 = MAF_part1 %>% 
+ rename("visitage" = "visit.age")%>% 
+ rename("commercial.dog.treat.y.n" = "commerical.dog.treat.y.n")
+
+```
+
+
+```{r}
+different_names_df1_to_df2 <- setdiff(names(MAF_part1), names(MAF_part2))
+different_names_df1_to_df2
+```
+
+
+
+
 
 ```{r}
 #combine 
@@ -129,9 +163,9 @@ GRLS_Data <- rbind(MAF_part1, MAF_part2)
 #check
 #Check 
 
-dplyr::glimpse(MAF_part2)
+dplyr::glimpse(GRLS_Data)
 
-skimr::skim(MAF_part2)
+skimr::skim(GRLS_Data)
 
 ```
 
@@ -170,7 +204,7 @@ VISITAGE, DOB, CALENDARYEAR, BCS, PBCS, WEIGHT_KG,
 
 #check Visit Age
 
-skim(GRLS_Data, visit.age, calendaryear, bcs, pbcs, weight_kg)
+skim(GRLS_Data, visitage, calendaryear, bcs, pbcs, weight_kg)
 
 ```
 
@@ -199,8 +233,6 @@ BRAND
 ```{r}
 
 #check BRANDS
-
-
 
 Unique_Brands = as.data.frame((unique(GRLS_Data$brand.company..cleaned.)))
 colnames(Unique_Brands) <- c('unique_brands')
@@ -382,6 +414,15 @@ Diet_Data_Clean = Diet_Data_Clean %>%
 
 ```
 
+```{r}
+## Remove empty 
+
+# Clean data by removing rows with empty strings in process.category
+Diet_Data_Clean = Diet_Data_Clean %>%
+  mutate(process.category = trimws(process.category)) %>%
+  filter(process.category != "")
+```
+
 
 ### 6. Feedtype
 
@@ -545,6 +586,8 @@ length(unique(death_data$id))
 
 #Save
 ```{r}
-saveRDS(Diet_Data_Clean,death_data, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanData.rds")
+saveRDS(Diet_Data_Clean, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanDietData.rds")
+
+saveRDS(death_data, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanDeathData.rds")
 ```
 

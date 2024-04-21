@@ -1,0 +1,169 @@
+---
+title: "Data Selection 2"
+author: "Deanna Lanier"
+date: "2024-04-20"
+output: html_document
+---
+
+```{r, echo=FALSE, message=FALSE}
+# load a few R packages
+library(here)
+library(knitr)
+library(dplyr)
+```
+
+```{r, echo = FALSE}
+project.path = here()
+#Load 
+load("~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/figures4.RData")
+load("~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/tables4.RData")
+
+```
+
+### 1. Table 1 & Figure 1 Unique Dogs by study Year
+
+How many individual dogs were in each study year (not calendar year)?
+
+```{r}
+unique_count_datatable
+```
+
+```{r, echo = FALSE}
+interactive_fig1
+```
+
+### 2. Table 2 & Figure 2 : BCS ranges by study year
+
+• Per study year: how many of those individual dogs had a BCS of 0-3
+
+• Per study year: how many of those individual dogs had a BCS of 4-6
+
+• Per study year: how many of those individual dogs had a BCS of 7-9
+
+```{r, echo = FALSE}
+BCS_datatable
+```
+
+```{r, echo = FALSE}
+interactive_fig2
+```
+
+### Table 3 & Figure 3: Processing Categorization by study year
+
+```{r, echo = FALSE}
+processing_datatable
+```
+
+```{r, echo = FALSE}
+interactive_fig3
+```
+
+## Disease states
+
+### Major Diagnosis over Study years
+
+Cardiovascular Endocrine Gastrointestinal Hematologic Musculoskeletal Nervous Urinary
+
+#### Fig 4 - grouped by BCS
+
+```{r, echo = FALSE}
+interactive_fig4
+```
+
+#### Table - Frequency of diagnosed v not diagnosed by study year
+
+```{r, echo = FALSE}
+major_diagnosis_summary_datatable
+
+```
+
+### Minor Diagnosis over Study years
+
+Eye Ear nose throat infectious skin dental reproductive
+
+#### Fig 4 - grouped by BCS
+
+```{r, echo = FALSE}
+interactive_fig5
+```
+
+#### Table - Frequency of diagnosed v not diagnosed by study year
+
+```{r, echo = FALSE}
+minor_diagnosis_summary_datatable
+```
+
+### All diagnosis over Study years (excluding dental and reproductive)
+
+Cardiovascular Endocrine Gastrointestinal Hematologic Musculoskeletal Nervous Urinary Eye Ear nose throat infectious skin
+
+#### Fig 4 - grouped by BCS
+
+```{r, echo = FALSE}
+interactive_fig6
+```
+
+#### Table - Frequency of diagnosed v not diagnosed by study year
+
+```{r, echo = FALSE}
+diagnosis_summary_datatable
+```
+
+### Eligible dogs based on age, bcs, and diagnosis
+
+#### 49 dogs with the following criteria
+
+There are *49* dogs that meet the following criteria:
+
+1.  Minimally Processed Diet
+2.  BCS = 4-6 3
+3.  No major diagnosis (generally healthy)
+4.  Entries across age groups (0-3, 4-6, and 7+)
+
+```{r, echo = FALSE}
+eligible_dogs1_datatable
+```
+
+
+#### 1078 Dogs with the following
+
+There are *1078* dogs that meet the following criteria:
+
+1.  Ultra Processed Diet
+2.  BCS = 4-6 
+3.  No major diagnosis (generally healthy)
+4.  Entries across age groups (0-3, 4-6, and 7+)
+
+\*excel
+
+#### 1561 dogs with the following
+
+there are *1561* dogs that meet the following criteria: 
+
+1.  Ultra Processed Diet
+2.  BCS = 4-6 
+3.  Entries across age groups (0-3, 4-6, and 7+)
+
+\*excel
+
+#### 96 dogs with the following
+
+there are *96* dogs that meet the following criterial: 1. ultra processed diet 2. BCS 7+ 3. Maintained ultra processed diet from ages 0-3, 4-6, and 7+
+
+1.  Ultra Processed Diet
+2.  BCS = 7+
+3.  Entries across age groups (0-3, 4-6, and 7+)
+
+```{r, echo = FALSE}
+eligible_dogs3_datatable
+```
+
+#### 213 dogs with the following
+
+1.  ultra processed diet
+2.  BCS 4-6 at age 0-3
+3.  BCS 7+ at age 4-6 and 7+ Maintained ultra processed diets from ages 0-3, 4-6, and 7+
+
+```{r, echo = FALSE}
+eligible_dogs4_datatable
+```

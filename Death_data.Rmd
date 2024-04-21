@@ -59,9 +59,18 @@ top_conditions_subconditions_datatable
 interactive_disease_plot
 ```
 
+
+log scaled 
+```{r, out.width= "100%", echo=FALSE}
+interactive_logdisease_plot
+```
+
 ```{r, out.width= "100%", echo=FALSE}
 interactive_disease_plot_parent
 ```
 
-
+log scaled
+```{r, out.width= "100%", echo=FALSE}
+interactive_logdisease_plot_parent
+```
 

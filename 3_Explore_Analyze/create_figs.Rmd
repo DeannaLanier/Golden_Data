@@ -16,6 +16,15 @@ library(ggplot2) #for figures
 library(plotly) #for interactive figures
 ```
 
+```{r}
+# load data
+Diet_Data_Clean = readRDS(file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanDietData.rds") # From before Nicci added the updated data
+Diet_CombinedData_Clean = readRDS(file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanCombinedDietData.rds")
+Death_Data_Clean = readRDS(file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanDeathData.rds")
+
+```
+
+
 ## Study population
 
 ### Figure 1 Study Enrollment
@@ -25,12 +34,11 @@ How many dogs were apart of the study each calendar year
 ```{r}
 # Create a table that shows the frequency of the dogs enrolled by year
 
-unique_count = Diet_Data_Clean %>%  
+unique_count = Diet_CombinedData_Clean %>%  
   distinct(calendaryear,id) %>%  #count unique values
   group_by(calendaryear)%>% # count the frequency by calendar year
   summarize ("Freq" = n())%>%
   filter(!is.na(calendaryear))# dont include any NA
-
 
 ```
 
@@ -64,7 +72,7 @@ interactive_fig1
 ```{r}
 #Create a table for the frequency of each Body condition score by year
 
-BCS_table = Diet_Data_Clean %>%  
+BCS_table = Diet_CombinedData_Clean %>%  
   distinct(calendaryear,bcs,id) %>% 
   group_by(calendaryear,bcs)%>% 
   summarize ("Freq" = n())%>%
@@ -100,7 +108,7 @@ interactive_fig2
 
 ```{r}
 #Create a table of the frequency of different diet types. Processing Categorization
-Processing_table = Diet_Data_Clean %>%  
+Processing_table = Diet_CombinedData_Clean %>%  
   distinct(calendaryear,process.category,id) %>%  
   group_by(calendaryear,process.category)%>% 
   summarize ("Freq" = n())%>%
@@ -136,7 +144,7 @@ interactive_fig3
 
 ```{r}
 # create frequency table of the processing subtypes 
-ProcessingSub_table = Diet_Data_Clean %>%  
+ProcessingSub_table = Diet_CombinedData_Clean %>%  
   distinct(calendaryear,process.subtype,id) %>%  
   group_by(calendaryear,process.subtype)%>% 
   summarize ("Freq" = n())%>%
@@ -173,7 +181,7 @@ interactive_fig4
 
 ```{r}
 #create a frequency table of the processing subtypes grouped by process category and calendar year.
-Processing_Sub_group = Diet_Data_Clean %>%
+Processing_Sub_group = Diet_CombinedData_Clean %>%
   distinct(calendaryear,process.category,process.subtype,id) %>%  
   group_by(calendaryear,process.category,process.subtype)%>% 
   summarize ("Freq" = n())%>%
@@ -224,7 +232,7 @@ interactive_fig5
 
 ```{r}
 #Create frequency table of the processing categorizations grouped by BCS and calendar year
-BCS_Processingtable = Diet_Data_Clean %>%
+BCS_Processingtable = Diet_CombinedData_Clean %>%
   distinct(calendaryear,bcs,process.category,id) %>%  
   group_by(calendaryear,bcs,process.category)%>% 
   summarize ("Freq" = n())%>%
@@ -272,7 +280,7 @@ interactive_fig6
 
 ```{r}
 #Create frequency table of the processing categorizations grouped by BCS and calendar year
-Parentcompanytable = Diet_Data_Clean %>%
+Parentcompanytable = Diet_CombinedData_Clean %>%
   distinct(calendaryear,Parent_Company,id) %>%  
   group_by(calendaryear,Parent_Company)%>% 
   summarize ("Freq" = n())%>%
@@ -391,6 +399,9 @@ plot_2017 = plot_list['2017']
 plot_2018 = plot_list['2018']
 plot_2019 = plot_list['2019']
 plot_2020 = plot_list['2020']
+plot_2021 = plot_list['2021']
+plot_2022 = plot_list['2022']
+
 ```
 
 
@@ -410,7 +421,7 @@ plot_list['2020']
 
 ### Leading cuases of death
 ```{r}
-leading_cause_overall <- death_data %>%
+leading_cause_overall <- Death_Data_Clean %>%
   filter(is_cause_of_death == 1) %>% # Filter for cases where is_cause_of_death is 1 (yes)
   group_by(condition) %>% # Group by the condition and count the number of deaths for each condition
   summarize(death_count = n()) %>%
@@ -427,7 +438,7 @@ leading_cause_overall_datatable
 
 ### Top 10 causes of death
 ```{r}
-leading10_cause_overall <- death_data %>%
+leading10_cause_overall <- Death_Data_Clean %>%
   filter(is_cause_of_death == 1) %>% # Filter for cases where is_cause_of_death is 1 (yes)
   group_by(condition) %>% # Group by the condition and count the number of deaths for each condition
   summarize(death_count = n()) %>%
@@ -447,7 +458,7 @@ leading10_cause_overall_datatable
 # Filter for cases where is_cause_of_death is 1 (yes)
 # Group by year and condition, then count deaths
 # Arrange by year and count, and get the top cause for each year
-leading_cause_by_year <- death_data %>%
+leading_cause_by_year <- Death_Data_Clean %>%
   filter(is_cause_of_death == 1) %>%
   group_by(study_year, condition) %>%
   summarize(death_count = n(), .groups = 'drop') %>%
@@ -464,7 +475,7 @@ leading_cause_by_year_datatable
 ```
 ### Leading subtype of hemangiosarcoma by year
 ```{r}
-top_conditions_subconditions <- death_data %>%
+top_conditions_subconditions <- Death_Data_Clean %>%
   filter(is_cause_of_death == 1) %>%
   group_by(condition, sub_condition) %>%
   summarize(death_count = n(), .groups = 'drop') %>%
@@ -480,7 +491,7 @@ top_conditions_subconditions_datatable
 ```
 ### Total death from disease
 ```{r}
-cause_of_death_all <- death_data %>%
+cause_of_death_all <- Death_Data_Clean %>%
   filter(is_cause_of_death == 1) 
 ```
 
@@ -492,7 +503,7 @@ cause_of_death_all
 
 ```{r}
  
-top_causes <- death_data %>%
+top_causes <- Death_Data_Clean %>%
   filter(is_cause_of_death == 1) %>%
   group_by(condition) %>%
   summarize(death_count = n(), .groups = 'drop') %>%
@@ -536,24 +547,24 @@ interactive_plot8
 ### Plot by year 
 ```{r}
 # Filter for cases where is_cause_of_death is 1, then group and summarize
-leading_causes_by_year <- death_data %>%
+leading_causes_by_year <- Death_Data_Clean %>%
   filter(is_cause_of_death == 1) %>%
-  group_by(STUDY_YEAR, condition) %>%
+  group_by(study_year, condition) %>%
   summarize(death_count = n(), .groups = 'drop') %>%
   arrange(desc(death_count))%>%
   filter(death_count > 2)
 
 # Get top causes within each year
 leading_causes_by_year <- leading_causes_by_year %>%
-  group_by(STUDY_YEAR) %>%
+  group_by(study_year) %>%
   top_n(10, death_count) %>%
   ungroup() %>%
-  arrange(STUDY_YEAR, desc(death_count))
+  arrange(study_year, desc(death_count))
 
 # Create the ggplot for leading causes of death by year using facets
 top_causes_yearly_faceted_plot <- ggplot(leading_causes_by_year, aes(x = reorder(condition, death_count), y = log(death_count), fill = condition)) +
   geom_col(show.legend = TRUE) +
-  facet_grid(rows = vars(STUDY_YEAR)) +
+  facet_grid(rows = vars(study_year)) +
   labs(title = "Top Causes of Death by Study Year",
        x = "Condition",
        y = "Number of Deaths",
@@ -574,7 +585,7 @@ save(interactive_fig1,interactive_fig2,interactive_fig3,interactive_fig4,interac
 
 save(top_companies_by_year_datatable, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanData.rds")
 
-save(plot_2013, plot_2012, plot_2014, plot_2015, plot_2016, plot_2017, plot_2018, plot_2019, plot_2020,  file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/parent.RData")
+save(plot_2013, plot_2012, plot_2014, plot_2015, plot_2016, plot_2017, plot_2018, plot_2019, plot_2020,plot_2021,plot_2022,  file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/parent.RData")
 
 
 

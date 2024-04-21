@@ -1,0 +1,1687 @@
+---
+title: "Questions answered"
+output: html_notebook
+---
+
+This notebook answers the questions provided on April 18, 2024
+
+```{r}
+# Load the data 
+Diet_CombinedData_Clean = readRDS(file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanCombinedDietData.rds")
+```
+
+```{r}
+# Load the packages needed
+library(readxl) #for loading Excel files
+
+library(dplyr) #for data processing/cleaning
+
+library(tidyr) #for data processing/cleaning
+
+library(skimr) #for nice visualization of data 
+
+library(here) #to set paths
+
+library(DT) #nice datatables 
+
+library(ggplot2) #for figures
+
+library(plotly) #for interactive figures
+
+library (openxlsx)
+```
+
+
+## Plot all dogs based on study year
+1.	How many individual dogs were in each study year?
+```{r}
+# Create a table that shows the frequency of the dogs enrolled by year
+
+unique_count = Diet_CombinedData_Clean %>%  
+  distinct(study_year,id) %>%  #count unique values
+  group_by(study_year)%>% # count the frequency by calendar year
+  summarize ("Freq" = n())%>%
+  filter(!is.na(study_year))# dont include any NA
+
+# Print the new BCS table
+print(unique_count)
+unique_count_datatable = datatable(unique_count, options = list(), class = "display")
+unique_count_datatable
+
+```
+
+Plot
+
+```{r, warning=FALSE}
+# plot the frequency 
+figure1 = ggplot(data=unique_count, aes(x=study_year, y=Freq, group=1)) +
+  geom_line()+
+  geom_point()+ 
+  theme_bw()+
+  theme(axis.text.x = element_text(face="bold",  size=10)) + 
+  xlab("Study Year") + 
+  ylab("Number of Enrolled Goldens") +
+  ggtitle("Study enrollment by study year") +
+  theme(
+  plot.title = element_text(color="Black", size=14, face="bold"))+
+  theme(plot.caption = element_text(hjust=0))
+figure1
+
+# Convert to an interactive Plotly plot
+interactive_fig1 <- ggplotly(figure1)
+
+# Print the interactive plot
+interactive_fig1
+```
+
+
+
+## BCS by study year
+a.	Per study year, how many of those individual dogs had a BCS of 0-3
+b.	Per study year how many of those individual dogs had a BCS of 4-6 
+c.	Per study uear how many of those individual dogs had a BCS of 7-9
+
+```{r}
+Diet_CombinedData_Clean$study_year <- factor(Diet_CombinedData_Clean$study_year, levels = c("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"))
+
+```
+
+
+```{r}
+# Create a table for the frequency of each Body condition score range by year
+BCS_table = Diet_CombinedData_Clean %>%
+  distinct(study_year, bcs, id) %>%
+  filter(!is.na(study_year), !is.na(bcs)) %>% # Filter out NA values in calendaryear and bcs
+  mutate(BCS_Range = case_when(
+    bcs >= 0 & bcs <= 3 ~ "Low BCS (0-3)",
+    bcs >= 4 & bcs <= 6 ~ "Normal BCS (4-6)",
+    bcs >= 7 & bcs <= 9 ~ "High BCS (7-9)",
+    TRUE ~ "Unknown" # Handle any out of range or unexpected values
+  )) %>%
+  group_by(study_year, BCS_Range) %>%
+  summarize(Freq = n(), .groups = 'drop') # Calculate frequency
+
+# Print the new BCS table
+print(BCS_table)
+BCS_datatable = datatable(BCS_table, options = list(), class = "display")
+BCS_datatable
+
+# Plot the frequency using ggplot
+figure2 = ggplot(data=BCS_table, aes(x=study_year, y=Freq, group=BCS_Range, color=BCS_Range)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(axis.text.x = element_text(face="bold", size=10)) +
+  xlab("Study Year") +
+  ylab("Number of Dogs") +
+  ggtitle("BCS Range by Year") +
+  theme(plot.title = element_text(color="Black", size=14, face="bold")) +
+  labs(caption = "Figure 2: Number of Dogs with specific body condition score ranges by year.") +
+  theme(plot.caption = element_text(hjust=0))
+
+# Convert to an interactive Plotly plot
+interactive_fig2 <- ggplotly(figure2)
+
+# Print the interactive plot
+interactive_fig2
+```
+
+## Processing by study year
+
+2.	How many individual dogs were in each study year that ate:
+a.	Minimally processed
+b.	Processed 
+c.	Ultra-processed
+
+
+```{r}
+# Create a table for the frequency of each Body condition score range by year
+processing_table = Diet_CombinedData_Clean %>%
+  distinct(study_year, process.category, id)%>%  # Filter out NA values in study_year and process.category
+  filter(!process.category %in% c("N/A", "UNK", "TBD")) %>%
+  filter(!is.na(study_year), !is.na(process.category)) %>% # Filter out NA values in calendaryear and bcs
+  group_by(study_year, process.category) %>%
+  summarize(Freq = n(), .groups = 'drop') # Calculate frequency
+
+# Print the new BCS table
+print(processing_table)
+processing_datatable = datatable(processing_table, options = list(), class = "display")
+processing_datatable
+
+# Plot the frequency using ggplot
+figure3 = ggplot(data=processing_table, aes(x=study_year, y=Freq, group=process.category, color=process.category)) +
+  geom_line() +
+  geom_point() +
+  theme_bw() +
+  theme(axis.text.x = element_text(face="bold", size=10)) +
+  xlab("Study Year") +
+  ylab("Number of Dogs") +
+  ggtitle("Processing Categorization by Study Year") +
+  theme(plot.title = element_text(color="Black", size=14, face="bold")) +
+  labs(caption = "Figure 2: Number of Dogs with specific body condition score ranges by year.") +
+  theme(plot.caption = element_text(hjust=0))
+
+# Convert to an interactive Plotly plot
+interactive_fig3 <- ggplotly(figure3)
+
+# Print the interactive plot
+interactive_fig3
+```
+
+
+# Cardiovascular
+```{r}
+#load data
+project.path = here()
+
+Combined_Data.location = here::here("1_Data","Raw_data","Diagnosis","cardiovascular.csv")
+
+# load the data 
+
+cardiovascular = read.csv(Combined_Data.location)
+
+#make all the names lowercase
+names(cardiovascular)<-tolower(names(cardiovascular))
+
+```
+
+```{r}
+#add unique IDs
+cardiovascular$unique_id = paste(cardiovascular$id, "_", cardiovascular$study_year)
+
+#relocate to begining
+
+cardiovascular = cardiovascular %>%
+
+  relocate(unique_id, .before = id)
+
+#Check 
+
+#dplyr::glimpse(cardiovascular)
+
+#skimr::skim(cardiovascular)
+
+```
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(cardiovascular$id)
+
+length(Unique_Identifiers)
+
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(cardiovascular$study_year))
+
+
+```
+
+```{r}
+#rename any column
+cardiovascular = cardiovascular %>% 
+ rename("any_cardio" = "any")
+```
+
+#### Add to diet data
+```{r}
+# Select only the unique_id and any columns from cardiovascular
+cardiovascular_reduced <- cardiovascular %>% 
+  select(unique_id, any_cardio)
+```
+
+```{r}
+# Joining the reduced cardiovascular data 
+Diet_CombineData_Updated <- Diet_CombinedData_Clean %>%
+  left_join(cardiovascular_reduced, by = "unique_id")
+```
+
+
+# Endocrine
+```{r}
+#load data
+project.path = here()
+
+Combined_Data.location = here::here("1_Data","Raw_data","Diagnosis","endocrine.csv")
+
+# load the data 
+
+endocrine = read.csv(Combined_Data.location)
+
+#make all the names lowercase
+names(endocrine)<-tolower(names(endocrine))
+
+```
+
+```{r}
+#add unique IDs
+endocrine$unique_id = paste(endocrine$id, "_", endocrine$study_year)
+
+#relocate to begining
+
+endocrine = endocrine %>%
+
+  relocate(unique_id, .before = id)
+
+#Check 
+
+#dplyr::glimpse(endocrine)
+
+#skimr::skim(endocrine)
+
+```
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(endocrine$id)
+
+length(Unique_Identifiers)
+
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(endocrine$study_year))
+
+
+```
+
+```{r}
+#rename any column
+endocrine = endocrine %>% 
+ rename("any_endocrine" = "any")
+```
+
+#### Add to diet data
+```{r}
+# Select only the unique_id and any columns from cardiovascular
+endocrine_reduced <- endocrine %>% 
+  select(unique_id, any_endocrine)
+```
+
+```{r}
+# Joining the reduced cardiovascular data 
+Diet_CombineData_Updated <- Diet_CombineData_Updated %>%
+  left_join(endocrine_reduced, by = "unique_id")
+```
+
+
+# Gastrointestinal
+```{r}
+#load data
+project.path = here()
+
+Data.location = here::here("1_Data","Raw_data","Diagnosis","gastrointestinal.csv")
+
+# load the data 
+
+gastrointestinal = read.csv(Data.location)
+
+#make all the names lowercase
+names(gastrointestinal)<-tolower(names(gastrointestinal))
+
+```
+
+```{r}
+#add unique IDs
+gastrointestinal$unique_id = paste(gastrointestinal$id, "_", gastrointestinal$study_year)
+
+#relocate to begining
+
+gastrointestinal = gastrointestinal %>%
+
+  relocate(unique_id, .before = id)
+
+#Check 
+
+#dplyr::glimpse(gastrointestinal)
+
+#skimr::skim(gastrointestinal)
+
+```
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(gastrointestinal$id)
+
+length(Unique_Identifiers)
+
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(gastrointestinal$study_year))
+
+
+```
+
+```{r}
+#rename any column
+gastrointestinal = gastrointestinal %>% 
+ rename("any_gastrointestinal" = "any")
+```
+
+#### Add to diet data
+```{r}
+# Select only the unique_id and any columns from cardiovascular
+gastrointestinal_reduced <- gastrointestinal %>% 
+  select(unique_id, any_gastrointestinal)
+```
+
+```{r}
+# Joining the reduced cardiovascular data 
+Diet_CombineData_Updated <- Diet_CombineData_Updated %>%
+  left_join(gastrointestinal_reduced, by = "unique_id")
+```
+
+
+# Hematologic
+```{r}
+#load data
+project.path = here()
+
+Data.location = here::here("1_Data","Raw_data","Diagnosis","hematologic.csv")
+
+# load the data 
+
+hematologic = read.csv(Data.location)
+
+#make all the names lowercase
+names(hematologic)<-tolower(names(hematologic))
+
+```
+
+```{r}
+#add unique IDs
+hematologic$unique_id = paste(hematologic$id, "_", hematologic$study_year)
+
+#relocate to begining
+
+hematologic = hematologic %>%
+
+  relocate(unique_id, .before = id)
+
+#Check 
+
+#dplyr::glimpse(hematologic)
+
+#skimr::skim(hematologic)
+
+```
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(hematologic$id)
+
+length(Unique_Identifiers)
+
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(hematologic$study_year))
+
+
+```
+
+```{r}
+#rename any column
+hematologic = hematologic %>% 
+ rename("any_hematologic" = "any")
+```
+
+#### Add to diet data
+```{r}
+# Select only the unique_id and any columns from cardiovascular
+hematologic_reduced <- hematologic %>% 
+  select(unique_id, any_hematologic)
+```
+
+```{r}
+# Joining the reduced cardiovascular data 
+Diet_CombineData_Updated <- Diet_CombineData_Updated %>%
+  left_join(hematologic_reduced, by = "unique_id")
+```
+
+# musculoskeletal
+```{r}
+#load data
+project.path = here()
+
+Data.location = here::here("1_Data","Raw_data","Diagnosis","musculoskeletal.csv")
+
+# load the data 
+
+musculoskeletal = read.csv(Data.location)
+
+#make all the names lowercase
+names(musculoskeletal)<-tolower(names(musculoskeletal))
+
+```
+
+```{r}
+#add unique IDs
+musculoskeletal$unique_id = paste(musculoskeletal$id, "_", musculoskeletal$study_year)
+
+#relocate to begining
+
+musculoskeletal = musculoskeletal %>%
+
+  relocate(unique_id, .before = id)
+
+#Check 
+
+#dplyr::glimpse(musculoskeletal)
+
+#skimr::skim(musculoskeletal)
+
+```
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(musculoskeletal$id)
+
+length(Unique_Identifiers)
+
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(musculoskeletal$study_year))
+
+
+```
+
+```{r}
+#rename any column
+musculoskeletal = musculoskeletal %>% 
+ rename("any_musculoskeletal" = "any")
+```
+
+#### Add to diet data
+```{r}
+# Select only the unique_id and any columns from cardiovascular
+musculoskeletal_reduced <- musculoskeletal %>% 
+  select(unique_id, any_musculoskeletal)
+```
+
+```{r}
+# Joining the reduced cardiovascular data 
+Diet_CombineData_Updated <- Diet_CombineData_Updated %>%
+  left_join(musculoskeletal_reduced, by = "unique_id")
+```
+
+
+# Nervous
+```{r}
+#load data
+project.path = here()
+
+Data.location = here::here("1_Data","Raw_data","Diagnosis","nervous.csv")
+
+# load the data 
+
+nervous = read.csv(Data.location)
+
+#make all the names lowercase
+names(nervous)<-tolower(names(nervous))
+
+```
+
+```{r}
+#add unique IDs
+nervous$unique_id = paste(nervous$id, "_", nervous$study_year)
+
+#relocate to begining
+
+nervous = nervous %>%
+
+  relocate(unique_id, .before = id)
+
+#Check 
+
+#dplyr::glimpse(nervous)
+
+#skimr::skim(nervous)
+
+```
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(nervous$id)
+
+length(Unique_Identifiers)
+
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(nervous$study_year))
+
+
+```
+
+```{r}
+#rename any column
+nervous = nervous %>% 
+ rename("any_nervous" = "any")
+```
+
+#### Add to diet data
+```{r}
+# Select only the unique_id and any columns from cardiovascular
+nervous_reduced <- nervous %>% 
+  select(unique_id, any_nervous)
+```
+
+```{r}
+# Joining the reduced cardiovascular data 
+Diet_CombineData_Updated <- Diet_CombineData_Updated %>%
+  left_join(nervous_reduced, by = "unique_id")
+```
+
+
+# Urinary
+```{r}
+#load data
+project.path = here()
+
+Data.location = here::here("1_Data","Raw_data","Diagnosis","urinary.csv")
+
+# load the data 
+
+urinary = read.csv(Data.location)
+
+#make all the names lowercase
+names(urinary)<-tolower(names(urinary))
+
+```
+
+```{r}
+#add unique IDs
+urinary$unique_id = paste(urinary$id, "_", urinary$study_year)
+
+#relocate to begining
+
+urinary = urinary %>%
+
+  relocate(unique_id, .before = id)
+
+#Check 
+
+#dplyr::glimpse(urinary)
+
+#skimr::skim(urinary)
+
+```
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(urinary$id)
+
+length(Unique_Identifiers)
+
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(urinary$study_year))
+
+
+```
+
+```{r}
+#rename any column
+urinary = urinary %>% 
+ rename("any_urinary" = "any")
+```
+
+#### Add to diet data
+```{r}
+# Select only the unique_id and any columns from cardiovascular
+urinary_reduced <- urinary %>% 
+  select(unique_id, any_urinary)
+```
+
+```{r}
+# Joining the reduced cardiovascular data 
+Diet_CombineData_Updated <- Diet_CombineData_Updated %>%
+  left_join(urinary_reduced, by = "unique_id")
+```
+
+
+## add column to determine if a dog has any major diagnosis 
+```{r}
+Diet_CombineData_Updated <- Diet_CombineData_Updated %>%
+  rowwise() %>%  # Apply the operation row by row
+  mutate(any_major_diagnosis = if_else(any_cardio == 1 | any_endocrine == 1 | any_gastrointestinal == 1 | any_musculoskeletal == 1 | any_nervous == 1 | any_urinary == 1 | any_hematologic == 1, 1, 0)) %>%
+  ungroup()  # Remove the rowwise grouping
+```
+
+
+# minor diagnosis
+
+# Eye
+```{r}
+#load data
+project.path = here()
+
+Data.location = here::here("1_Data","Raw_data","Diagnosis","eye.csv")
+
+# load the data 
+
+eye = read.csv(Data.location)
+
+#make all the names lowercase
+names(eye)<-tolower(names(eye))
+
+```
+
+```{r}
+#add unique IDs
+eye$unique_id = paste(eye$id, "_", eye$study_year)
+
+#relocate to begining
+
+eye = eye %>%
+
+  relocate(unique_id, .before = id)
+
+#Check 
+
+#dplyr::glimpse(eye)
+
+#skimr::skim(eye)
+
+```
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(eye$id)
+
+length(Unique_Identifiers)
+
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(eye$study_year))
+
+
+```
+
+```{r}
+#rename any column
+eye = eye %>% 
+ rename("any_eye" = "any")
+```
+
+#### Add to diet data
+```{r}
+# Select only the unique_id and any columns from cardiovascular
+eye_reduced <- eye %>% 
+  select(unique_id, any_eye)
+```
+
+```{r}
+# Joining the reduced cardiovascular data 
+Diet_CombineData_Updated <- Diet_CombineData_Updated %>%
+  left_join(eye_reduced, by = "unique_id")
+```
+
+
+# Infection
+```{r}
+#load data
+project.path = here()
+
+Data.location = here::here("1_Data","Raw_data","Diagnosis","infectious.csv")
+
+# load the data 
+
+infectious = read.csv(Data.location)
+
+#make all the names lowercase
+names(infectious)<-tolower(names(infectious))
+
+```
+
+```{r}
+#add unique IDs
+infectious$unique_id = paste(infectious$id, "_", infectious$study_year)
+
+#relocate to begining
+
+infectious = infectious %>%
+
+  relocate(unique_id, .before = id)
+
+#Check 
+
+#dplyr::glimpse(infectious)
+
+#skimr::skim(infectious)
+
+```
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(infectious$id)
+
+length(Unique_Identifiers)
+
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(infectious$study_year))
+
+
+```
+
+```{r}
+#rename any column
+infectious = infectious %>% 
+ rename("any_infectious" = "any")
+```
+
+#### Add to diet data
+```{r}
+# Select only the unique_id and any columns from cardiovascular
+infectious_reduced <- infectious %>% 
+  select(unique_id, any_infectious)
+```
+
+```{r}
+# Joining the reduced cardiovascular data 
+Diet_CombineData_Updated <- Diet_CombineData_Updated %>%
+  left_join(infectious_reduced, by = "unique_id")
+```
+
+
+# skin
+```{r}
+#load data
+project.path = here()
+
+Data.location = here::here("1_Data","Raw_data","Diagnosis","skin.csv")
+
+# load the data 
+
+skin = read.csv(Data.location)
+
+#make all the names lowercase
+names(skin)<-tolower(names(skin))
+
+```
+
+```{r}
+#add unique IDs
+skin$unique_id = paste(skin$id, "_", skin$study_year)
+
+#relocate to begining
+
+skin = skin %>%
+
+  relocate(unique_id, .before = id)
+
+#Check 
+
+#dplyr::glimpse(skin)
+
+#skimr::skim(skin)
+
+```
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(skin$id)
+
+length(Unique_Identifiers)
+
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(skin$study_year))
+
+
+```
+
+```{r}
+#rename any column
+skin = skin %>% 
+ rename("any_skin" = "any")
+```
+
+#### Add to diet data
+```{r}
+# Select only the unique_id and any columns from cardiovascular
+skin_reduced <- skin %>% 
+  select(unique_id, any_skin)
+```
+
+```{r}
+# Joining the reduced cardiovascular data 
+Diet_CombineData_Updated <- Diet_CombineData_Updated %>%
+  left_join(skin_reduced, by = "unique_id")
+```
+
+
+
+# reproductive
+```{r}
+#load data
+project.path = here()
+
+Data.location = here::here("1_Data","Raw_data","Diagnosis","reproductive.csv")
+
+# load the data 
+
+reproductive = read.csv(Data.location)
+
+#make all the names lowercase
+names(reproductive)<-tolower(names(reproductive))
+
+```
+
+```{r}
+#add unique IDs
+reproductive$unique_id = paste(reproductive$id, "_", reproductive$study_year)
+
+#relocate to begining
+
+reproductive = reproductive %>%
+
+  relocate(unique_id, .before = id)
+
+#Check 
+
+#dplyr::glimpse(reproductive)
+
+#skimr::skim(reproductive)
+
+```
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(reproductive$id)
+
+length(Unique_Identifiers)
+
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(reproductive$study_year))
+
+
+```
+
+```{r}
+#rename any column
+reproductive = reproductive %>% 
+ rename("any_reproductive" = "any")
+```
+
+#### Add to diet data
+```{r}
+# Select only the unique_id and any columns from cardiovascular
+reproductive_reduced <- reproductive %>% 
+  select(unique_id, any_reproductive)
+```
+
+```{r}
+# Joining the reduced cardiovascular data 
+Diet_CombineData_Updated <- Diet_CombineData_Updated %>%
+  left_join(reproductive_reduced, by = "unique_id")
+```
+
+
+
+# dental
+```{r}
+#load data
+project.path = here()
+
+Data.location = here::here("1_Data","Raw_data","Diagnosis","dental.csv")
+
+# load the data 
+
+dental = read.csv(Data.location)
+
+#make all the names lowercase
+names(dental)<-tolower(names(dental))
+
+```
+
+```{r}
+#add unique IDs
+dental$unique_id = paste(dental$id, "_", dental$study_year)
+
+#relocate to begining
+
+dental = dental %>%
+
+  relocate(unique_id, .before = id)
+
+#Check 
+
+#dplyr::glimpse(dental)
+
+#skimr::skim(dental)
+
+```
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(dental$id)
+
+length(Unique_Identifiers)
+
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(dental$study_year))
+
+
+```
+
+```{r}
+#rename any column
+dental = dental %>% 
+ rename("any_dental" = "any")
+```
+
+#### Add to diet data
+```{r}
+# Select only the unique_id and any columns from cardiovascular
+dental_reduced <- dental %>% 
+  select(unique_id, any_dental)
+```
+
+```{r}
+# Joining the reduced cardiovascular data 
+Diet_CombineData_Updated <- Diet_CombineData_Updated %>%
+  left_join(dental_reduced, by = "unique_id")
+```
+
+
+
+
+# ear nose throat
+```{r}
+#load data
+project.path = here()
+
+Data.location = here::here("1_Data","Raw_data","Diagnosis","ear_nose_throat.csv")
+
+# load the data 
+
+ear_nose_throat = read.csv(Data.location)
+
+#make all the names lowercase
+names(ear_nose_throat)<-tolower(names(ear_nose_throat))
+
+```
+
+```{r}
+#add unique IDs
+ear_nose_throat$unique_id = paste(ear_nose_throat$id, "_", ear_nose_throat$study_year)
+
+#relocate to begining
+
+ear_nose_throat = ear_nose_throat %>%
+
+  relocate(unique_id, .before = id)
+
+#Check 
+
+#dplyr::glimpse(ear_nose_throat)
+
+#skimr::skim(ear_nose_throat)
+
+```
+
+```{r}
+
+# Check study ID
+
+# According to our data source, there were 3044 dogs apart of the study
+
+Unique_Identifiers = unique(ear_nose_throat$id)
+
+length(Unique_Identifiers)
+
+
+#check study Year
+
+# according to our data souce, dogs can be apart of the study for a maximum of 10 years, the bsaeline is 0 and should be in whole number
+
+(unique(ear_nose_throat$study_year))
+
+
+```
+
+```{r}
+#rename any column
+ear_nose_throat = ear_nose_throat %>% 
+ rename("any_ear_nose_throat" = "any")
+```
+
+#### Add to diet data
+```{r}
+# Select only the unique_id and any columns from cardiovascular
+ear_nose_throat_reduced <- ear_nose_throat %>% 
+  select(unique_id, any_ear_nose_throat)
+```
+
+```{r}
+# Joining the reduced cardiovascular data 
+Diet_CombineData_Updated <- Diet_CombineData_Updated %>%
+  left_join(ear_nose_throat_reduced, by = "unique_id")
+```
+
+
+## add column to determine if a dog has any minor diagnosis 
+```{r}
+Diet_CombineData_Updated = Diet_CombineData_Updated %>%
+  rowwise() %>%  # Apply the operation row by row
+  mutate(any_minor_diagnosis = if_else(any_eye == 1 | any_dental == 1 | any_ear_nose_throat == 1 | any_reproductive == 1 | any_infectious == 1 | any_skin == 1, 1, 0)) %>%
+  ungroup()  # Remove the rowwise grouping
+```
+
+
+## add column to determine if a dog has any diagnosis 
+```{r}
+Diet_CombineData_Updated = Diet_CombineData_Updated %>%
+  rowwise() %>%  # Apply the operation row by row
+  mutate(any_diagnosis = if_else(any_cardio == 1 | any_endocrine == 1 | any_gastrointestinal == 1 | any_musculoskeletal == 1 | any_nervous == 1 | any_nervous == 1 | any_urinary == 1 | any_eye == 1 | any_ear_nose_throat == 1 | any_infectious == 1 | any_skin == 1 | any_urinary ==1, 1, 0)) %>%
+  ungroup()  # Remove the rowwise grouping
+```
+
+## Major minor and diagnosis
+
+```{r}
+# Summarize data to get counts of diagnosis vs. no diagnosis by study_year
+#minor_diagnosis_summary <- Diet_CombineData_Updated %>%
+#   filter(!is.na(any_minor_diagnosis)) %>%
+#  group_by(study_year, any_minor_diagnosis) %>%
+#  summarize(Frequency = n(), .groups = 'drop') %>%
+#  mutate(any_minor_diagnosis = factor(any_minor_diagnosis, levels = c(0, 1), labels = c("No Diagnosis", "Diagnosis")))
+#minor_diagnosis_summary
+
+
+# Update the table to include BCS ranges
+minor_diagnosis_summary <- Diet_CombineData_Updated %>%
+  filter(!is.na(any_minor_diagnosis)) %>%
+  filter(!is.na(bcs)) %>%
+  mutate(BCS_Range = case_when(
+    bcs >= 0 & bcs <= 3 ~ "Low BCS (0-3)",
+    bcs >= 4 & bcs <= 6 ~ "Normal BCS (4-6)",
+    bcs >= 7 & bcs <= 9 ~ "High BCS (7-9)",
+    TRUE ~ "Unknown" 
+  )) %>%
+  group_by(study_year, BCS_Range, any_minor_diagnosis) %>%
+  summarize(Frequency = n(), .groups = 'drop') %>%
+  mutate(any_minor_diagnosis = factor(any_minor_diagnosis, levels = c(0, 1), labels = c("No Diagnosis", "Diagnosis")))
+
+# Print the updated summary
+print(minor_diagnosis_summary)
+
+minor_diagnosis_summary_datatable = datatable(minor_diagnosis_summary, options = list(), class = "display")
+minor_diagnosis_summary_datatable
+```
+
+
+
+
+
+```{r}
+# Summarize data to get counts of diagnosis vs. no diagnosis by study_year
+#major_diagnosis_summary <- Diet_CombineData_Updated %>%
+#   filter(!is.na(any_major_diagnosis)) %>%
+#  group_by(study_year, any_major_diagnosis) %>%
+#  summarize(Frequency = n(), .groups = 'drop') %>%
+#  mutate(any_major_diagnosis = factor(any_major_diagnosis, levels = c(0, 1), labels = c("No Diagnosis", "Diagnosis")))
+#major_diagnosis_summary
+
+
+# Update the table to include BCS ranges
+major_diagnosis_summary <- Diet_CombineData_Updated %>%
+  filter(!is.na(any_major_diagnosis)) %>%
+  filter(!is.na(bcs)) %>%
+  mutate(BCS_Range = case_when(
+    bcs >= 0 & bcs <= 3 ~ "Low BCS (0-3)",
+    bcs >= 4 & bcs <= 6 ~ "Normal BCS (4-6)",
+    bcs >= 7 & bcs <= 9 ~ "High BCS (7-9)",
+    TRUE ~ "Unknown" 
+  )) %>%
+  group_by(study_year, BCS_Range, any_major_diagnosis) %>%
+  summarize(Frequency = n(), .groups = 'drop') %>%
+  mutate(any_major_diagnosis = factor(any_major_diagnosis, levels = c(0, 1), labels = c("No Diagnosis", "Diagnosis")))
+
+# Print the updated summary
+print(major_diagnosis_summary)
+
+major_diagnosis_summary_datatable = datatable(major_diagnosis_summary, options = list(), class = "display")
+major_diagnosis_summary_datatable
+```
+
+```{r}
+# Any diagnosis
+
+# Update the table to include BCS ranges
+diagnosis_summary <- Diet_CombineData_Updated %>%
+  filter(!is.na(any_diagnosis)) %>%
+  filter(!is.na(bcs)) %>%
+  mutate(BCS_Range = case_when(
+    bcs >= 0 & bcs <= 3 ~ "Low BCS (0-3)",
+    bcs >= 4 & bcs <= 6 ~ "Normal BCS (4-6)",
+    bcs >= 7 & bcs <= 9 ~ "High BCS (7-9)",
+    TRUE ~ "Unknown" 
+  )) %>%
+  group_by(study_year, BCS_Range, any_diagnosis) %>%
+  summarize(Frequency = n(), .groups = 'drop') %>%
+  mutate(any_diagnosis = factor(any_diagnosis, levels = c(0, 1), labels = c("No Diagnosis", "Diagnosis")))
+
+# Print the updated summary
+print(diagnosis_summary)
+
+diagnosis_summary_datatable = datatable(diagnosis_summary, options = list(), class = "display")
+diagnosis_summary_datatable
+```
+
+
+
+```{r}
+# Create the bar plot
+major_plot <- ggplot(major_diagnosis_summary, aes(x = study_year, y = Frequency, fill = any_major_diagnosis, group = )) +
+  geom_bar(stat = "identity", position = "dodge") + facet_wrap(~BCS_Range)+ # Use dodge position to place bars side by side
+  labs(title = "Frequency of  Major Diagnosis by Study Year",
+       x = "Study Year",
+       y = "Frequency",
+       fill = "Diagnosis Status") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for readability
+
+# Display the plot
+print(major_plot)
+
+# Convert to an interactive Plotly plot
+interactive_fig4 <- ggplotly(major_plot)
+
+interactive_fig4 <- interactive_fig4 %>%
+  layout(legend = list(orientation = "h", x = 0.5, xanchor = "center", y = 1.1))
+
+# Print the interactive plot
+interactive_fig4
+```
+
+```{r}
+# Create the bar plot
+minor_plot <- ggplot(minor_diagnosis_summary, aes(x = study_year, y = Frequency, fill = any_minor_diagnosis)) +
+  geom_bar(stat = "identity", position = "dodge") + facet_wrap(~BCS_Range) +  # Use dodge position to place bars side by side
+  labs(title = "Frequency of Minor Diagnosis by Study Year ",
+       x = "Study Year",
+       y = "Frequency",
+       fill = "Diagnosis Status") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "top")  # Rotate x-axis labels for readability
+
+# Display the plot
+print(minor_plot)
+
+# Convert to an interactive Plotly plot
+interactive_fig5 <- ggplotly(minor_plot)
+
+
+interactive_fig5 <- interactive_fig5 %>%
+  layout(legend = list(orientation = "h", x = 0.5, xanchor = "center", y = 1.1))
+
+# Print the interactive plot
+interactive_fig5
+
+```
+
+```{r}
+# Create the bar plot
+diagnosis_plot <- ggplot(diagnosis_summary, aes(x = study_year, y = Frequency, fill = any_diagnosis, group = )) +
+  geom_bar(stat = "identity", position = "dodge") + facet_wrap(~BCS_Range)+ # Use dodge position to place bars side by side
+  labs(title = "Frequency of Diagnosis by Study Year",
+       x = "Study Year",
+       y = "Frequency",
+       fill = "Diagnosis Status") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for readability
+
+# Display the plot
+print(major_plot)
+
+# Convert to an interactive Plotly plot
+interactive_fig6 <- ggplotly(diagnosis_plot)
+
+interactive_fig6 <- interactive_fig6 %>%
+  layout(legend = list(orientation = "h", x = 0.5, xanchor = "center", y = 1.1))
+
+# Print the interactive plot
+interactive_fig6
+```
+
+# Filter the dogs based on Age, bcs, and diagnosis 
+
+
+Determine the number of dogs that have a BCS of 4,5, or 6 between the age of 0-3, 4-6 , 7+ that are generally healthy on a minimally processed diet 
+```{r}
+# Filter Diet_Data_Clean for age and BCS conditions
+#eligible_young_dogs <- Diet_Data_Clean %>%
+#  filter(visit.age < 3, BCS_numeric < 7)
+#length(unique(eligible_young_dogs$id))
+
+# Filter Diet_Data_Clean for age under 3 years and BCS below 7
+#eligible_young_dogs <- Diet_CombineData_Updated %>%
+##  filter(visit.age < 3, bcs %in% c(4,5,6)) %>%
+#  distinct()
+#length(unique(eligible_young_dogs$id))
+
+eligible_young_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age <= 3,                # Age under 3 years
+         bcs %in% c(4, 5, 6),          # BCS of 4, 5, or 6
+         any_major_diagnosis == 0,     # Exclude dogs with any major diagnosis
+         process.category == "Minimally Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_young_dogs$id))
+
+eligible_mid_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age >3 & visit.age <= 6,                # between 4-6
+         bcs %in% c(4, 5, 6),          # BCS of 4, 5, or 6
+         any_major_diagnosis == 0,     # Exclude dogs with any major diagnosis
+         process.category == "Minimally Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_mid_dogs$id))
+
+eligible_old_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age > 7,                # over 7
+         bcs %in% c(4, 5, 6),          # BCS of 4, 5, or 6
+         any_major_diagnosis == 0,     # Exclude dogs with any major diagnosis
+         process.category == "Minimally Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_old_dogs$id))
+
+
+# Get unique IDs from each table
+old_ids <- distinct(eligible_old_dogs, id)
+mid_ids <- distinct(eligible_mid_dogs, id)
+young_ids <- distinct(eligible_young_dogs, id)
+
+# Find common ids across all three tables
+common_ids <- intersect(intersect(old_ids$id, mid_ids$id), young_ids$id)
+# Find common IDs across all three tables using reduce and intersect
+#common_ids <- Reduce(intersect, list(old_ids$id, mid_ids$id, young_ids$id))
+
+
+eligible_dogs <- bind_rows(
+  filter(eligible_old_dogs, id %in% common_ids),
+  filter(eligible_mid_dogs, id %in% common_ids),
+  filter(eligible_young_dogs, id %in% common_ids)
+)
+
+
+eligible_dogs1_datatable = datatable(eligible_dogs, options = list(), class = "display")
+eligible_dogs1_datatable
+length(unique(eligible_dogs$id))
+```
+
+
+Determine the number of dogs that have a BCS of 4,5, or 6 between the age of 0-3, 4-6 , 7+ that are generally healthy on a ultra processed diet 
+```{r}
+# Filter Diet_Data_Clean for age and BCS conditions
+#eligible_young_dogs <- Diet_Data_Clean %>%
+#  filter(visit.age < 3, BCS_numeric < 7)
+#length(unique(eligible_young_dogs$id))
+
+# Filter Diet_Data_Clean for age under 3 years and BCS below 7
+#eligible_young_dogs <- Diet_CombineData_Updated %>%
+##  filter(visit.age < 3, bcs %in% c(4,5,6)) %>%
+#  distinct()
+#length(unique(eligible_young_dogs$id))
+
+eligible_young_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age <= 3,                # Age under 3 years
+         bcs %in% c(4, 5, 6),          # BCS of 4, 5, or 6
+         any_major_diagnosis == 0,     # Exclude dogs with any major diagnosis
+         process.category == "Ultra Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_young_dogs$id))
+
+eligible_mid_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age >3 & visit.age <= 6,                # between 4-6
+         bcs %in% c(4, 5, 6),          # BCS of 4, 5, or 6
+         any_major_diagnosis == 0,     # Exclude dogs with any major diagnosis
+         process.category == "Ultra Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_mid_dogs$id))
+
+eligible_old_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age > 7,                # over 7
+         bcs %in% c(4, 5, 6),          # BCS of 4, 5, or 6
+         any_major_diagnosis == 0,     # Exclude dogs with any major diagnosis
+         process.category == "Ultra Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_old_dogs$id))
+
+
+# Get unique IDs from each table
+old_ids <- distinct(eligible_old_dogs, id)
+mid_ids <- distinct(eligible_mid_dogs, id)
+young_ids <- distinct(eligible_young_dogs, id)
+
+# Find common ids across all three tables
+common_ids <- intersect(intersect(old_ids$id, mid_ids$id), young_ids$id)
+# Find common IDs across all three tables using reduce and intersect
+#common_ids <- Reduce(intersect, list(old_ids$id, mid_ids$id, young_ids$id))
+
+
+eligible_dogs <- bind_rows(
+  filter(eligible_old_dogs, id %in% common_ids),
+  filter(eligible_mid_dogs, id %in% common_ids),
+  filter(eligible_young_dogs, id %in% common_ids)
+)
+eligible_dogs
+
+#eligible_dogs1_datatable = datatable(eligible_dogs, options = list(), class = "display")
+#eligible_dogs1_datatable
+length(unique(eligible_dogs$id))
+length(unique(eligible_dogs$id))
+
+write.xlsx(eligible_dogs, file = "EligibleDogs.xlsx", sheetName = "Data", rowNames = FALSE)
+```
+# Filter the dogs based on Age, bcs, and diagnosis 
+
+
+```{r}
+# Filter Diet_Data_Clean for age and BCS conditions
+#eligible_young_dogs <- Diet_Data_Clean %>%
+#  filter(visit.age < 3, BCS_numeric < 7)
+#length(unique(eligible_young_dogs$id))
+
+# Filter Diet_Data_Clean for age under 3 years and BCS below 7
+#eligible_young_dogs <- Diet_CombineData_Updated %>%
+##  filter(visit.age < 3, bcs %in% c(4,5,6)) %>%
+#  distinct()
+#length(unique(eligible_young_dogs$id))
+
+eligible_young_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age <= 3,                # Age under 3 years
+         bcs %in% c(4, 5, 6),          # BCS of 4, 5, or 6
+         process.category == "Ultra Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_young_dogs$id))
+
+eligible_mid_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age >3 & visit.age <= 6,                # between 4-6
+         bcs %in% c(4, 5, 6),          # BCS of 4, 5, or 6
+         process.category == "Ultra Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_mid_dogs$id))
+
+eligible_old_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age > 7,                # over 7
+         bcs %in% c(4, 5, 6),          # BCS of 4, 5, or 6
+         process.category == "Ultra Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_old_dogs$id))
+
+
+# Get unique IDs from each table
+old_ids <- distinct(eligible_old_dogs, id)
+mid_ids <- distinct(eligible_mid_dogs, id)
+young_ids <- distinct(eligible_young_dogs, id)
+
+# Find common ids across all three tables
+common_ids <- intersect(intersect(old_ids$id, mid_ids$id), young_ids$id)
+# Find common IDs across all three tables using reduce and intersect
+#common_ids <- Reduce(intersect, list(old_ids$id, mid_ids$id, young_ids$id))
+
+
+eligible_dogs <- bind_rows(
+  filter(eligible_old_dogs, id %in% common_ids),
+  filter(eligible_mid_dogs, id %in% common_ids),
+  filter(eligible_young_dogs, id %in% common_ids)
+)
+
+
+#eligible_dogs1_datatable = datatable(eligible_dogs, options = list(), class = "display")
+#eligible_dogs1_datatable
+length(unique(eligible_dogs$id))
+```
+
+
+
+```{r}
+# Filter Diet_Data_Clean for age and BCS conditions
+#eligible_young_dogs <- Diet_Data_Clean %>%
+#  filter(visit.age < 3, BCS_numeric < 7)
+#length(unique(eligible_young_dogs$id))
+
+# Filter Diet_Data_Clean for age under 3 years and BCS below 7
+#eligible_young_dogs <- Diet_CombineData_Updated %>%
+##  filter(visit.age < 3, bcs %in% c(4,5,6)) %>%
+#  distinct()
+#length(unique(eligible_young_dogs$id))
+
+eligible_young_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age <= 3,                # Age under 3 years
+         bcs %in% c(7, 8, 9),          # BCS of 4, 5, or 6
+         process.category == "Ultra Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_young_dogs$id))
+
+eligible_mid_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age >3 & visit.age <= 6,                # between 4-6
+         bcs %in% c(7, 8, 9),          # BCS of 4, 5, or 6
+         process.category == "Ultra Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_mid_dogs$id))
+
+eligible_old_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age > 7,                # over 7
+         bcs %in% c(7, 8, 9),          # BCS of 4, 5, or 6
+         process.category == "Ultra Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_old_dogs$id))
+
+
+# Get unique IDs from each table
+old_ids <- distinct(eligible_old_dogs, id)
+mid_ids <- distinct(eligible_mid_dogs, id)
+young_ids <- distinct(eligible_young_dogs, id)
+
+# Find common ids across all three tables
+common_ids <- intersect(intersect(old_ids$id, mid_ids$id), young_ids$id)
+# Find common IDs across all three tables using reduce and intersect
+#common_ids <- Reduce(intersect, list(old_ids$id, mid_ids$id, young_ids$id))
+
+
+eligible_dogs <- bind_rows(
+  filter(eligible_old_dogs, id %in% common_ids),
+  filter(eligible_mid_dogs, id %in% common_ids),
+  filter(eligible_young_dogs, id %in% common_ids)
+)
+
+
+eligible_dogs3_datatable = datatable(eligible_dogs, options = list(), class = "display")
+eligible_dogs3_datatable
+length(unique(eligible_dogs$id))
+```
+
+
+```{r}
+# Filter Diet_Data_Clean for age and BCS conditions
+#eligible_young_dogs <- Diet_Data_Clean %>%
+#  filter(visit.age < 3, BCS_numeric < 7)
+#length(unique(eligible_young_dogs$id))
+
+# Filter Diet_Data_Clean for age under 3 years and BCS below 7
+#eligible_young_dogs <- Diet_CombineData_Updated %>%
+##  filter(visit.age < 3, bcs %in% c(4,5,6)) %>%
+#  distinct()
+#length(unique(eligible_young_dogs$id))
+
+eligible_young_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age <= 3,                # Age under 3 years
+         bcs %in% c(4, 5, 6),          # BCS of 4, 5, or 6
+         process.category == "Ultra Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_young_dogs$id))
+
+eligible_mid_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age >3 & visit.age <= 6,                # between 4-6
+         bcs %in% c(7, 8, 9),          # BCS of 7 8 or 9
+         process.category == "Ultra Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_mid_dogs$id))
+
+eligible_old_dogs <- Diet_CombineData_Updated %>%
+  filter(visit.age > 7,                # over 7
+         bcs %in% c(7, 8, 9),          # BCS of 7 8 or 9
+         process.category == "Ultra Processed") %>%
+  distinct()  # Remove duplicates
+length(unique(eligible_old_dogs$id))
+
+
+# Get unique IDs from each table
+old_ids <- distinct(eligible_old_dogs, id)
+mid_ids <- distinct(eligible_mid_dogs, id)
+young_ids <- distinct(eligible_young_dogs, id)
+
+# Find common ids across all three tables
+common_ids <- intersect(intersect(old_ids$id, mid_ids$id), young_ids$id)
+# Find common IDs across all three tables using reduce and intersect
+#common_ids <- Reduce(intersect, list(old_ids$id, mid_ids$id, young_ids$id))
+
+
+eligible_dogs <- bind_rows(
+  filter(eligible_old_dogs, id %in% common_ids),
+  filter(eligible_mid_dogs, id %in% common_ids),
+  filter(eligible_young_dogs, id %in% common_ids)
+)
+
+
+eligible_dogs4_datatable = datatable(eligible_dogs, options = list(), class = "display")
+eligible_dogs4_datatable
+length(unique(eligible_dogs$id))
+```
+
+```{r}
+# Summarize the data to get counts of diagnoses by study_year
+cardio_summary <- Diet_CombineData_Updated %>%
+   filter(!is.na(any_cardio)) %>%
+  group_by(study_year, any_cardio) %>%
+  summarize(Frequency = n(), .groups = 'drop')
+
+# Ensure the 'any' column is a factor for better plotting
+cardio_summary$any_cardio <- factor(cardio_summary$any_cardio, levels = c(0, 1), labels = c("No Diagnosis", "Diagnosis"))
+
+
+cardio_summary_datatable = datatable(cardio_summary, options = list(), class = "display")
+cardio_summary_datatable
+
+# Create the bar plot
+cardio_plot <- ggplot(cardio_summary, aes(x = study_year, y = Frequency, fill = any_cardio)) +
+  geom_bar(stat = "identity", position = "dodge") + # 'dodge' position to place bars side by side
+  labs(title = "Frequency of Cardiovascular Diagnoses by Study Year",
+       x = "Study Year",
+       y = "Number of Dogs",
+       fill = "Cardio Diagnosis") +
+  scale_fill_brewer(palette = "Set1") + # Optional: Adds color
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "top") # Improve readability of x-axis labels
+
+# Display the plot
+print(cardio_plot)
+
+# Convert to an interactive Plotly plot
+interactive_fig4 <- ggplotly(cardio_plot)
+
+# Print the interactive plot
+interactive_fig4
+
+```
+
+
+```{r}
+save(interactive_fig1,interactive_fig2,interactive_fig3,interactive_fig4,interactive_fig5,interactive_fig6, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/figures4.RData")
+
+
+save(unique_count_datatable, BCS_datatable, processing_datatable,eligible_dogs1_datatable,eligible_dogs3_datatable,eligible_dogs4_datatable,minor_diagnosis_summary_datatable,major_diagnosis_summary_datatable
+,diagnosis_summary_datatable, file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/tables4.RData")
+
+
+```
+
+
+
+

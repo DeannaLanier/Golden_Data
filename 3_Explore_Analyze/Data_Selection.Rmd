@@ -1,0 +1,422 @@
+---
+title: "Sample Selection"
+output: html_notebook
+---
+
+To answer:
+
+*Comparing Young and old*
+How many dogs 0-2 have no diagnosis? and do not have a bcs above 7
+How many dogs 3-6 have no diagnosis? and do not have a bcs above 7
+How many dogs 7+ have no diagnosis? and do not have a bcs above 7
+
+*independent of diagnosis:*
+How many dogs were BCS 8-9 at have 0-3 that also have an entry at age 7+? Are there any diagnosis?
+Is there a suggicient number of dogs for a control group (ideally no diagnosis) of healthy-weight dogs (BCS 4-6)
+
+*Independent of diagnosis and BCS:*
+How many dogs were weating (mostly) minimally processed foods at ages 0-3?
+How many dogs were eating (mostly) processed foods at ages 0-3?
+How many of those same dogs eat that diet at ages 5 or 6+?
+
+*Hemangiosarcoma and lymphoma:*
+
+Neuter status and sex for both disease states
+
+
+## Load Packagse
+
+```{r}
+library(readxl) #for loading Excel files
+
+library(dplyr) #for data processing/cleaning
+
+library(tidyr) #for data processing/cleaning
+
+library(skimr) #for nice visualization of data 
+
+library(here) #to set paths
+
+library(DT) #nice datatables 
+
+```
+
+## Load data
+```{r}
+# Restore the object
+Diet_Data_Clean = readRDS(file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanDietData.rds")
+Death_Data_Clean = readRDS(file = "~/Dropbox (Edison_Lab@UGA)/Projects/vet/Deanna/Golden_Data/CleanDeathData.rds")
+```
+
+
+## Comparying Young v old
+
+*How many dogs 0-2 have no diagnosis? and do not have a bcs above 7*
+```{r}
+# Convert 'BCS' to numeric
+Diet_Data_Clean$BCS_numeric <- as.numeric(as.character(Diet_Data_Clean$bcs))
+```
+
+```{r}
+# Filter Diet_Data_Clean for age and BCS conditions
+#eligible_young_dogs <- Diet_Data_Clean %>%
+#  filter(visit.age < 3, BCS_numeric < 7)
+#length(unique(eligible_young_dogs$id))
+
+# Filter Diet_Data_Clean for age under 3 years and BCS below 7
+eligible_young_dogs <- Diet_Data_Clean %>%
+  filter(visit.age < 3, BCS_numeric < 7) %>%
+  select(id, study_year) %>%
+  distinct()
+length(unique(eligible_young_dogs$id))
+
+```
+
+```{r}
+# Create a vector of ids from Death_Data_Clean that match the study year
+#diagnosed_ids <- Death_Data_Clean %>%
+#  select(id, study_year) %>%
+#  distinct() %>%
+#  pull(id)  # This creates a vector of unique ids
+
+# Create a data frame of ids and study_years from Death_Data_Clean
+diagnosed_data <- Death_Data_Clean %>%
+  select(id, study_year) %>%
+  distinct()
+
+```
+
+```{r}
+# Remove dogs that have been diagnosed from the eligible dogs
+#final_young_dogs <- eligible_young_dogs %>%
+#  filter(!(id %in% diagnosed_ids))
+
+# Identify dogs from eligible_young_dogs that have not been diagnosed in the same study year
+final_young_dogs <- eligible_young_dogs %>%
+  anti_join(diagnosed_data, by = c("id", "study_year"))
+
+```
+
+```{r}
+length(unique(final_young_dogs$id))
+```
+
+Check diagnosis data to be sure
+```{r}
+death_datatable = datatable(Death_Data_Clean, options = list(), class = "display")
+#death_datatable
+```
+
+
+*How many dogs 3-6 have no diagnosis? and do not have a bcs above 7*
+
+
+
+```{r}
+# Filter Diet_Data_Clean for age and BCS conditions
+#eligible_middle_dogs <- Diet_Data_Clean %>%
+#  filter(visit.age >= 3, visit.age <7, BCS_numeric < 7)
+#length(unique(eligible_middle_dogs$id))
+
+# Filter Diet_Data_Clean for age under 3 years and BCS below 7
+eligible_middle_dogs <- Diet_Data_Clean %>%
+  filter(visit.age >= 3, visit.age <7, BCS_numeric < 7) %>%
+  select(id, study_year) %>%
+  distinct()
+length(unique(eligible_middle_dogs$id))
+
+```
+
+```{r}
+# Create a vector of ids from Death_Data_Clean that match the study year
+#diagnosed_ids <- Death_Data_Clean %>%
+#  select(id, study_year) %>%
+ # distinct() %>%
+#  pull(id)  # This creates a vector of unique ids
+
+# Create a data frame of ids and study_years from Death_Data_Clean
+diagnosed_data <- Death_Data_Clean %>%
+  select(id, study_year) %>%
+  distinct()
+```
+
+```{r}
+# Remove dogs that have been diagnosed from the eligible dogs
+#final_middle_dogs <- eligible_middle_dogs %>%
+#  filter(!(id %in% diagnosed_ids))
+
+# Identify dogs from eligible_young_dogs that have not been diagnosed in the same study year
+final_middle_dogs <- eligible_middle_dogs %>%
+  anti_join(diagnosed_data, by = c("id", "study_year"))
+
+```
+
+```{r}
+length(unique(final_middle_dogs$id))
+```
+
+Check diagnosis data to be sure
+```{r}
+death_datatable = datatable(Death_Data_Clean, options = list(), class = "display")
+#death_datatable
+```
+
+
+*How many dogs 7+ have no diagnosis? and do not have a bcs above 7*
+
+```{r}
+# Filter Diet_Data_Clean for age and BCS conditions
+#eligible_old_dogs <- Diet_Data_Clean %>%
+#  filter(visit.age >7, BCS_numeric < 7)
+#length(unique(eligible_old_dogs$id))
+
+# Filter Diet_Data_Clean for age under 3 years and BCS below 7
+eligible_old_dogs <- Diet_Data_Clean %>%
+  filter(visit.age >7, BCS_numeric < 7) %>%
+  select(id, study_year) %>%
+  distinct()
+length(unique(eligible_old_dogs$id))
+
+
+```
+
+```{r}
+# Create a vector of ids from Death_Data_Clean that match the study year
+diagnosed_ids <- Death_Data_Clean %>%
+  select(id, study_year) %>%
+  distinct() %>%
+  pull(id)  # This creates a vector of unique ids
+
+# Create a data frame of ids and study_years from Death_Data_Clean
+#diagnosed_data <- Death_Data_Clean %>%
+#  select(id, study_year) %>%
+#  distinct()
+```
+
+```{r}
+# Remove dogs that have been diagnosed from the eligible dogs
+final_old_dogs <- eligible_old_dogs %>%
+  filter(!(id %in% diagnosed_ids))
+
+# Identify dogs from eligible_young_dogs that have not been diagnosed in the same study year
+#final_old_dogs <- eligible_old_dogs %>%
+#  anti_join(diagnosed_data, by = c("id", "study_year"))
+
+
+# Count the number of unique dogs in the final_old_dogs data frame
+final_count <- length(unique(final_old_dogs$id))
+
+# Print the final count
+print(final_count)
+
+```
+
+```{r}
+length(unique(final_old_dogs$id))
+```
+
+Check diagnosis data to be sure
+```{r}
+death_datatable = datatable(Death_Data_Clean, options = list(), class = "display")
+death_datatable
+```
+
+
+*How many dogs have datapoints in all 3 tables 
+```{r}
+# Extract unique IDs from each dataset
+young_ids <- distinct(final_young_dogs, id) %>% pull(id)
+middle_ids <- distinct(final_middle_dogs, id) %>% pull(id)
+old_ids <- distinct(final_old_dogs, id) %>% pull(id)
+
+# Find common IDs in all three datasets
+common_ids <- Reduce(intersect, list(young_ids, middle_ids, old_ids))
+
+# Count the number of unique dogs present in all three tables
+common_count <- length(common_ids)
+
+# Print the number of dogs
+print(common_count)
+```
+
+
+## independent of diagnosis:
+
+*How many dogs were BCS 8-9 at age 0-3 that also have an entry at age 7+? Are there any diagnosis?*
+
+```{r}
+#Filter dogs with BCS 8-9 at ages 0-3
+young_bcs_dogs <- Diet_Data_Clean %>%
+  filter(visit.age >= 0 & visit.age <= 3, bcs %in% c(8, 9)) %>%
+  distinct(id)  # Assuming BCS is numeric
+
+# Find those dogs with records at age 7+
+older_dogs <- Diet_Data_Clean %>%
+  filter(visit.age >= 7, id %in% young_bcs_dogs$id) %>%
+  distinct(id)
+
+#diagnosed_data <- Death_Data_Clean %>%
+#  select(id, study_year) %>%
+#  distinct()
+
+# Create a vector of ids from Death_Data_Clean that match the study year
+diagnosed_ids <- Death_Data_Clean %>%
+  select(id, study_year) %>%
+  distinct() %>%
+  pull(id)  # This creates a vector of unique ids
+
+# Remove dogs that have been diagnosed from the eligible dogs
+diagnosed_dogs <- older_dogs %>%
+  filter((id %in% diagnosed_ids))
+
+
+#anti_join(diagnosed_data, by = c("id", "study_year"))
+
+
+# Count the number of diagnosed dogs from the older_dogs group
+diagnosed_count <- nrow(diagnosed_dogs)
+
+# Print the count of diagnosed dogs
+print(diagnosed_count)
+```
+
+Is there a suggicient number of dogs for a control group (ideally no diagnosis) of healthy-weight dogs (BCS 4-6)
+
+```{r}
+#Filter dogs with BCS 8-9 at ages 0-3
+young_control_bcs_dogs <- Diet_Data_Clean %>%
+  filter(visit.age >= 0 & visit.age <= 3, bcs %in% c(4,5,6)) %>%
+  distinct(id)  # Assuming BCS is numeric
+
+# Find those dogs with records at age 7+
+olde_controlr_dogs <- Diet_Data_Clean %>%
+  filter(visit.age >= 7, id %in% young_control_bcs_dogs$id) %>%
+  distinct(id)
+
+#diagnosed_data <- Death_Data_Clean %>%
+#  select(id, study_year) %>%
+#  distinct()
+
+# Create a vector of ids from Death_Data_Clean that match the study year
+diagnosed_ids <- Death_Data_Clean %>%
+  select(id, study_year) %>%
+  distinct() %>%
+  pull(id)  # This creates a vector of unique ids
+
+# Remove dogs that have been diagnosed from the eligible dogs
+diagnosed_dogs <- olde_controlr_dogs %>%
+  filter(!(id %in% diagnosed_ids))
+
+
+#anti_join(diagnosed_data, by = c("id", "study_year"))
+
+
+# Count the number of diagnosed dogs from the older_dogs group
+diagnosed_count <- nrow(diagnosed_dogs)
+
+# Print the count of diagnosed dogs
+print(diagnosed_count)
+```
+
+
+##Independent of BCS/Diagnoses:
+
+How many dogs were eating (mostly) minimally processed foods ages 0-3? Add processed if we have to if there are not enough MP. Just let me know how many were MP v P.
+
+```{r}
+# Filter the Diet_Clean_Data for dogs aged 0-3 and having a mostly minimally processed diet
+minimally_processed_dogs <- Diet_Data_Clean %>%
+  filter(visit.age >= 0 & visit.age <= 3, process.category == "Minimally Processed") %>%
+  distinct(id)  # Assuming each dog's id is unique per entry
+
+# Count the number of unique dogs that fit this criteria
+count_minimally_processed_dogs <- nrow(minimally_processed_dogs)
+
+# Print the number of dogs
+print(count_minimally_processed_dogs)
+```
+
+
+How many of those same dogs were still eating (mostly) minimally processed Age 5 or 6+?
+
+```{r}
+# Filter the Diet_Clean_Data for dogs aged 0-3 and having a mostly minimally processed diet
+minimally_processed_older_dogs <- Diet_Data_Clean %>%
+  filter(visit.age >= 5 & visit.age <= 6, process.category == "Minimally Processed") %>%
+  distinct(id)  # Assuming each dog's id is unique per entry
+
+# Count the number of unique dogs that fit this criteria
+count_minimally_processed_older_dogs <- nrow(minimally_processed_older_dogs)
+
+# Print the number of dogs
+print(count_minimally_processed_older_dogs)
+```
+
+How many dogs were eating (mostly) processed foods ages 0-3? Add processed if we have to if there are not enough MP. Just let me know how many were MP v P.
+
+```{r}
+# Filter the Diet_Clean_Data for dogs aged 0-3 and having a mostly minimally processed diet
+processed_dogs <- Diet_Data_Clean %>%
+  filter(visit.age >= 0 & visit.age <= 3, process.category == "Processed") %>%
+  distinct(id)  # Assuming each dog's id is unique per entry
+
+# Count the number of unique dogs that fit this criteria
+count_processed_dogs <- nrow(processed_dogs)
+
+# Print the number of dogs
+print(count_processed_dogs)
+```
+
+
+How many of those same dogs were still eating (mostly)  processed Age 5 or 6+?
+
+```{r}
+# Filter the Diet_Clean_Data for dogs aged 0-3 and having a mostly minimally processed diet
+processed_older_dogs <- Diet_Data_Clean %>%
+  filter(visit.age >= 5 & visit.age <= 6, process.category == "Processed") %>%
+  distinct(id)  # Assuming each dog's id is unique per entry
+
+# Count the number of unique dogs that fit this criteria
+count_processed_older_dogs <- nrow(processed_older_dogs)
+
+# Print the number of dogs
+print(count_processed_older_dogs)
+```
+
+```{r}
+#Identify dogs that ate minimally processed diets at both age ranges
+dogs_both_age_ranges <- intersect(processed_older_dogs$id, processed_dogs$id)
+
+# Count the number of unique dogs that meet both criteria
+count_dogs_both_age_ranges <- length(dogs_both_age_ranges)
+count_dogs_both_age_ranges
+```
+
+## hemangiosarcoma and lymphoma
+
+neuter status
+```{r}
+# Extract IDs and study years for dogs diagnosed with hemangiosarcoma or lymphoma
+diagnosed_dogs <- Death_Data_Clean %>%
+  filter(condition %in% c("hemangiosarcoma", "lymphoma")) %>%
+  select(id, study_year) %>%
+  distinct()
+
+# Join with Diet_Data_Clean to get neuter status and sex
+dog_details <- diagnosed_dogs %>%
+  left_join(Diet_Data_Clean, by = c("id", "study_year")) %>%
+  select(id, study_year, intact.y.n, sex)
+
+# Count neutered/spayed vs. not
+neuter_status_counts <- dog_details %>%
+  filter(!is.na(intact.y.n)) %>%  # Ensuring that data exists for neuter status
+  count(intact.y.n)
+
+neuter_status_counts
+```
+
+sex
+```{r}
+
+```
+
